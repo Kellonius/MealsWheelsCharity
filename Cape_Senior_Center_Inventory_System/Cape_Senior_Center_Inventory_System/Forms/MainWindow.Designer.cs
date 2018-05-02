@@ -76,6 +76,12 @@
             this.masterListItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.masterListBrandNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.masterListSKUNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.currentItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentBrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentSKUColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,12 +90,6 @@
             this.inventoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
             this.historyTab.SuspendLayout();
             this.pricingTab.SuspendLayout();
@@ -197,7 +197,7 @@
             this.recipesTab.Controls.Add(this.comboBox1);
             this.recipesTab.Location = new System.Drawing.Point(4, 22);
             this.recipesTab.Name = "recipesTab";
-            this.recipesTab.Size = new System.Drawing.Size(707, 652);
+            this.recipesTab.Size = new System.Drawing.Size(726, 634);
             this.recipesTab.TabIndex = 2;
             this.recipesTab.Text = "Recipes";
             this.recipesTab.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(707, 40);
+            this.panel3.Size = new System.Drawing.Size(726, 40);
             this.panel3.TabIndex = 9;
             // 
             // label6
@@ -251,7 +251,7 @@
             this.masterListTab.Location = new System.Drawing.Point(4, 22);
             this.masterListTab.Name = "masterListTab";
             this.masterListTab.Padding = new System.Windows.Forms.Padding(3);
-            this.masterListTab.Size = new System.Drawing.Size(707, 652);
+            this.masterListTab.Size = new System.Drawing.Size(726, 634);
             this.masterListTab.TabIndex = 1;
             this.masterListTab.Text = "Master List";
             this.masterListTab.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(701, 40);
+            this.panel2.Size = new System.Drawing.Size(720, 40);
             this.panel2.TabIndex = 8;
             // 
             // label3
@@ -294,7 +294,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(701, 606);
+            this.dataGridView1.Size = new System.Drawing.Size(720, 588);
             this.dataGridView1.TabIndex = 6;
             // 
             // currentTab
@@ -652,6 +652,38 @@
             this.masterListSKUNumberColumn.HeaderText = "SKU";
             this.masterListSKUNumberColumn.Name = "masterListSKUNumberColumn";
             // 
+            // bsCurrentInventory
+            // 
+            this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // inventoryNameDataGridViewTextBoxColumn1
+            // 
+            this.inventoryNameDataGridViewTextBoxColumn1.DataPropertyName = "inventoryName";
+            this.inventoryNameDataGridViewTextBoxColumn1.HeaderText = "inventoryName";
+            this.inventoryNameDataGridViewTextBoxColumn1.Name = "inventoryNameDataGridViewTextBoxColumn1";
+            // 
+            // inventoryIdDataGridViewTextBoxColumn1
+            // 
+            this.inventoryIdDataGridViewTextBoxColumn1.DataPropertyName = "inventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn1.HeaderText = "inventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn1.Name = "inventoryIdDataGridViewTextBoxColumn1";
+            // 
+            // quantityDataGridViewTextBoxColumn1
+            // 
+            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn1.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
+            // 
+            // bsMasterInventory
+            // 
+            this.bsMasterInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
+            // 
             // currentItemNameColumn
             // 
             this.currentItemNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -667,6 +699,7 @@
             this.currentBrandColumn.FillWeight = 25F;
             this.currentBrandColumn.HeaderText = "Brand";
             this.currentBrandColumn.Name = "currentBrandColumn";
+            this.currentBrandColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // currentSKUColumn
             // 
@@ -707,38 +740,6 @@
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
-            // bsCurrentInventory
-            // 
-            this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // inventoryNameDataGridViewTextBoxColumn1
-            // 
-            this.inventoryNameDataGridViewTextBoxColumn1.DataPropertyName = "inventoryName";
-            this.inventoryNameDataGridViewTextBoxColumn1.HeaderText = "inventoryName";
-            this.inventoryNameDataGridViewTextBoxColumn1.Name = "inventoryNameDataGridViewTextBoxColumn1";
-            // 
-            // inventoryIdDataGridViewTextBoxColumn1
-            // 
-            this.inventoryIdDataGridViewTextBoxColumn1.DataPropertyName = "inventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn1.HeaderText = "inventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn1.Name = "inventoryIdDataGridViewTextBoxColumn1";
-            // 
-            // quantityDataGridViewTextBoxColumn1
-            // 
-            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
-            // 
-            // bsMasterInventory
-            // 
-            this.bsMasterInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
             // 
             // MainWindow
             // 
@@ -837,22 +838,22 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox invNotifications;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currentItemNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currentBrandColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currentSKUColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currentOnHandInvColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn masterListItemNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn masterListBrandNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn masterListSKUNumberColumn;
         private System.Windows.Forms.BindingSource bsMasterInventory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentItemNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentBrandColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentSKUColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentOnHandInvColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
     }
 }
 
