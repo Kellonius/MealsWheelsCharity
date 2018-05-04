@@ -14,7 +14,12 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
         {
         }
 
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<ItemCategory> ItemCategories { get; set; }
+        public virtual DbSet<Price> Prices { get; set; }
+        public virtual DbSet<UnitOfMeasure> UnitOfMeasures{ get; set; }
     }
 
 }

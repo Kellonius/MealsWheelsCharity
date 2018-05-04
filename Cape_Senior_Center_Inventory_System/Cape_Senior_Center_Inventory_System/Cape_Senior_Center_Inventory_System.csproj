@@ -80,7 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\DataContext.cs" />
+    <Compile Include="DataContext\Models\Inventory.cs" />
     <Compile Include="DataContext\Models\Item.cs" />
+    <Compile Include="DataContext\Models\Category.cs" />
+    <Compile Include="DataContext\Models\ItemCategory.cs" />
+    <Compile Include="DataContext\Models\Price.cs" />
+    <Compile Include="DataContext\Models\UnitOfMeasure.cs" />
     <Compile Include="DTOs\InventoryModel.cs" />
     <Compile Include="DTOs\RecipeModel.cs" />
     <Compile Include="Forms\MainWindow.cs">
@@ -93,12 +98,19 @@
     <Compile Include="Implementations\RecipeService.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IRecipeService.cs" />
+    <Compile Include="Migrations\201805041854031_InitDatabaseSchema.cs" />
+    <Compile Include="Migrations\201805041854031_InitDatabaseSchema.Designer.cs">
+      <DependentUpon>201805041854031_InitDatabaseSchema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindsorConfiguration.cs" />
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041854031_InitDatabaseSchema.resx">
+      <DependentUpon>201805041854031_InitDatabaseSchema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
