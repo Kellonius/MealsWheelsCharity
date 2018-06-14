@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cape_Senior_Center_Inventory_System.Interfaces
 {
-    public interface IRecipeService
+    public interface IInventoryService
     {
-        List<InventoryModel> getModels();
     }
 }

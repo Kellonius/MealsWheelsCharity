@@ -10,14 +10,14 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
 {
     public class Controller : IController
     {
-        IRecipeService recipeService;
+        IInventoryService inventoryService;
         public List<InventoryModel> InventoryModels { get; set; }
-        public Controller(IRecipeService recipeService)
+        public Controller(IInventoryService inventoryService)
         {
-            this.recipeService = recipeService;
-            this.InventoryModels = new List<InventoryModel> { new InventoryModel() { Id = 1, inventoryId = "Bread", inventoryName = "Bunny", quantity = "042543262" },
-                                                            new InventoryModel() { Id = 2, inventoryId = "Chicken Breast", inventoryName = "Tyson", quantity = "9836563658"},
-                                                            new InventoryModel() { Id = 3, inventoryId = "Green Beans", inventoryName = "Green Giant", quantity = "087432762"}};
+            this.inventoryService = inventoryService;
+            //this.InventoryModels = new List<InventoryModel> { new InventoryModel() { Id = 1, inventoryId = "Bread", inventoryName = "Bunny", quantity = "042543262" },
+            //                                                new InventoryModel() { Id = 2, inventoryId = "Chicken Breast", inventoryName = "Tyson", quantity = "9836563658"},
+            //                                                new InventoryModel() { Id = 3, inventoryId = "Green Beans", inventoryName = "Green Giant", quantity = "087432762"}};
 
         }
     }

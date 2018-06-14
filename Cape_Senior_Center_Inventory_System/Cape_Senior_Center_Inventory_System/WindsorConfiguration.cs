@@ -11,7 +11,17 @@ namespace Cape_Senior_Center_Inventory_System
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Castle.MicroKernel.Registration.Component.For<IController>().ImplementedBy<Controller>());
-            container.Register(Castle.MicroKernel.Registration.Component.For<IRecipeService>().ImplementedBy<RecipeService>());
+            container.Register(Castle.MicroKernel.Registration.Component.For<IInventoryService>().ImplementedBy<InventoryService>());
+
+            container.Register(Castle.MicroKernel.Registration.Component.For<IUnitOfWork>()
+                        .ImplementedBy<UnitOfWork>()
+                        .DependsOn(Dependency.OnValue("DbContext", new DataContext.DataContext())));
+
+            container.Register(Castle.MicroKernel.Registration.Component.For<ICategoryRepository>()
+                .ImplementedBy<CategoryRepository>());
+
+            container.Register(Castle.MicroKernel.Registration.Component.For<IInventoryRepository>()
+                    .ImplementedBy<InventoryRepository>());
         }
     }
 }

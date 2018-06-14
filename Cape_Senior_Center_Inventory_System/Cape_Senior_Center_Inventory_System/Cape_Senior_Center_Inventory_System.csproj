@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Cape_Senior_Center_Inventory_System.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
@@ -86,6 +89,7 @@
     <Compile Include="DataContext\Models\ItemCategory.cs" />
     <Compile Include="DataContext\Models\Price.cs" />
     <Compile Include="DataContext\Models\UnitOfMeasure.cs" />
+    <Compile Include="DTOs\CategoryModel.cs" />
     <Compile Include="DTOs\InventoryModel.cs" />
     <Compile Include="DTOs\RecipeModel.cs" />
     <Compile Include="Forms\MainWindow.cs">
@@ -94,10 +98,23 @@
     <Compile Include="Forms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Implementations\CategoryRepository.cs" />
     <Compile Include="Implementations\Controller.cs" />
-    <Compile Include="Implementations\RecipeService.cs" />
+    <Compile Include="Implementations\InventoryRepository.cs" />
+    <Compile Include="Implementations\InventoryService.cs" />
+    <Compile Include="Implementations\ItemCategoryRepository.cs" />
+    <Compile Include="Implementations\ItemRepository.cs" />
+    <Compile Include="Implementations\UnitOfMeasureRepository.cs" />
+    <Compile Include="Implementations\UnitOfWork.cs" />
+    <Compile Include="Interfaces\ICategoryRepository.cs" />
     <Compile Include="Interfaces\IController.cs" />
-    <Compile Include="Interfaces\IRecipeService.cs" />
+    <Compile Include="Interfaces\IInventoryRepository.cs" />
+    <Compile Include="Interfaces\IInventoryService.cs" />
+    <Compile Include="Interfaces\IItemCategoryRepository.cs" />
+    <Compile Include="Interfaces\IItemRepository.cs" />
+    <Compile Include="Interfaces\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\IUnitOfMeasureRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Migrations\201805041854031_InitDatabaseSchema.cs" />
     <Compile Include="Migrations\201805041854031_InitDatabaseSchema.Designer.cs">
       <DependentUpon>201805041854031_InitDatabaseSchema.cs</DependentUpon>
