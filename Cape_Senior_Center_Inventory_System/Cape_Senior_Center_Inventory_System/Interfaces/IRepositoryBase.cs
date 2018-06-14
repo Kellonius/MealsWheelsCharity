@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Cape_Senior_Center_Inventory_System.Interfaces
 {
     public interface IRepositoryBase<T>
     {
         IList<T> GetAll();
-        T GetById();
+        T GetById(int id);
+        T Add(T entity);
+        void Delete(T entity);
+        T Update(T entity);
     }
 }

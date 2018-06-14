@@ -2,10 +2,7 @@
 using Cape_Senior_Center_Inventory_System.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cape_Senior_Center_Inventory_System.Implementations
 {
@@ -17,13 +14,41 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
             this.unitOfWork = unitOfWork;
         }
 
-        public IList<Category> GetAll()
+        public Category Add(Category entity)
         {
+            //var result = this.unitOfWork.DataContext.Categories.Add(entity);
+            //this.unitOfWork.DataContext.SaveChanges();
+            //return result;
             throw new NotImplementedException();
         }
 
-        public Category GetById()
+        public void Delete(Category entity)
         {
+            //this.unitOfWork.DataContext.Categories.Remove(entity);
+            //this.unitOfWork.DataContext.SaveChanges();
+            throw new NotImplementedException();
+        }
+
+        public IList<Category> GetAll()
+        {
+            return this.unitOfWork.DataContext.Categories.ToList();
+        }
+
+        public Category GetById(int id)
+        {
+            return unitOfWork.DataContext.Categories.FirstOrDefault(x => x.Id.Equals(id));
+        }
+
+        public Category Update(Category entity)
+        {
+            //var result = unitOfWork.DataContext.Categories.FirstOrDefault(x => x.Id.Equals(entity.Id));
+            //if (result == null)
+            //{
+            //    return null;
+            //}
+            //this.unitOfWork.DataContext.Entry(result).CurrentValues.SetValues(entity);
+            //this.unitOfWork.DataContext.SaveChanges();
+            //return result;
             throw new NotImplementedException();
         }
     }

@@ -10,6 +10,6 @@ namespace Cape_Senior_Center_Inventory_System.Interfaces
 {
     public interface IUnitOfWork
     {
-        DbContext DBContext { get; set; }
+        DataContext.DataContext DataContext { get; set; }
     }
 }

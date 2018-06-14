@@ -15,7 +15,7 @@ namespace Cape_Senior_Center_Inventory_System
 
             container.Register(Castle.MicroKernel.Registration.Component.For<IUnitOfWork>()
                         .ImplementedBy<UnitOfWork>()
-                        .DependsOn(Dependency.OnValue("DbContext", new DataContext.DataContext())));
+                        .DependsOn(Dependency.OnValue("DataContext", new DataContext.DataContext())));
 
             container.Register(Castle.MicroKernel.Registration.Component.For<ICategoryRepository>()
                 .ImplementedBy<CategoryRepository>());

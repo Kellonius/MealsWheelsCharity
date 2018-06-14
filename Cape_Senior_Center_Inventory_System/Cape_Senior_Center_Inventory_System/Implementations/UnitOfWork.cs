@@ -7,11 +7,11 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public DbContext DBContext { get; set; }
+        public DataContext.DataContext DataContext { get; set; }
 
-        public UnitOfWork(DbContext dbContext)
+        public UnitOfWork(DataContext.DataContext dataContext)
         {
-            DBContext = dbContext;
+            this.DataContext = dataContext;
         }
     }
 }

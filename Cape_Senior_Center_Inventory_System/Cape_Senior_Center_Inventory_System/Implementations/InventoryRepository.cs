@@ -2,10 +2,6 @@
 using Cape_Senior_Center_Inventory_System.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cape_Senior_Center_Inventory_System.Implementations
 {
@@ -16,12 +12,28 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
         {
             this.unitOfWork = unitOfWork;
         }
+
+        public Inventory Add(Inventory entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Inventory entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<Inventory> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Inventory GetById()
+        public Inventory GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Inventory Update(Inventory entity)
         {
             throw new NotImplementedException();
         }
