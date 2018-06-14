@@ -9,6 +9,6 @@ namespace Cape_Senior_Center_Inventory_System.DataContext.Models
         public int Weight { get; set; }
 
         public DateTime Created_TS { get; set; }
-        public DateTime Updated_TS { get; set; }
+        public DateTime? Updated_TS { get; set; }
     }
 }

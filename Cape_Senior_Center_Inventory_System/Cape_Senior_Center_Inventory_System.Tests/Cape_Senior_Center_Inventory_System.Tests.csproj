@@ -7,7 +7,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6BF8CCDB-4DD3-4E3E-A6AC-1336DB82CDE8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Cape_Senior_Center_Inventory_System.Tests</RootNamespace>
     <AssemblyName>Cape_Senior_Center_Inventory_System.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,6 +73,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Compare-NET-Objects-Help.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CategoryRepositoryTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cape_Senior_Center_Inventory_System\Cape_Senior_Center_Inventory_System.csproj">
+      <Project>{C1031C02-827E-4E4F-A991-61454F221D3D}</Project>
+      <Name>Cape_Senior_Center_Inventory_System</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

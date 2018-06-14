@@ -1,4 +1,5 @@
-﻿using Cape_Senior_Center_Inventory_System.Interfaces;
+﻿using Cape_Senior_Center_Inventory_System.DataContext.Models;
+using Cape_Senior_Center_Inventory_System.Interfaces;
 using System;
 using System.Data.Entity;
 

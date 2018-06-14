@@ -15,7 +15,7 @@ namespace Cape_Senior_Center_Inventory_System.Migrations
                         CategoryName = c.String(),
                         Weight = c.Int(nullable: false),
                         Created_TS = c.DateTime(nullable: false),
-                        Updated_TS = c.DateTime(nullable: false),
+                        Updated_TS = c.DateTime(nullable: true),
                     })
                 .PrimaryKey(t => t.Id);
             

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cape_Senior_Center_Inventory_System.DataContext.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
