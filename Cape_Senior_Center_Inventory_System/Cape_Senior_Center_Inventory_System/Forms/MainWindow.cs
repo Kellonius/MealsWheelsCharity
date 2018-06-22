@@ -22,9 +22,7 @@ namespace Cape_Senior_Center_Inventory_System
 
             invNotifications.SelectionStart = invNotifications.TextLength;
             invNotifications.SelectionLength = 0;
-            setColors("Green Beans", 3);
-            setColors("Bread", 10);
-            setColors("Chicken Breast", 0);
+            //call setColors() once you have data from db
         }
 
         public void setColors(string item, int amount)
@@ -52,12 +50,8 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == 0)
-            {
-                MessageBox.Show("Recipe for Bacon and Eggs\nIngredients:\nEggs: 1\nBacon: 1\n\nScramble Eggs medium heat for 4 minutes.\nBake Bacon at 375 for 17 minutes.");
-            } else if (listBox1.SelectedIndex == 1){
-                MessageBox.Show("Recipe for Avocado Toast\nIngredients:\nBread: 2\nAvocado: 1\n\nToast Bread.\nSlice Avocado and place on toast.");
-            }
         }
+
+
     }
 }
