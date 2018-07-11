@@ -72,9 +72,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Compare-NET-Objects-Help.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="CategoryRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,17 +16,15 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
 
         public Category Add(Category entity)
         {
-            //var result = this.unitOfWork.DataContext.Categories.Add(entity);
-            //this.unitOfWork.DataContext.SaveChanges();
-            //return result;
-            throw new NotImplementedException();
+            var result = this.unitOfWork.DataContext.Categories.Add(entity);
+            this.unitOfWork.DataContext.SaveChanges();
+            return result;
         }
 
         public void Delete(Category entity)
         {
-            //this.unitOfWork.DataContext.Categories.Remove(entity);
-            //this.unitOfWork.DataContext.SaveChanges();
-            throw new NotImplementedException();
+            this.unitOfWork.DataContext.Categories.Remove(entity);
+            this.unitOfWork.DataContext.SaveChanges();
         }
 
         public IList<Category> GetAll()
@@ -41,15 +39,14 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
 
         public Category Update(Category entity)
         {
-            //var result = unitOfWork.DataContext.Categories.FirstOrDefault(x => x.Id.Equals(entity.Id));
-            //if (result == null)
-            //{
-            //    return null;
-            //}
-            //this.unitOfWork.DataContext.Entry(result).CurrentValues.SetValues(entity);
-            //this.unitOfWork.DataContext.SaveChanges();
-            //return result;
-            throw new NotImplementedException();
+            var result = unitOfWork.DataContext.Categories.FirstOrDefault(x => x.Id.Equals(entity.Id));
+            if (result == null)
+            {
+                return null;
+            }
+            this.unitOfWork.DataContext.Entry(result).CurrentValues.SetValues(entity);
+            this.unitOfWork.DataContext.SaveChanges();
+            return result;
         }
     }
 }
