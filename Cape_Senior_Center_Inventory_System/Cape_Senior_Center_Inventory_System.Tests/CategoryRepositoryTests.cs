@@ -40,7 +40,7 @@ namespace Cape_Senior_Center_Inventory_System.Tests
             mockedContext.Setup(m => m.Categories).Returns(mockedCategorySet.Object);
             mockedContext.Setup(m => m.SaveChanges());
 
-            mockedCategorySet.Setup(m => m.Add(It.IsAny<Category>())).Returns<Category>(x =>
+            mockedContext.Setup(m => m.Categories.Add(It.IsAny<Category>())).Returns<Category>(x =>
              {
                  mockedCategoryData.Add(x);
                  return x;
@@ -52,6 +52,7 @@ namespace Cape_Senior_Center_Inventory_System.Tests
                 //mockedCategoryData.Remove(mockedCategoryData.First(y => y.Id.Equals(x.Id)));
                 mockedCategoryData.Remove(x);
             });
+
             unitOfWork = new UnitOfWork(mockedContext.Object);
         }
 
