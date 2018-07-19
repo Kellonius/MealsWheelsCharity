@@ -63,9 +63,7 @@ namespace Cape_Senior_Center_Inventory_System.Tests
             CompareLogic compareLogic = new CompareLogic();
             var categoryRepository = new CategoryRepository(unitOfWork);
 
-            List<Category> expected = new List<Category>();
-
-            expected = new List<Category>() {
+            List<Category> expected = new List<Category>() {
                 new Category(){ Id = 1, CategoryName = "Category1", Weight = 10, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null },
                 new Category(){ Id = 2, CategoryName = "Category2", Weight = 20, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null },
                 new Category(){ Id = 3, CategoryName = "Category3", Weight = 30, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null },

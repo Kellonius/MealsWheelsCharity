@@ -29,7 +29,7 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
 
         public IList<Category> GetAll()
         {
-            return this.unitOfWork.DataContext.Categories.ToList();
+            return unitOfWork.DataContext.Categories.ToList();
         }
 
         public Category GetById(int id)
