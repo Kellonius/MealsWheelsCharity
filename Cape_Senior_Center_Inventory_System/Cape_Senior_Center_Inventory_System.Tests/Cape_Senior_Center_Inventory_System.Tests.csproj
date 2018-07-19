@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -72,7 +73,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemRepositoryTests.cs" />
+    <Compile Include="InventoryRepositoryTests.cs" />
     <Compile Include="CategoryRepositoryTests.cs" />
+    <Compile Include="Demo Stuff\UserLinkedOrgBuilder.cs" />
+    <Compile Include="Demo Stuff\UserLinkedOrgFactory.cs" />
+    <Compile Include="Demo Stuff\User_Linked_Org.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cape_Senior_Center_Inventory_System\Cape_Senior_Center_Inventory_System.csproj">
