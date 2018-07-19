@@ -49,8 +49,8 @@ namespace Cape_Senior_Center_Inventory_System.Tests
 
             mockedContext.Setup(m => m.Inventories.Remove(It.IsAny<Inventory>())).Callback<Inventory>(x =>
             {
-                //mockedCategoryData.Remove(mockedCategoryData.First(y => y.Id.Equals(x.Id)));
-                mockedInventoryData.Remove(x);
+                mockedInventoryData.Remove(mockedInventoryData.First(y => y.Id.Equals(x.Id)));
+                //mockedInventoryData.Remove(x);
             });
 
             unitOfWork = new UnitOfWork(mockedContext.Object);
@@ -59,109 +59,31 @@ namespace Cape_Senior_Center_Inventory_System.Tests
         [Test]
         public void testGetAll_ShouldGetAll_WhenInvoked()
         {
-            //ARRANGE
-            CompareLogic compareLogic = new CompareLogic();
-            var categoryRepository = new CategoryRepository(unitOfWork);
 
-            List<Category> expected = new List<Category>();
-
-            expected = new List<Category>() {
-                new Category(){ Id = 1, CategoryName = "Category1", Weight = 10, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null },
-                new Category(){ Id = 2, CategoryName = "Category2", Weight = 20, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null },
-                new Category(){ Id = 3, CategoryName = "Category3", Weight = 30, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null },
-                new Category(){ Id = 4, CategoryName = "Category4", Weight = 40, Created_TS = new DateTime(2018, 6, 14, 8, 0,0) , Updated_TS = null }
-                };
-
-            //ACT
-            var actual = categoryRepository.GetAll();
-            //ASSERT
-            ComparisonResult result = compareLogic.Compare(expected, actual);
-            if (!result.AreEqual)
-                Console.WriteLine(result.DifferencesString);
-            Assert.True(result.AreEqual);
         }
 
         [Test]
-        public void testGetById_ShouldCategoryById_WhenInvokedWithId()
+        public void testGetById_ShouldInventoryById_WhenInvokedWithId()
         {
-            //ARRANGE
-            CompareLogic compareLogic = new CompareLogic();
-            var categoryRepository = new CategoryRepository(unitOfWork);
 
-            Category expected = new Category() { Id = 2, CategoryName = "Category2", Weight = 20, Created_TS = new DateTime(2018, 6, 14, 8, 0, 0), Updated_TS = null };
-
-            //ACT
-            var actual = categoryRepository.GetById(2);
-            //ASSERT
-            ComparisonResult result = compareLogic.Compare(expected, actual);
-            if (!result.AreEqual)
-                Console.WriteLine(result.DifferencesString);
-            Assert.True(result.AreEqual);
         }
 
         [Test]
-        public void testAdd_ShouldAddCategory_WhenInvoked()
+        public void testAdd_ShouldAddInventory_WhenInvoked()
         {
-            //ARRANGE
-            CompareLogic compareLogic = new CompareLogic();
-            var categoryRepository = new CategoryRepository(unitOfWork);
 
-            Category entity = new Category() { Id = 5, CategoryName = "Category5", Weight = 50, Created_TS = new DateTime(2018, 6, 14, 8, 0, 0), Updated_TS = null };
-
-            //ACT
-            var actual = categoryRepository.Add(entity);
-            //ASSERT
-            mockedContext.Verify(x => x.SaveChanges(), Times.Once);
-            Assert.AreEqual(mockedInventoryData.Count(), 5);
-            ComparisonResult result = compareLogic.Compare(mockedInventoryData.Last(), actual);
-            if (!result.AreEqual)
-                Console.WriteLine(result.DifferencesString);
-            Assert.True(result.AreEqual);
         }
 
         [Test]
-        public void testUpdate_ShouldUpdateCategory_WhenInvokedWithCategory()
+        public void testUpdate_ShouldUpdateInventory_WhenInvokedWithInventory()
         {
-            //ARRANGE
-            CompareLogic compareLogic = new CompareLogic();
-            var categoryRepository = new CategoryRepository(unitOfWork);
 
-            Category entity = new Category() { Id = 4, CategoryName = "Category5", Weight = 50, Created_TS = new DateTime(2018, 6, 14, 8, 0, 0), Updated_TS = null };
-
-            //ACT
-            var actual = categoryRepository.Update(entity);
-            //ASSERT
-            mockedContext.Verify(x => x.SaveChanges(), Times.Once);
-            Assert.AreEqual(mockedInventoryData.Count(), 4);
-            ComparisonResult result = compareLogic.Compare(mockedInventoryData.Last(), actual);
-            if (!result.AreEqual)
-                Console.WriteLine(result.DifferencesString);
-            Assert.True(result.AreEqual);
         }
 
         [Test]
-        public void testDelete_ShouldDeleteCategory_WhenInvokedWithCategory()
+        public void testDelete_ShouldDeleteInventory_WhenInvokedWithInventory()
         {
-            //ARRANGE
-            CompareLogic compareLogic = new CompareLogic();
-            var categoryRepository = new CategoryRepository(unitOfWork);
 
-
-            Category entity = new Category() { Id = 5, CategoryName = "Category5", Weight = 50, Created_TS = new DateTime(2018, 6, 14, 8, 0, 0), Updated_TS = null };
-
-            mockedInventoryData.Add(entity);
-            
-            //ACT
-            categoryRepository.Delete(entity);
-
-            var expected = mockedInventoryData.FirstOrDefault(x => x.Id.Equals(5));
-            //ASSERT
-            mockedContext.Verify(x => x.SaveChanges(), Times.Once);
-            Assert.AreEqual(mockedInventoryData.Count(), 4);
-            ComparisonResult result = compareLogic.Compare(expected, null);
-            if (!result.AreEqual)
-                Console.WriteLine(result.DifferencesString);
-            Assert.True(result.AreEqual);
         }
     }
 }

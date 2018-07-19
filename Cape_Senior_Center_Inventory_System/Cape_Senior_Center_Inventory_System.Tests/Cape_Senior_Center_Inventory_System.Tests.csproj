@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo Stuff\SqlParameterCollectionExtensions.cs" />
     <Compile Include="ItemRepositoryTests.cs" />
     <Compile Include="InventoryRepositoryTests.cs" />
     <Compile Include="CategoryRepositoryTests.cs" />
