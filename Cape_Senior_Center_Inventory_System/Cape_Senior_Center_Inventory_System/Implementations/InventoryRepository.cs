@@ -2,6 +2,7 @@
 using Cape_Senior_Center_Inventory_System.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cape_Senior_Center_Inventory_System.Implementations
 {
@@ -25,7 +26,7 @@ namespace Cape_Senior_Center_Inventory_System.Implementations
 
         public IList<Inventory> GetAll()
         {
-            throw new NotImplementedException();
+            return unitOfWork.DataContext.Inventories.ToList();
         }
 
         public Inventory GetById(int id)
