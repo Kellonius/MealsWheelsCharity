@@ -40,14 +40,14 @@ namespace Cape_Senior_Center_Inventory_System.Tests
             mockedContext.Setup(m => m.Categories).Returns(mockedCategorySet.Object);
             mockedContext.Setup(m => m.SaveChanges());
 
-            mockedContext.Setup(m => m.Categories.Add(It.IsAny<Category>())).Returns<Category>(x =>
+            mockedCategorySet.Setup(m => m.Add(It.IsAny<Category>())).Returns<Category>(x =>
              {
                  mockedCategoryData.Add(x);
                  return x;
              });
 
 
-            mockedContext.Setup(m => m.Categories.Remove(It.IsAny<Category>())).Callback<Category>(x =>
+            mockedCategorySet.Setup(m => m.Remove(It.IsAny<Category>())).Callback<Category>(x =>
             {
                 //mockedCategoryData.Remove(mockedCategoryData.First(y => y.Id.Equals(x.Id)));
                 mockedCategoryData.Remove(x);
