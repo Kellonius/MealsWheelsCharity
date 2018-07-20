@@ -52,6 +52,19 @@ namespace Cape_Senior_Center_Inventory_System
         {
         }
 
+        private void addRecipeButton_Click(object sender, EventArgs e)
+        {
+            addRecipePanel.Visible = true;
+        }
 
+        private void exitAddRecipePanelButton_Click(object sender, EventArgs e)
+        {
+            addRecipePanel.Visible = false;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

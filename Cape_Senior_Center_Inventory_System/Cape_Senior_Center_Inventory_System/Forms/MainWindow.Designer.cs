@@ -32,8 +32,6 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
-            this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.historyTab = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.historyReconcileTab = new System.Windows.Forms.TabPage();
@@ -45,10 +43,6 @@
             this.currentBrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentSKUColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentOnHandInvColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.masterListTab = new System.Windows.Forms.TabPage();
@@ -56,17 +50,13 @@
             this.masterListItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.masterListBrandNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.masterListSKUNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.recipesTab = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.recipeComboBox = new System.Windows.Forms.ComboBox();
             this.dashBoardTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,9 +80,28 @@
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
+            this.recipeListBox = new System.Windows.Forms.ListBox();
+            this.addRecipeButton = new System.Windows.Forms.Button();
+            this.addRecipePanel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.recipeNameTextBox = new System.Windows.Forms.TextBox();
+            this.saveRecipeButton = new System.Windows.Forms.Button();
+            this.exitAddRecipePanelButton = new System.Windows.Forms.Button();
+            this.ingredientsPanel = new System.Windows.Forms.Panel();
+            this.ingredientsDataView = new System.Windows.Forms.DataGridView();
+            this.ingredientColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).BeginInit();
             this.historyTab.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.inventoryTab.SuspendLayout();
@@ -118,6 +127,11 @@
             this.tabControl1.SuspendLayout();
             this.pricingTab.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.addRecipePanel.SuspendLayout();
+            this.ingredientsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -146,14 +160,6 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(108, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // bsCurrentInventory
-            // 
-            this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
-            // 
-            // bsMasterInventory
-            // 
-            this.bsMasterInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
             // 
             // historyTab
             // 
@@ -207,6 +213,7 @@
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(981, 817);
@@ -280,30 +287,6 @@
             this.currentOnHandInvColumn.HeaderText = "On Hand Inventory";
             this.currentOnHandInvColumn.Name = "currentOnHandInvColumn";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // inventoryNameDataGridViewTextBoxColumn
-            // 
-            this.inventoryNameDataGridViewTextBoxColumn.DataPropertyName = "inventoryName";
-            this.inventoryNameDataGridViewTextBoxColumn.HeaderText = "inventoryName";
-            this.inventoryNameDataGridViewTextBoxColumn.Name = "inventoryNameDataGridViewTextBoxColumn";
-            // 
-            // inventoryIdDataGridViewTextBoxColumn
-            // 
-            this.inventoryIdDataGridViewTextBoxColumn.DataPropertyName = "inventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn.HeaderText = "inventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn.Name = "inventoryIdDataGridViewTextBoxColumn";
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label4);
@@ -357,6 +340,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(965, 731);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // masterListItemNameColumn
             // 
@@ -375,30 +359,6 @@
             this.masterListSKUNumberColumn.DataPropertyName = "quantity";
             this.masterListSKUNumberColumn.HeaderText = "SKU";
             this.masterListSKUNumberColumn.Name = "masterListSKUNumberColumn";
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // inventoryNameDataGridViewTextBoxColumn1
-            // 
-            this.inventoryNameDataGridViewTextBoxColumn1.DataPropertyName = "inventoryName";
-            this.inventoryNameDataGridViewTextBoxColumn1.HeaderText = "inventoryName";
-            this.inventoryNameDataGridViewTextBoxColumn1.Name = "inventoryNameDataGridViewTextBoxColumn1";
-            // 
-            // inventoryIdDataGridViewTextBoxColumn1
-            // 
-            this.inventoryIdDataGridViewTextBoxColumn1.DataPropertyName = "inventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn1.HeaderText = "inventoryId";
-            this.inventoryIdDataGridViewTextBoxColumn1.Name = "inventoryIdDataGridViewTextBoxColumn1";
-            // 
-            // quantityDataGridViewTextBoxColumn1
-            // 
-            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
             // 
             // panel2
             // 
@@ -422,9 +382,12 @@
             // 
             // recipesTab
             // 
+            this.recipesTab.Controls.Add(this.addRecipePanel);
+            this.recipesTab.Controls.Add(this.addRecipeButton);
+            this.recipesTab.Controls.Add(this.recipeListBox);
             this.recipesTab.Controls.Add(this.panel3);
             this.recipesTab.Controls.Add(this.label5);
-            this.recipesTab.Controls.Add(this.comboBox1);
+            this.recipesTab.Controls.Add(this.recipeComboBox);
             this.recipesTab.Location = new System.Drawing.Point(4, 25);
             this.recipesTab.Margin = new System.Windows.Forms.Padding(4);
             this.recipesTab.Name = "recipesTab";
@@ -462,17 +425,17 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Select a recipe";
             // 
-            // comboBox1
+            // recipeComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.recipeComboBox.FormattingEnabled = true;
+            this.recipeComboBox.Items.AddRange(new object[] {
             "Bacon and Eggs",
             "Avocado Toast"});
-            this.comboBox1.Location = new System.Drawing.Point(21, 90);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(185, 24);
-            this.comboBox1.TabIndex = 6;
+            this.recipeComboBox.Location = new System.Drawing.Point(21, 90);
+            this.recipeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recipeComboBox.Name = "recipeComboBox";
+            this.recipeComboBox.Size = new System.Drawing.Size(185, 24);
+            this.recipeComboBox.TabIndex = 6;
             // 
             // dashBoardTab
             // 
@@ -735,6 +698,166 @@
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
             // 
+            // recipeListBox
+            // 
+            this.recipeListBox.FormattingEnabled = true;
+            this.recipeListBox.ItemHeight = 16;
+            this.recipeListBox.Location = new System.Drawing.Point(445, 90);
+            this.recipeListBox.Name = "recipeListBox";
+            this.recipeListBox.Size = new System.Drawing.Size(500, 388);
+            this.recipeListBox.TabIndex = 10;
+            // 
+            // addRecipeButton
+            // 
+            this.addRecipeButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.addRecipeButton.Location = new System.Drawing.Point(21, 428);
+            this.addRecipeButton.Name = "addRecipeButton";
+            this.addRecipeButton.Size = new System.Drawing.Size(185, 50);
+            this.addRecipeButton.TabIndex = 11;
+            this.addRecipeButton.Text = "Add Recipe";
+            this.addRecipeButton.UseVisualStyleBackColor = false;
+            this.addRecipeButton.Click += new System.EventHandler(this.addRecipeButton_Click);
+            // 
+            // addRecipePanel
+            // 
+            this.addRecipePanel.Controls.Add(this.ingredientsPanel);
+            this.addRecipePanel.Controls.Add(this.exitAddRecipePanelButton);
+            this.addRecipePanel.Controls.Add(this.saveRecipeButton);
+            this.addRecipePanel.Controls.Add(this.recipeNameTextBox);
+            this.addRecipePanel.Controls.Add(this.label7);
+            this.addRecipePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addRecipePanel.Location = new System.Drawing.Point(0, 49);
+            this.addRecipePanel.Name = "addRecipePanel";
+            this.addRecipePanel.Size = new System.Drawing.Size(973, 739);
+            this.addRecipePanel.TabIndex = 12;
+            this.addRecipePanel.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Add Recipe";
+            // 
+            // recipeNameTextBox
+            // 
+            this.recipeNameTextBox.Location = new System.Drawing.Point(21, 41);
+            this.recipeNameTextBox.Name = "recipeNameTextBox";
+            this.recipeNameTextBox.Size = new System.Drawing.Size(185, 22);
+            this.recipeNameTextBox.TabIndex = 1;
+            // 
+            // saveRecipeButton
+            // 
+            this.saveRecipeButton.Location = new System.Drawing.Point(445, 379);
+            this.saveRecipeButton.Name = "saveRecipeButton";
+            this.saveRecipeButton.Size = new System.Drawing.Size(185, 50);
+            this.saveRecipeButton.TabIndex = 2;
+            this.saveRecipeButton.Text = "Save Recipe";
+            this.saveRecipeButton.UseVisualStyleBackColor = true;
+            // 
+            // exitAddRecipePanelButton
+            // 
+            this.exitAddRecipePanelButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitAddRecipePanelButton.Location = new System.Drawing.Point(760, 379);
+            this.exitAddRecipePanelButton.Name = "exitAddRecipePanelButton";
+            this.exitAddRecipePanelButton.Size = new System.Drawing.Size(185, 50);
+            this.exitAddRecipePanelButton.TabIndex = 3;
+            this.exitAddRecipePanelButton.Text = "Exit";
+            this.exitAddRecipePanelButton.UseVisualStyleBackColor = false;
+            this.exitAddRecipePanelButton.Click += new System.EventHandler(this.exitAddRecipePanelButton_Click);
+            // 
+            // ingredientsPanel
+            // 
+            this.ingredientsPanel.AutoScroll = true;
+            this.ingredientsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ingredientsPanel.Controls.Add(this.ingredientsDataView);
+            this.ingredientsPanel.Location = new System.Drawing.Point(445, 41);
+            this.ingredientsPanel.Name = "ingredientsPanel";
+            this.ingredientsPanel.Size = new System.Drawing.Size(500, 332);
+            this.ingredientsPanel.TabIndex = 4;
+            // 
+            // ingredientsDataView
+            // 
+            this.ingredientsDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ingredientsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ingredientsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ingredientColumn,
+            this.amountColumn});
+            this.ingredientsDataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ingredientsDataView.Location = new System.Drawing.Point(0, 0);
+            this.ingredientsDataView.Name = "ingredientsDataView";
+            this.ingredientsDataView.RowTemplate.Height = 24;
+            this.ingredientsDataView.Size = new System.Drawing.Size(498, 330);
+            this.ingredientsDataView.TabIndex = 0;
+            // 
+            // ingredientColumn
+            // 
+            this.ingredientColumn.HeaderText = "Ingredients";
+            this.ingredientColumn.Name = "ingredientColumn";
+            // 
+            // amountColumn
+            // 
+            this.amountColumn.HeaderText = "Amount";
+            this.amountColumn.Name = "amountColumn";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // inventoryNameDataGridViewTextBoxColumn
+            // 
+            this.inventoryNameDataGridViewTextBoxColumn.DataPropertyName = "inventoryName";
+            this.inventoryNameDataGridViewTextBoxColumn.HeaderText = "inventoryName";
+            this.inventoryNameDataGridViewTextBoxColumn.Name = "inventoryNameDataGridViewTextBoxColumn";
+            // 
+            // inventoryIdDataGridViewTextBoxColumn
+            // 
+            this.inventoryIdDataGridViewTextBoxColumn.DataPropertyName = "inventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn.HeaderText = "inventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn.Name = "inventoryIdDataGridViewTextBoxColumn";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // bsCurrentInventory
+            // 
+            this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // inventoryNameDataGridViewTextBoxColumn1
+            // 
+            this.inventoryNameDataGridViewTextBoxColumn1.DataPropertyName = "inventoryName";
+            this.inventoryNameDataGridViewTextBoxColumn1.HeaderText = "inventoryName";
+            this.inventoryNameDataGridViewTextBoxColumn1.Name = "inventoryNameDataGridViewTextBoxColumn1";
+            // 
+            // inventoryIdDataGridViewTextBoxColumn1
+            // 
+            this.inventoryIdDataGridViewTextBoxColumn1.DataPropertyName = "inventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn1.HeaderText = "inventoryId";
+            this.inventoryIdDataGridViewTextBoxColumn1.Name = "inventoryIdDataGridViewTextBoxColumn1";
+            // 
+            // quantityDataGridViewTextBoxColumn1
+            // 
+            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn1.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
+            // 
+            // bsMasterInventory
+            // 
+            this.bsMasterInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -749,8 +872,6 @@
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).EndInit();
             this.historyTab.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.inventoryTab.ResumeLayout(false);
@@ -781,6 +902,12 @@
             this.tabControl1.ResumeLayout(false);
             this.pricingTab.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
+            this.addRecipePanel.ResumeLayout(false);
+            this.addRecipePanel.PerformLayout();
+            this.ingredientsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -824,7 +951,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox recipeComboBox;
         private System.Windows.Forms.TabPage dashBoardTab;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -848,6 +975,17 @@
         private System.Windows.Forms.TabPage pricingTab;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage pricingReconcileTab;
+        private System.Windows.Forms.ListBox recipeListBox;
+        private System.Windows.Forms.Button addRecipeButton;
+        private System.Windows.Forms.Panel addRecipePanel;
+        private System.Windows.Forms.TextBox recipeNameTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button exitAddRecipePanelButton;
+        private System.Windows.Forms.Button saveRecipeButton;
+        private System.Windows.Forms.Panel ingredientsPanel;
+        private System.Windows.Forms.DataGridView ingredientsDataView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingredientColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountColumn;
     }
 }
 
