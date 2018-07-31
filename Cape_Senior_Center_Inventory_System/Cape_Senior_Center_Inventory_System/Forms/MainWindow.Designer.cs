@@ -34,7 +34,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyTab = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.historyReconcileTab = new System.Windows.Forms.TabPage();
+            this.pricingHistoryTab = new System.Windows.Forms.TabPage();
             this.inventoryTab = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.currentTab = new System.Windows.Forms.TabPage();
@@ -53,6 +53,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.recipesTab = new System.Windows.Forms.TabPage();
+            this.addRecipePanel = new System.Windows.Forms.Panel();
+            this.ingredientsPanel = new System.Windows.Forms.Panel();
+            this.ingredientsDataView = new System.Windows.Forms.DataGridView();
+            this.ingredientColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exitAddRecipePanelButton = new System.Windows.Forms.Button();
+            this.saveRecipeButton = new System.Windows.Forms.Button();
+            this.recipeNameTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.addRecipeButton = new System.Windows.Forms.Button();
+            this.recipeListBox = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -80,17 +91,39 @@
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
-            this.recipeListBox = new System.Windows.Forms.ListBox();
-            this.addRecipeButton = new System.Windows.Forms.Button();
-            this.addRecipePanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.recipeNameTextBox = new System.Windows.Forms.TextBox();
-            this.saveRecipeButton = new System.Windows.Forms.Button();
-            this.exitAddRecipePanelButton = new System.Windows.Forms.Button();
-            this.ingredientsPanel = new System.Windows.Forms.Panel();
-            this.ingredientsDataView = new System.Windows.Forms.DataGridView();
-            this.ingredientColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pricingHistoryEndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.pricingHistoryStartDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pricingHistoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryHistoryTab = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.inventoryHistoryEndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.inventoryHistoryStartDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.inventoryHistoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,6 +137,7 @@
             this.menuStrip.SuspendLayout();
             this.historyTab.SuspendLayout();
             this.tabControl4.SuspendLayout();
+            this.pricingHistoryTab.SuspendLayout();
             this.inventoryTab.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.currentTab.SuspendLayout();
@@ -113,6 +147,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.recipesTab.SuspendLayout();
+            this.addRecipePanel.SuspendLayout();
+            this.ingredientsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataView)).BeginInit();
             this.panel3.SuspendLayout();
             this.dashBoardTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -127,9 +164,11 @@
             this.tabControl1.SuspendLayout();
             this.pricingTab.SuspendLayout();
             this.tabControl3.SuspendLayout();
-            this.addRecipePanel.SuspendLayout();
-            this.ingredientsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataView)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pricingHistoryDataGridView)).BeginInit();
+            this.inventoryHistoryTab.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryHistoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).BeginInit();
             this.SuspendLayout();
@@ -174,7 +213,8 @@
             // 
             // tabControl4
             // 
-            this.tabControl4.Controls.Add(this.historyReconcileTab);
+            this.tabControl4.Controls.Add(this.inventoryHistoryTab);
+            this.tabControl4.Controls.Add(this.pricingHistoryTab);
             this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl4.Location = new System.Drawing.Point(0, 0);
             this.tabControl4.Margin = new System.Windows.Forms.Padding(4);
@@ -183,16 +223,16 @@
             this.tabControl4.Size = new System.Drawing.Size(981, 817);
             this.tabControl4.TabIndex = 0;
             // 
-            // historyReconcileTab
+            // pricingHistoryTab
             // 
-            this.historyReconcileTab.Location = new System.Drawing.Point(4, 25);
-            this.historyReconcileTab.Margin = new System.Windows.Forms.Padding(4);
-            this.historyReconcileTab.Name = "historyReconcileTab";
-            this.historyReconcileTab.Padding = new System.Windows.Forms.Padding(4);
-            this.historyReconcileTab.Size = new System.Drawing.Size(973, 788);
-            this.historyReconcileTab.TabIndex = 0;
-            this.historyReconcileTab.Text = "Reconcile";
-            this.historyReconcileTab.UseVisualStyleBackColor = true;
+            this.pricingHistoryTab.Controls.Add(this.pricingHistoryDataGridView);
+            this.pricingHistoryTab.Controls.Add(this.panel5);
+            this.pricingHistoryTab.Location = new System.Drawing.Point(4, 25);
+            this.pricingHistoryTab.Name = "pricingHistoryTab";
+            this.pricingHistoryTab.Size = new System.Drawing.Size(973, 788);
+            this.pricingHistoryTab.TabIndex = 1;
+            this.pricingHistoryTab.Text = "Pricing";
+            this.pricingHistoryTab.UseVisualStyleBackColor = true;
             // 
             // inventoryTab
             // 
@@ -396,6 +436,110 @@
             this.recipesTab.Text = "Recipes";
             this.recipesTab.UseVisualStyleBackColor = true;
             // 
+            // addRecipePanel
+            // 
+            this.addRecipePanel.Controls.Add(this.ingredientsPanel);
+            this.addRecipePanel.Controls.Add(this.exitAddRecipePanelButton);
+            this.addRecipePanel.Controls.Add(this.saveRecipeButton);
+            this.addRecipePanel.Controls.Add(this.recipeNameTextBox);
+            this.addRecipePanel.Controls.Add(this.label7);
+            this.addRecipePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addRecipePanel.Location = new System.Drawing.Point(0, 49);
+            this.addRecipePanel.Name = "addRecipePanel";
+            this.addRecipePanel.Size = new System.Drawing.Size(973, 739);
+            this.addRecipePanel.TabIndex = 12;
+            this.addRecipePanel.Visible = false;
+            // 
+            // ingredientsPanel
+            // 
+            this.ingredientsPanel.AutoScroll = true;
+            this.ingredientsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ingredientsPanel.Controls.Add(this.ingredientsDataView);
+            this.ingredientsPanel.Location = new System.Drawing.Point(445, 41);
+            this.ingredientsPanel.Name = "ingredientsPanel";
+            this.ingredientsPanel.Size = new System.Drawing.Size(500, 332);
+            this.ingredientsPanel.TabIndex = 4;
+            // 
+            // ingredientsDataView
+            // 
+            this.ingredientsDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ingredientsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ingredientsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ingredientColumn,
+            this.amountColumn});
+            this.ingredientsDataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ingredientsDataView.Location = new System.Drawing.Point(0, 0);
+            this.ingredientsDataView.Name = "ingredientsDataView";
+            this.ingredientsDataView.RowTemplate.Height = 24;
+            this.ingredientsDataView.Size = new System.Drawing.Size(498, 330);
+            this.ingredientsDataView.TabIndex = 0;
+            // 
+            // ingredientColumn
+            // 
+            this.ingredientColumn.HeaderText = "Ingredients";
+            this.ingredientColumn.Name = "ingredientColumn";
+            // 
+            // amountColumn
+            // 
+            this.amountColumn.HeaderText = "Amount";
+            this.amountColumn.Name = "amountColumn";
+            // 
+            // exitAddRecipePanelButton
+            // 
+            this.exitAddRecipePanelButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitAddRecipePanelButton.Location = new System.Drawing.Point(760, 379);
+            this.exitAddRecipePanelButton.Name = "exitAddRecipePanelButton";
+            this.exitAddRecipePanelButton.Size = new System.Drawing.Size(185, 50);
+            this.exitAddRecipePanelButton.TabIndex = 3;
+            this.exitAddRecipePanelButton.Text = "Exit";
+            this.exitAddRecipePanelButton.UseVisualStyleBackColor = false;
+            this.exitAddRecipePanelButton.Click += new System.EventHandler(this.exitAddRecipePanelButton_Click);
+            // 
+            // saveRecipeButton
+            // 
+            this.saveRecipeButton.Location = new System.Drawing.Point(445, 379);
+            this.saveRecipeButton.Name = "saveRecipeButton";
+            this.saveRecipeButton.Size = new System.Drawing.Size(185, 50);
+            this.saveRecipeButton.TabIndex = 2;
+            this.saveRecipeButton.Text = "Save Recipe";
+            this.saveRecipeButton.UseVisualStyleBackColor = true;
+            // 
+            // recipeNameTextBox
+            // 
+            this.recipeNameTextBox.Location = new System.Drawing.Point(21, 41);
+            this.recipeNameTextBox.Name = "recipeNameTextBox";
+            this.recipeNameTextBox.Size = new System.Drawing.Size(185, 22);
+            this.recipeNameTextBox.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Add Recipe";
+            // 
+            // addRecipeButton
+            // 
+            this.addRecipeButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.addRecipeButton.Location = new System.Drawing.Point(21, 428);
+            this.addRecipeButton.Name = "addRecipeButton";
+            this.addRecipeButton.Size = new System.Drawing.Size(185, 50);
+            this.addRecipeButton.TabIndex = 11;
+            this.addRecipeButton.Text = "Add Recipe";
+            this.addRecipeButton.UseVisualStyleBackColor = false;
+            this.addRecipeButton.Click += new System.EventHandler(this.addRecipeButton_Click);
+            // 
+            // recipeListBox
+            // 
+            this.recipeListBox.FormattingEnabled = true;
+            this.recipeListBox.ItemHeight = 16;
+            this.recipeListBox.Location = new System.Drawing.Point(445, 90);
+            this.recipeListBox.Name = "recipeListBox";
+            this.recipeListBox.Size = new System.Drawing.Size(500, 388);
+            this.recipeListBox.TabIndex = 10;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label6);
@@ -410,7 +554,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(440, 12);
+            this.label6.Location = new System.Drawing.Point(440, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 25);
             this.label6.TabIndex = 7;
@@ -698,109 +842,290 @@
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
             // 
-            // recipeListBox
+            // panel5
             // 
-            this.recipeListBox.FormattingEnabled = true;
-            this.recipeListBox.ItemHeight = 16;
-            this.recipeListBox.Location = new System.Drawing.Point(445, 90);
-            this.recipeListBox.Name = "recipeListBox";
-            this.recipeListBox.Size = new System.Drawing.Size(500, 388);
-            this.recipeListBox.TabIndex = 10;
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.pricingHistoryEndDatePicker);
+            this.panel5.Controls.Add(this.pricingHistoryStartDatePicker);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(973, 60);
+            this.panel5.TabIndex = 1;
             // 
-            // addRecipeButton
+            // label11
             // 
-            this.addRecipeButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.addRecipeButton.Location = new System.Drawing.Point(21, 428);
-            this.addRecipeButton.Name = "addRecipeButton";
-            this.addRecipeButton.Size = new System.Drawing.Size(185, 50);
-            this.addRecipeButton.TabIndex = 11;
-            this.addRecipeButton.Text = "Add Recipe";
-            this.addRecipeButton.UseVisualStyleBackColor = false;
-            this.addRecipeButton.Click += new System.EventHandler(this.addRecipeButton_Click);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(819, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 17);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "End Date";
             // 
-            // addRecipePanel
+            // label12
             // 
-            this.addRecipePanel.Controls.Add(this.ingredientsPanel);
-            this.addRecipePanel.Controls.Add(this.exitAddRecipePanelButton);
-            this.addRecipePanel.Controls.Add(this.saveRecipeButton);
-            this.addRecipePanel.Controls.Add(this.recipeNameTextBox);
-            this.addRecipePanel.Controls.Add(this.label7);
-            this.addRecipePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addRecipePanel.Location = new System.Drawing.Point(0, 49);
-            this.addRecipePanel.Name = "addRecipePanel";
-            this.addRecipePanel.Size = new System.Drawing.Size(973, 739);
-            this.addRecipePanel.TabIndex = 12;
-            this.addRecipePanel.Visible = false;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(693, 5);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 17);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Start Date";
             // 
-            // label7
+            // pricingHistoryEndDatePicker
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 17);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Add Recipe";
+            this.pricingHistoryEndDatePicker.CustomFormat = "";
+            this.pricingHistoryEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.pricingHistoryEndDatePicker.Location = new System.Drawing.Point(822, 25);
+            this.pricingHistoryEndDatePicker.Name = "pricingHistoryEndDatePicker";
+            this.pricingHistoryEndDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.pricingHistoryEndDatePicker.TabIndex = 2;
             // 
-            // recipeNameTextBox
+            // pricingHistoryStartDatePicker
             // 
-            this.recipeNameTextBox.Location = new System.Drawing.Point(21, 41);
-            this.recipeNameTextBox.Name = "recipeNameTextBox";
-            this.recipeNameTextBox.Size = new System.Drawing.Size(185, 22);
-            this.recipeNameTextBox.TabIndex = 1;
+            this.pricingHistoryStartDatePicker.CustomFormat = "";
+            this.pricingHistoryStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.pricingHistoryStartDatePicker.Location = new System.Drawing.Point(696, 25);
+            this.pricingHistoryStartDatePicker.Name = "pricingHistoryStartDatePicker";
+            this.pricingHistoryStartDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.pricingHistoryStartDatePicker.TabIndex = 1;
             // 
-            // saveRecipeButton
+            // label13
             // 
-            this.saveRecipeButton.Location = new System.Drawing.Point(445, 379);
-            this.saveRecipeButton.Name = "saveRecipeButton";
-            this.saveRecipeButton.Size = new System.Drawing.Size(185, 50);
-            this.saveRecipeButton.TabIndex = 2;
-            this.saveRecipeButton.Text = "Save Recipe";
-            this.saveRecipeButton.UseVisualStyleBackColor = true;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(418, 25);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(136, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Pricing History";
             // 
-            // exitAddRecipePanelButton
+            // pricingHistoryDataGridView
             // 
-            this.exitAddRecipePanelButton.BackColor = System.Drawing.Color.Transparent;
-            this.exitAddRecipePanelButton.Location = new System.Drawing.Point(760, 379);
-            this.exitAddRecipePanelButton.Name = "exitAddRecipePanelButton";
-            this.exitAddRecipePanelButton.Size = new System.Drawing.Size(185, 50);
-            this.exitAddRecipePanelButton.TabIndex = 3;
-            this.exitAddRecipePanelButton.Text = "Exit";
-            this.exitAddRecipePanelButton.UseVisualStyleBackColor = false;
-            this.exitAddRecipePanelButton.Click += new System.EventHandler(this.exitAddRecipePanelButton_Click);
+            this.pricingHistoryDataGridView.AllowUserToAddRows = false;
+            this.pricingHistoryDataGridView.AllowUserToDeleteRows = false;
+            this.pricingHistoryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.pricingHistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pricingHistoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.pricingHistoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pricingHistoryDataGridView.Location = new System.Drawing.Point(0, 60);
+            this.pricingHistoryDataGridView.Name = "pricingHistoryDataGridView";
+            this.pricingHistoryDataGridView.ReadOnly = true;
+            this.pricingHistoryDataGridView.RowTemplate.Height = 24;
+            this.pricingHistoryDataGridView.Size = new System.Drawing.Size(973, 728);
+            this.pricingHistoryDataGridView.TabIndex = 2;
             // 
-            // ingredientsPanel
+            // dataGridViewTextBoxColumn1
             // 
-            this.ingredientsPanel.AutoScroll = true;
-            this.ingredientsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ingredientsPanel.Controls.Add(this.ingredientsDataView);
-            this.ingredientsPanel.Location = new System.Drawing.Point(445, 41);
-            this.ingredientsPanel.Name = "ingredientsPanel";
-            this.ingredientsPanel.Size = new System.Drawing.Size(500, 332);
-            this.ingredientsPanel.TabIndex = 4;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Item Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // ingredientsDataView
+            // dataGridViewTextBoxColumn2
             // 
-            this.ingredientsDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ingredientsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ingredientsDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ingredientColumn,
-            this.amountColumn});
-            this.ingredientsDataView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ingredientsDataView.Location = new System.Drawing.Point(0, 0);
-            this.ingredientsDataView.Name = "ingredientsDataView";
-            this.ingredientsDataView.RowTemplate.Height = 24;
-            this.ingredientsDataView.Size = new System.Drawing.Size(498, 330);
-            this.ingredientsDataView.TabIndex = 0;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // ingredientColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.ingredientColumn.HeaderText = "Ingredients";
-            this.ingredientColumn.Name = "ingredientColumn";
+            this.dataGridViewTextBoxColumn3.HeaderText = "SKU";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // amountColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.amountColumn.HeaderText = "Amount";
-            this.amountColumn.Name = "amountColumn";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Units On Hand";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Inv. Name";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Price Unit";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Unit Price";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Extended Price";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // inventoryHistoryTab
+            // 
+            this.inventoryHistoryTab.Controls.Add(this.inventoryHistoryDataGridView);
+            this.inventoryHistoryTab.Controls.Add(this.panel4);
+            this.inventoryHistoryTab.Location = new System.Drawing.Point(4, 25);
+            this.inventoryHistoryTab.Name = "inventoryHistoryTab";
+            this.inventoryHistoryTab.Size = new System.Drawing.Size(973, 788);
+            this.inventoryHistoryTab.TabIndex = 2;
+            this.inventoryHistoryTab.Text = "Inventory";
+            this.inventoryHistoryTab.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.inventoryHistoryEndDatePicker);
+            this.panel4.Controls.Add(this.inventoryHistoryStartDatePicker);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(973, 60);
+            this.panel4.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(819, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 17);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "End Date";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(693, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 17);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Start Date";
+            // 
+            // inventoryHistoryEndDatePicker
+            // 
+            this.inventoryHistoryEndDatePicker.CustomFormat = "";
+            this.inventoryHistoryEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.inventoryHistoryEndDatePicker.Location = new System.Drawing.Point(822, 25);
+            this.inventoryHistoryEndDatePicker.Name = "inventoryHistoryEndDatePicker";
+            this.inventoryHistoryEndDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.inventoryHistoryEndDatePicker.TabIndex = 2;
+            // 
+            // inventoryHistoryStartDatePicker
+            // 
+            this.inventoryHistoryStartDatePicker.CustomFormat = "";
+            this.inventoryHistoryStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.inventoryHistoryStartDatePicker.Location = new System.Drawing.Point(696, 25);
+            this.inventoryHistoryStartDatePicker.Name = "inventoryHistoryStartDatePicker";
+            this.inventoryHistoryStartDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.inventoryHistoryStartDatePicker.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(408, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(157, 25);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Inventory History";
+            // 
+            // inventoryHistoryDataGridView
+            // 
+            this.inventoryHistoryDataGridView.AllowUserToAddRows = false;
+            this.inventoryHistoryDataGridView.AllowUserToDeleteRows = false;
+            this.inventoryHistoryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.inventoryHistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventoryHistoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
+            this.inventoryHistoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inventoryHistoryDataGridView.Location = new System.Drawing.Point(0, 60);
+            this.inventoryHistoryDataGridView.Name = "inventoryHistoryDataGridView";
+            this.inventoryHistoryDataGridView.ReadOnly = true;
+            this.inventoryHistoryDataGridView.RowTemplate.Height = 24;
+            this.inventoryHistoryDataGridView.Size = new System.Drawing.Size(973, 728);
+            this.inventoryHistoryDataGridView.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Item Type";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "SKU";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Units On Hand";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Inv. Name";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Price Unit";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Unit Price";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Extended Price";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -874,6 +1199,7 @@
             this.menuStrip.PerformLayout();
             this.historyTab.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
+            this.pricingHistoryTab.ResumeLayout(false);
             this.inventoryTab.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.currentTab.ResumeLayout(false);
@@ -886,6 +1212,10 @@
             this.panel2.PerformLayout();
             this.recipesTab.ResumeLayout(false);
             this.recipesTab.PerformLayout();
+            this.addRecipePanel.ResumeLayout(false);
+            this.addRecipePanel.PerformLayout();
+            this.ingredientsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.dashBoardTab.ResumeLayout(false);
@@ -902,10 +1232,13 @@
             this.tabControl1.ResumeLayout(false);
             this.pricingTab.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
-            this.addRecipePanel.ResumeLayout(false);
-            this.addRecipePanel.PerformLayout();
-            this.ingredientsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ingredientsDataView)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pricingHistoryDataGridView)).EndInit();
+            this.inventoryHistoryTab.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryHistoryDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).EndInit();
             this.ResumeLayout(false);
@@ -921,7 +1254,6 @@
         private System.Windows.Forms.BindingSource bsMasterInventory;
         private System.Windows.Forms.TabPage historyTab;
         private System.Windows.Forms.TabControl tabControl4;
-        private System.Windows.Forms.TabPage historyReconcileTab;
         private System.Windows.Forms.TabPage inventoryTab;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage currentTab;
@@ -986,6 +1318,40 @@
         private System.Windows.Forms.DataGridView ingredientsDataView;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingredientColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountColumn;
+        private System.Windows.Forms.TabPage pricingHistoryTab;
+        private System.Windows.Forms.DataGridView pricingHistoryDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker pricingHistoryEndDatePicker;
+        private System.Windows.Forms.DateTimePicker pricingHistoryStartDatePicker;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TabPage inventoryHistoryTab;
+        private System.Windows.Forms.DataGridView inventoryHistoryDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker inventoryHistoryEndDatePicker;
+        private System.Windows.Forms.DateTimePicker inventoryHistoryStartDatePicker;
+        private System.Windows.Forms.Label label10;
     }
 }
 
