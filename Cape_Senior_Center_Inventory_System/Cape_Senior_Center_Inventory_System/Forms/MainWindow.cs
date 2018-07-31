@@ -54,11 +54,13 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void addRecipeButton_Click(object sender, EventArgs e)
         {
+            addRecipeHeaderPanel.Visible = true;
             addRecipePanel.Visible = true;
         }
 
         private void exitAddRecipePanelButton_Click(object sender, EventArgs e)
         {
+            addRecipeHeaderPanel.Visible = false;
             addRecipePanel.Visible = false;
             ingredientsDataView.Rows.Clear();
         }
