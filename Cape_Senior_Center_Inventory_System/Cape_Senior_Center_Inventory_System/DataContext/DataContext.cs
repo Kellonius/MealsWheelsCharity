@@ -7,8 +7,14 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
 
     public class DataContext : DbContext
     {
-        private static string connectionString = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}Database\Database.mdf;Integrated Security=True",
-            AppDomain.CurrentDomain.BaseDirectory);
+        private static string location =
+            "C:\\Projects\\MealsWheelsCharity\\Cape_Senior_Center_Inventory_System\\Cape_Senior_Center_Inventory_System\\";
+
+        private static string connectionString = string.Format(
+            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}Database\Database.mdf;Integrated Security=True",
+            location);
+        //Database name will be populated when app is running. Undo this. 
+          // AppDomain.CurrentDomain.BaseDirectory);
         public DataContext()
             : base(connectionString)
         {
@@ -20,6 +26,7 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
         public virtual DbSet<ItemCategory> ItemCategories { get; set; }
         public virtual DbSet<Price> Prices { get; set; }
         public virtual DbSet<UnitOfMeasure> UnitOfMeasures{ get; set; }
+        public virtual DbSet<MasterInventory> MasterInventories { get; set; }
     }
 
 }

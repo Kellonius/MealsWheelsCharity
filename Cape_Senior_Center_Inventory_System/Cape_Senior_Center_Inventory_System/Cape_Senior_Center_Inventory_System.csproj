@@ -100,11 +100,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\DataContext.cs" />
     <Compile Include="DataContext\Models\Inventory.cs" />
     <Compile Include="DataContext\Models\Item.cs" />
     <Compile Include="DataContext\Models\Category.cs" />
     <Compile Include="DataContext\Models\ItemCategory.cs" />
+    <Compile Include="DataContext\Models\MasterInventory.cs" />
     <Compile Include="DataContext\Models\Price.cs" />
     <Compile Include="DataContext\Models\UnitOfMeasure.cs" />
     <Compile Include="DTOs\CategoryModel.cs" />
@@ -137,6 +143,14 @@
     <Compile Include="Migrations\201805041854031_InitDatabaseSchema.Designer.cs">
       <DependentUpon>201805041854031_InitDatabaseSchema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809251557282_MasterInventory.cs" />
+    <Compile Include="Migrations\201809251557282_MasterInventory.Designer.cs">
+      <DependentUpon>201809251557282_MasterInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809251604552_MasterInveroymk2.cs" />
+    <Compile Include="Migrations\201809251604552_MasterInveroymk2.Designer.cs">
+      <DependentUpon>201809251604552_MasterInveroymk2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +161,12 @@
     <EmbeddedResource Include="Migrations\201805041854031_InitDatabaseSchema.resx">
       <DependentUpon>201805041854031_InitDatabaseSchema.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809251557282_MasterInventory.resx">
+      <DependentUpon>201809251557282_MasterInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809251604552_MasterInveroymk2.resx">
+      <DependentUpon>201809251604552_MasterInveroymk2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -156,6 +176,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DatabaseDataSet.xsc">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet.xss">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cape_Senior_Center_Inventory_System.DTOs.InventoryModel.datasource" />
     <None Include="Properties\Settings.settings">
