@@ -26,28 +26,7 @@ namespace Cape_Senior_Center_Inventory_System
             MasterList = context.MasterInventories.ToList();
             currentInventoryView.DataSource = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
             masterListView.DataSource = context.MasterInventories.ToList();
-
-            invNotifications.SelectionStart = invNotifications.TextLength;
-            invNotifications.SelectionLength = 0;
-            //call setColors() once you have data from db
-        }
-
-        public void setColors(string item, int amount)
-        {
-            invNotifications.SelectionColor = Color.Black;
-            invNotifications.AppendText(item + ":");
-            var myswitch = new Dictionary<Func<int, bool>, Action>
-            {
-            { x => x == 0 ,    () => invNotifications.SelectionColor = Color.Red},
-            { x => x <= 5 ,    () => invNotifications.SelectionColor = Color.Orange},
-            { x => x <= 10 ,    () => invNotifications.SelectionColor = Color.Gold},
-            };
-
-            myswitch.First(sw => sw.Key(amount)).Value();
-            invNotifications.AppendText(" " + amount.ToString());
-            invNotifications.SelectionColor = Color.Black;
-            invNotifications.AppendText(" left in inventory\n");
-            invNotifications.SelectionColor = invNotifications.ForeColor;
+            setupColors();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,7 +142,26 @@ namespace Cape_Senior_Center_Inventory_System
             {
                 refresh.DataSource = dataSource;
                 refresh.Refresh();
+                setupColors();
             }));
+        }
+
+        private void currentInventoryView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void setupColors()
+        {
+            for (int i = 0; i < currentInventoryView.Rows.Count; i++)
+            {
+                var cell = currentInventoryView.Rows[i].Cells[4];
+                if ((int)cell.Value <= 5)
+                {
+                    cell.Style.ForeColor = Color.Red;
+                    cell.Style.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                }
+            }
         }
     }
 
