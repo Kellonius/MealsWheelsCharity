@@ -1,8 +1,6 @@
 ﻿using Cape_Senior_Center_Inventory_System.Interfaces;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using MongoDB.Driver;
-using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;

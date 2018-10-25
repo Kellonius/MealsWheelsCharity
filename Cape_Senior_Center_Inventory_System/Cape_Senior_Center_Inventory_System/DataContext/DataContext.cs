@@ -27,6 +27,7 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
         public virtual DbSet<Price> Prices { get; set; }
         public virtual DbSet<UnitOfMeasure> UnitOfMeasures{ get; set; }
         public virtual DbSet<MasterInventory> MasterInventories { get; set; }
+        public virtual DbSet<InventoryHistory> InventoryHistory { get; set; }
     }
 
 }
