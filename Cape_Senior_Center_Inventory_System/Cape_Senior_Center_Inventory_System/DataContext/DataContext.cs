@@ -28,6 +28,8 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
         public virtual DbSet<UnitOfMeasure> UnitOfMeasures{ get; set; }
         public virtual DbSet<MasterInventory> MasterInventories { get; set; }
         public virtual DbSet<InventoryHistory> InventoryHistory { get; set; }
+        public virtual DbSet<ItemType> ItemType { get; set; }
+        public virtual DbSet<ItemSubType> ItemSubType { get; set; }
     }
 
 }

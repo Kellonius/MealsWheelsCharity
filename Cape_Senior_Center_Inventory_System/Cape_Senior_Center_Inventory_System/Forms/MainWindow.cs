@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Cape_Senior_Center_Inventory_System.DataContext.Models;
+using Cape_Senior_Center_Inventory_System.Forms;
 
 namespace Cape_Senior_Center_Inventory_System
 {
@@ -15,6 +16,9 @@ namespace Cape_Senior_Center_Inventory_System
         public List<InventoryHistory> InventoryHistory = new List<InventoryHistory>();
         public DataContext.DataContext context = new DataContext.DataContext();
         public int previousUnits = 0;
+        public int editId = 0;
+        public bool masterFilter = false;
+        public List<string> typeFilterIndex;
         public MainWindow(IController controller)
         {
 
@@ -31,6 +35,11 @@ namespace Cape_Senior_Center_Inventory_System
             inventoryHistoryDataGridView.DataSource = context.InventoryHistory.Where(x => x.Updated_TS < DateTime.Now).ToList();
             masterListView.DataSource = context.MasterInventories.ToList();
             setupColors();
+            typeFilterBox.Items.AddRange(context.ItemType.Select(x => x.Description).ToArray());
+            var columnNames = typeof(MasterInventory).GetProperties()
+                .Select(property => property.Name)
+                .ToArray();
+            columnFilter.Items.AddRange(columnNames);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,9 +139,7 @@ namespace Cape_Senior_Center_Inventory_System
                     break;
 
             }
-
-            var id = MasterList[e.RowIndex].Id;
-            addHistory(id, previousUnits);
+            addHistory(editId, previousUnits);
             context.SaveChanges();
             refreshView(currentInventoryView, context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList());
             refreshView(masterListView, context.MasterInventories.ToList());
@@ -155,22 +162,27 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void addRow_Click(object sender, EventArgs e)
         {
-            context.MasterInventories.Add(new MasterInventory()
-            {
-                ItemType = "",
-                Brand = "",
-                SKU = "",
-                UnitsOnHand = 0,
-                ItemName = "",
-                PriceUnit = 0.00,
-                UnitPrice = 0.00,
-                ExtendedPrice = 0.00,
-                Created_TS = DateTime.Now,
-                Updated_TS = DateTime.Now,
-            });
-            context.SaveChanges();
+        //    context.MasterInventories.Add(new MasterInventory()
+        //    {
+        //        ItemType = "",
+        //        Brand = "",
+        //        SKU = "",
+        //        UnitsOnHand = 0,
+        //        ItemName = "",
+        //        PriceUnit = 0.00,
+        //        UnitPrice = 0.00,
+        //        ExtendedPrice = 0.00,
+        //        Created_TS = DateTime.Now,
+        //        Updated_TS = DateTime.Now,
+        //    });
+        //    context.SaveChanges();
+        //    refreshView(masterListView, context.MasterInventories.ToList());
+        //    MasterList = context.MasterInventories.ToList();
+            var popup = new AddInventory();
+            popup.ShowDialog();
+            refreshView(currentInventoryView, context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList());
             refreshView(masterListView, context.MasterInventories.ToList());
-            MasterList = context.MasterInventories.ToList();
+            refreshHistory(inventoryHistoryDataGridView, context.InventoryHistory.Where(x => x.Updated_TS < DateTime.Now).ToList());
         }
 
         private void refreshView(DataGridView refresh, List<MasterInventory> dataSource)
@@ -215,7 +227,66 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void DataGridView2_MasterInventory_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
+            editId = (int)masterListView.Rows[e.RowIndex].Cells[0].Value;
             previousUnits = (int)masterListView.Rows[e.RowIndex].Cells[4].Value;
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            if (!masterFilter)
+            {
+                masterListView.Location = new Point(3, 100);
+                typeLabel.Visible = true;
+                typeFilterBox.Visible = true;
+                termsLabel.Visible = true;
+                termsTextBox.Visible = true;
+                columnFilter.Visible = true;
+                clearButton.Visible = true;          
+                masterFilter = true;
+            }
+            else
+            {
+                masterListView.Location = new Point(3, 43);
+                typeLabel.Visible = false;
+                typeFilterBox.Visible = false;
+                termsLabel.Visible = false;
+                termsTextBox.Visible = false;
+                columnFilter.Visible = false;
+                clearButton.Visible = false;
+                masterFilter = false;
+            }
+
+        }
+
+        private void typeFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshView(masterListView, context.MasterInventories.Where(x => x.ItemType == typeFilterBox.Text).ToList());
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            typeFilterBox.Text = "";
+            termsTextBox.Text = "";
+            columnFilter.Text = "";
+            columnFilter.Enabled = false;
+            refreshView(masterListView, context.MasterInventories.ToList());
+        }
+
+        private void columnFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //refreshView(masterListView, context.MasterInventories.Where(x => x.ItemType == typeFilterBox.Text).ToList());
+        }
+
+        private void termsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (termsTextBox.Text != "")
+            {
+                columnFilter.Enabled = true;
+            }
+            else
+            {
+                columnFilter.Enabled = false;
+            }
         }
     }
 
