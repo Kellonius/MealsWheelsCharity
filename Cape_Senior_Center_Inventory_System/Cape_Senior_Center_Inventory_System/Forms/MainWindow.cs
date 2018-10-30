@@ -1,11 +1,18 @@
 ﻿using Cape_Senior_Center_Inventory_System.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Cape_Senior_Center_Inventory_System.DataContext.Models;
 using Cape_Senior_Center_Inventory_System.Forms;
+using Microsoft.SqlServer.Server;
 
 namespace Cape_Senior_Center_Inventory_System
 {
@@ -19,6 +26,7 @@ namespace Cape_Senior_Center_Inventory_System
         public int editId = 0;
         public bool masterFilter = false;
         public List<string> typeFilterIndex;
+        public string[] columnNames;
         public MainWindow(IController controller)
         {
 
@@ -36,7 +44,7 @@ namespace Cape_Senior_Center_Inventory_System
             masterListView.DataSource = context.MasterInventories.ToList();
             setupColors();
             typeFilterBox.Items.AddRange(context.ItemType.Select(x => x.Description).ToArray());
-            var columnNames = typeof(MasterInventory).GetProperties()
+            columnNames = typeof(MasterInventory).GetProperties()
                 .Select(property => property.Name)
                 .ToArray();
             columnFilter.Items.AddRange(columnNames);
@@ -274,7 +282,45 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void columnFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //refreshView(masterListView, context.MasterInventories.Where(x => x.ItemType == typeFilterBox.Text).ToList());
+            List<MasterInventory> query = new List<MasterInventory>();
+            string caseSwitch = columnFilter.Text;
+            switch(caseSwitch)
+            {
+                case "Id":
+                    query = context.MasterInventories.Where(x => x.Id.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "ItemType":
+                    query = context.MasterInventories.Where(x => x.ItemType.Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "Brand":
+                    query = context.MasterInventories.Where(x => x.Brand.Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "SKU":
+                    query = context.MasterInventories.Where(x => x.SKU.Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "UnitsOnHand":
+                    query = context.MasterInventories.Where(x => x.UnitsOnHand.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "ItemName":
+                    query = context.MasterInventories.Where(x => x.ItemName.Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "PriceUnit":
+                    query = context.MasterInventories.Where(x => x.PriceUnit.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "UnitPrice":
+                    query = context.MasterInventories.Where(x => x.UnitPrice.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "ExtendedPrice":
+                    query = context.MasterInventories.Where(x => x.ExtendedPrice.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "Created_TS":
+                    query = context.MasterInventories.Where(x => x.Created_TS.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+                case "Updated_TS":
+                    query = context.MasterInventories.Where(x => x.Updated_TS.ToString().Contains(termsTextBox.Text)).ToList();
+                    break;
+            }
+            refreshView(masterListView, query);
         }
 
         private void termsTextBox_TextChanged(object sender, EventArgs e)
