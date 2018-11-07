@@ -118,6 +118,7 @@
     <Compile Include="DataContext\Models\ItemType.cs" />
     <Compile Include="DataContext\Models\MasterInventory.cs" />
     <Compile Include="DataContext\Models\Price.cs" />
+    <Compile Include="DataContext\Models\ReconciliationModel.cs" />
     <Compile Include="DataContext\Models\UnitOfMeasure.cs" />
     <Compile Include="DTOs\CategoryModel.cs" />
     <Compile Include="DTOs\InventoryModel.cs" />
@@ -179,6 +180,10 @@
     <Compile Include="Migrations\201810291944211_update-databae.Designer.cs">
       <DependentUpon>201810291944211_update-databae.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811062019468_AddedCurrentPrice.cs" />
+    <Compile Include="Migrations\201811062019468_AddedCurrentPrice.Designer.cs">
+      <DependentUpon>201811062019468_AddedCurrentPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810291944211_update-databae.resx">
       <DependentUpon>201810291944211_update-databae.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811062019468_AddedCurrentPrice.resx">
+      <DependentUpon>201811062019468_AddedCurrentPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

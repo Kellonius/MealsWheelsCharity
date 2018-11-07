@@ -70,6 +70,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             {
                 ItemId = Convert.ToInt32(data),
                 ItemName = itemNameBox.Text,
+                CurrentPrice = Convert.ToDouble(unitPriceBox.Text),
                 PreviousUnitsOnHand = 0,
                 NewUnitsOnHand = Convert.ToInt32(unitsTextBox.Text),
                 Updated_TS = DateTime.Now

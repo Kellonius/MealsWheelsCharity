@@ -13,6 +13,7 @@ namespace Cape_Senior_Center_Inventory_System.DataContext.Models
             public int Id { get; set; }
             public int ItemId { get; set; }
             public string ItemName { get; set; }
+            public double CurrentPrice { get; set; }
             public int PreviousUnitsOnHand { get; set; }
             public int NewUnitsOnHand { get; set; }
             public DateTime Updated_TS { get; set; }

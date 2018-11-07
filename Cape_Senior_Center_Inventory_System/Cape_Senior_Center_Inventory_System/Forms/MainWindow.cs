@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.Drawing;
+using System.Drawing.Configuration;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
@@ -25,6 +26,7 @@ namespace Cape_Senior_Center_Inventory_System
         public int previousUnits = 0;
         public int editId = 0;
         public bool masterFilter = false;
+        public bool currentFilter = false;
         public List<string> typeFilterIndex;
         public string[] columnNames;
         public MainWindow(IController controller)
@@ -43,30 +45,19 @@ namespace Cape_Senior_Center_Inventory_System
             inventoryHistoryDataGridView.DataSource = context.InventoryHistory.Where(x => x.Updated_TS < DateTime.Now).ToList();
             masterListView.DataSource = context.MasterInventories.ToList();
             setupColors();
-            typeFilterBox.Items.AddRange(context.ItemType.Select(x => x.Description).ToArray());
+            var typeFilters = context.ItemType.Select(x => x.Description).ToArray();
+            typeFilterBox.Items.AddRange(typeFilters);
+            currentTypeDropdown.Items.AddRange(typeFilters);
             columnNames = typeof(MasterInventory).GetProperties()
                 .Select(property => property.Name)
                 .ToArray();
             columnFilter.Items.AddRange(columnNames);
+            currentColumnFilter.Items.AddRange(columnNames);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void inventoryHistoryStartDatePicker_ValueChanged(object sender, EventArgs e)
@@ -160,6 +151,7 @@ namespace Cape_Senior_Center_Inventory_System
             {
                 ItemId = data[0].Id,
                 ItemName = data[0].ItemName,
+                CurrentPrice = data[0].UnitPrice,
                 PreviousUnitsOnHand = previousUnits,
                 NewUnitsOnHand = data[0].UnitsOnHand,
                 Updated_TS = DateTime.Now
@@ -170,22 +162,6 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void addRow_Click(object sender, EventArgs e)
         {
-        //    context.MasterInventories.Add(new MasterInventory()
-        //    {
-        //        ItemType = "",
-        //        Brand = "",
-        //        SKU = "",
-        //        UnitsOnHand = 0,
-        //        ItemName = "",
-        //        PriceUnit = 0.00,
-        //        UnitPrice = 0.00,
-        //        ExtendedPrice = 0.00,
-        //        Created_TS = DateTime.Now,
-        //        Updated_TS = DateTime.Now,
-        //    });
-        //    context.SaveChanges();
-        //    refreshView(masterListView, context.MasterInventories.ToList());
-        //    MasterList = context.MasterInventories.ToList();
             var popup = new AddInventory();
             popup.ShowDialog();
             refreshView(currentInventoryView, context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList());
@@ -228,11 +204,6 @@ namespace Cape_Senior_Center_Inventory_System
             }
         }
 
-        private void inventoryHistoryDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void DataGridView2_MasterInventory_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             editId = (int)masterListView.Rows[e.RowIndex].Cells[0].Value;
@@ -249,7 +220,7 @@ namespace Cape_Senior_Center_Inventory_System
                 termsLabel.Visible = true;
                 termsTextBox.Visible = true;
                 columnFilter.Visible = true;
-                clearButton.Visible = true;          
+                clearButton.Visible = true;
                 masterFilter = true;
             }
             else
@@ -283,42 +254,12 @@ namespace Cape_Senior_Center_Inventory_System
         private void columnFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<MasterInventory> query = new List<MasterInventory>();
-            string caseSwitch = columnFilter.Text;
-            switch(caseSwitch)
+            foreach (var x in context.MasterInventories)
             {
-                case "Id":
-                    query = context.MasterInventories.Where(x => x.Id.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "ItemType":
-                    query = context.MasterInventories.Where(x => x.ItemType.Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "Brand":
-                    query = context.MasterInventories.Where(x => x.Brand.Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "SKU":
-                    query = context.MasterInventories.Where(x => x.SKU.Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "UnitsOnHand":
-                    query = context.MasterInventories.Where(x => x.UnitsOnHand.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "ItemName":
-                    query = context.MasterInventories.Where(x => x.ItemName.Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "PriceUnit":
-                    query = context.MasterInventories.Where(x => x.PriceUnit.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "UnitPrice":
-                    query = context.MasterInventories.Where(x => x.UnitPrice.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "ExtendedPrice":
-                    query = context.MasterInventories.Where(x => x.ExtendedPrice.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "Created_TS":
-                    query = context.MasterInventories.Where(x => x.Created_TS.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
-                case "Updated_TS":
-                    query = context.MasterInventories.Where(x => x.Updated_TS.ToString().Contains(termsTextBox.Text)).ToList();
-                    break;
+                if (x.GetType().GetProperty(columnFilter.Text).GetValue(x).ToString().ToLower().Contains(termsTextBox.Text.ToLower()))
+                {
+                    query.Add(x);
+                }
             }
             refreshView(masterListView, query);
         }
@@ -334,7 +275,159 @@ namespace Cape_Senior_Center_Inventory_System
                 columnFilter.Enabled = false;
             }
         }
-    }
 
-    // TODO: Pricing Logic 
+        private void currentFilterButton_Click(object sender, EventArgs e)
+        {
+            if (!currentFilter)
+            {
+                currentInventoryView.Location = new Point(3, 100);
+                currentTypeLabel.Visible = true;
+                currentTypeDropdown.Visible = true;
+                currentTermsLabel.Visible = true;
+                currentTextbox.Visible = true;
+                currentColumnFilter.Visible = true;
+                currentClear.Visible = true;
+                currentFilter = true;
+            }
+            else
+            {
+                currentInventoryView.Location = new Point(3, 43);
+                currentTypeLabel.Visible = false;
+                currentTypeDropdown.Visible = false;
+                currentTermsLabel.Visible = false;
+                currentTextbox.Visible = false;
+                currentColumnFilter.Visible = false;
+                currentClear.Visible = false;
+                currentFilter = false;
+            }
+
+        }
+
+        private void currentClear_Click(object sender, EventArgs e)
+        {
+            currentTypeDropdown.Text = "";
+            currentTextbox.Text = "";
+            currentColumnFilter.Text = "";
+            currentColumnFilter.Enabled = false;
+            refreshView(currentInventoryView, context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList());
+        }
+
+        private void currentTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (currentTextbox.Text != "")
+            {
+                currentColumnFilter.Enabled = true;
+            }
+            else
+            {
+                currentColumnFilter.Enabled = false;
+            }
+        }
+
+        private void currentColumnFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<MasterInventory> query = new List<MasterInventory>();
+            foreach (var x in context.MasterInventories)
+            {
+                if (x.GetType().GetProperty(currentColumnFilter.Text).GetValue(x).ToString().ToLower().Contains(currentTextbox.Text.ToLower()) && x.UnitsOnHand > 0)
+                {
+                    query.Add(x);
+                }
+            }
+            refreshView(currentInventoryView, query);
+        }
+
+        private void currentTypeDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshView(currentInventoryView, context.MasterInventories.Where(x => x.ItemType == currentTypeDropdown.Text && x.UnitsOnHand > 0).ToList());
+        }
+
+        private void masterEditButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            //clear the text box
+            reportTextBox.Text = string.Empty;
+            //get the dates and set them to midnight
+            var endDate = endDatePicker.Value.Date.AddDays(1);
+            var startdate = startDatePicker.Value.Date;
+            //get the inventory history for reconciliation
+            List<InventoryHistory> dataToReconcile = context.InventoryHistory
+                .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate).ToList()
+                .OrderBy(x => x.Updated_TS.Date).ThenBy(x =>x.ItemId).ToList();
+
+            //var dateIndex = startDatePicker.Value;
+            DateTime? dateIndex = startDatePicker.Value.Date;
+            //itemId, itemName, runningAmount, unitPrice, Total
+            Dictionary<int, ReconciliationModel> recDict = new Dictionary<int, ReconciliationModel>();
+            var netAmount = 0;
+
+            if (dataToReconcile.Count == 0)
+            {
+                return;
+            }
+            foreach (var x in dataToReconcile)
+            {
+
+                if (x.Updated_TS.Date != dateIndex)
+                {
+                    if (dateIndex != null)
+                    {
+                        reportTextBox.AppendText(dateIndex.Value.DayOfWeek + ", " + dateIndex.Value.ToShortDateString() + "\n");
+                        
+                        foreach (var z in recDict)
+                        {
+                            reportTextBox.AppendText(z.Value.ItemName + "\t" + z.Value.RunningAmount + " @ " + z.Value.UnitPrice + " = $" + z.Value.Total + "\n");
+                        }
+                        reportTextBox.AppendText("\n");
+                    }
+                    // Output Header for Date
+                    recDict = new Dictionary<int, ReconciliationModel>();
+                    dateIndex = x.Updated_TS.Date;
+                }
+
+                if (!recDict.ContainsKey(x.ItemId))
+                {
+                    recDict.Add(x.ItemId,new ReconciliationModel
+                    {
+                        ItemId = x.ItemId,
+                        ItemName = x.ItemName,
+                        RunningAmount = 0,
+                        UnitPrice = x.CurrentPrice,
+                        Total = 0
+                    });
+                }
+
+                netAmount = x.NewUnitsOnHand - x.PreviousUnitsOnHand;
+                recDict[x.ItemId].RunningAmount += netAmount;
+                recDict[x.ItemId].Total += (netAmount * x.CurrentPrice);
+            }
+            
+            reportTextBox.AppendText(dateIndex.Value.DayOfWeek + ", " + dateIndex.Value.ToShortDateString() + "\n");
+            foreach (var z in recDict)
+            {
+                reportTextBox.AppendText(z.Value.ItemName + "\t" + z.Value.RunningAmount + " @ " + z.Value.UnitPrice + " = $" + z.Value.Total + "\n");
+            }
+
+            reportTextBox.AppendText("\n");
+
+            var count = 0;
+            foreach (var y in reportTextBox.Lines)
+            {
+                if (count == 0)
+                {
+                    reportTextBox.Select(0, reportTextBox.Lines[0].Length);
+                    reportTextBox.SelectionFont = new Font("Arial", 16, FontStyle.Underline);
+                } else if (y.Contains("Monday") || y.Contains("Tuesday")|| y.Contains("Wednesday") || y.Contains("Thursday") || y.Contains("Friday") || y.Contains("Saturday") ||y.Contains("Sunday"))
+                {
+                    reportTextBox.Select(reportTextBox.GetFirstCharIndexFromLine(count), reportTextBox.GetFirstCharIndexFromLine(count+1) - reportTextBox.GetFirstCharIndexFromLine(count));
+                    reportTextBox.SelectionFont = new Font("Arial", 16, FontStyle.Underline);
+                }
+                count++;
+            }
+        }
+    }
 }

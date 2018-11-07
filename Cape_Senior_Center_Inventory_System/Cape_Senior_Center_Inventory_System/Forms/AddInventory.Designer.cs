@@ -66,7 +66,7 @@
             this.label1.Location = new System.Drawing.Point(6, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 13;
             this.label1.Text = "Item Type:";
             // 
             // itemTypeBox
@@ -75,7 +75,7 @@
             this.itemTypeBox.Location = new System.Drawing.Point(68, 23);
             this.itemTypeBox.Name = "itemTypeBox";
             this.itemTypeBox.Size = new System.Drawing.Size(121, 21);
-            this.itemTypeBox.TabIndex = 1;
+            this.itemTypeBox.TabIndex = 0;
             this.itemTypeBox.SelectedIndexChanged += new System.EventHandler(this.itemTypeBox_SelectedIndexChanged);
             // 
             // label2
@@ -84,7 +84,7 @@
             this.label2.Location = new System.Drawing.Point(24, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 17;
             this.label2.Text = "Brand:";
             // 
             // brandTextBox
@@ -92,7 +92,7 @@
             this.brandTextBox.Location = new System.Drawing.Point(68, 39);
             this.brandTextBox.Name = "brandTextBox";
             this.brandTextBox.Size = new System.Drawing.Size(121, 20);
-            this.brandTextBox.TabIndex = 3;
+            this.brandTextBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -100,7 +100,7 @@
             this.label3.Location = new System.Drawing.Point(30, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 18;
             this.label3.Text = "SKU:";
             // 
             // skuTextBox
@@ -108,7 +108,7 @@
             this.skuTextBox.Location = new System.Drawing.Point(68, 65);
             this.skuTextBox.Name = "skuTextBox";
             this.skuTextBox.Size = new System.Drawing.Size(121, 20);
-            this.skuTextBox.TabIndex = 5;
+            this.skuTextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -116,7 +116,7 @@
             this.label4.Location = new System.Drawing.Point(6, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 16;
             this.label4.Text = "Item Name:";
             // 
             // itemNameBox
@@ -124,7 +124,7 @@
             this.itemNameBox.Location = new System.Drawing.Point(68, 13);
             this.itemNameBox.Name = "itemNameBox";
             this.itemNameBox.Size = new System.Drawing.Size(121, 20);
-            this.itemNameBox.TabIndex = 7;
+            this.itemNameBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -132,7 +132,7 @@
             this.label5.Location = new System.Drawing.Point(7, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
-            this.label5.TabIndex = 8;
+            this.label5.TabIndex = 20;
             this.label5.Text = "Units On Hand:";
             // 
             // unitsTextBox
@@ -140,7 +140,7 @@
             this.unitsTextBox.Location = new System.Drawing.Point(99, 19);
             this.unitsTextBox.Name = "unitsTextBox";
             this.unitsTextBox.Size = new System.Drawing.Size(100, 20);
-            this.unitsTextBox.TabIndex = 9;
+            this.unitsTextBox.TabIndex = 2;
             // 
             // label6
             // 
@@ -148,7 +148,7 @@
             this.label6.Location = new System.Drawing.Point(6, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 13);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 21;
             this.label6.Text = "Unit Of Measure:";
             // 
             // uomBox
@@ -156,7 +156,7 @@
             this.uomBox.Location = new System.Drawing.Point(99, 45);
             this.uomBox.Name = "uomBox";
             this.uomBox.Size = new System.Drawing.Size(100, 20);
-            this.uomBox.TabIndex = 11;
+            this.uomBox.TabIndex = 3;
             // 
             // label7
             // 
@@ -164,7 +164,7 @@
             this.label7.Location = new System.Drawing.Point(6, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 12;
+            this.label7.TabIndex = 23;
             this.label7.Text = "Price Unit:";
             // 
             // priceUnitBox
@@ -172,7 +172,7 @@
             this.priceUnitBox.Location = new System.Drawing.Point(68, 19);
             this.priceUnitBox.Name = "priceUnitBox";
             this.priceUnitBox.Size = new System.Drawing.Size(127, 20);
-            this.priceUnitBox.TabIndex = 13;
+            this.priceUnitBox.TabIndex = 7;
             // 
             // label8
             // 
@@ -180,7 +180,7 @@
             this.label8.Location = new System.Drawing.Point(7, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 14;
+            this.label8.TabIndex = 24;
             this.label8.Text = "Unit Price:";
             // 
             // unitPriceBox
@@ -188,7 +188,7 @@
             this.unitPriceBox.Location = new System.Drawing.Point(70, 45);
             this.unitPriceBox.Name = "unitPriceBox";
             this.unitPriceBox.Size = new System.Drawing.Size(125, 20);
-            this.unitPriceBox.TabIndex = 15;
+            this.unitPriceBox.TabIndex = 8;
             // 
             // label9
             // 
@@ -196,7 +196,7 @@
             this.label9.Location = new System.Drawing.Point(5, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 13);
-            this.label9.TabIndex = 16;
+            this.label9.TabIndex = 25;
             this.label9.Text = "Extended Price:";
             // 
             // exPriceBox
@@ -204,14 +204,14 @@
             this.exPriceBox.Location = new System.Drawing.Point(95, 72);
             this.exPriceBox.Name = "exPriceBox";
             this.exPriceBox.Size = new System.Drawing.Size(100, 20);
-            this.exPriceBox.TabIndex = 17;
+            this.exPriceBox.TabIndex = 9;
             // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(208, 316);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 18;
+            this.addButton.TabIndex = 10;
             this.addButton.Text = "Add Item";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -221,7 +221,7 @@
             this.cancelButton.Location = new System.Drawing.Point(384, 316);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 19;
+            this.cancelButton.TabIndex = 11;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -232,7 +232,7 @@
             this.label10.Location = new System.Drawing.Point(7, 53);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 13);
-            this.label10.TabIndex = 20;
+            this.label10.TabIndex = 14;
             this.label10.Text = "Sub-Type:";
             // 
             // subTypeBox
@@ -242,7 +242,7 @@
             this.subTypeBox.Location = new System.Drawing.Point(68, 50);
             this.subTypeBox.Name = "subTypeBox";
             this.subTypeBox.Size = new System.Drawing.Size(121, 21);
-            this.subTypeBox.TabIndex = 21;
+            this.subTypeBox.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -253,7 +253,7 @@
             this.groupBox1.Location = new System.Drawing.Point(83, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 85);
-            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Type Information";
             // 
@@ -268,7 +268,7 @@
             this.groupBox2.Location = new System.Drawing.Point(384, 190);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(210, 100);
-            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Price Control";
             // 
@@ -283,7 +283,7 @@
             this.groupBox3.Location = new System.Drawing.Point(83, 190);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 100);
-            this.groupBox3.TabIndex = 24;
+            this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Item Information";
             // 
@@ -296,7 +296,7 @@
             this.groupBox4.Location = new System.Drawing.Point(384, 63);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(210, 85);
-            this.groupBox4.TabIndex = 25;
+            this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Inventory Control";
             // 
