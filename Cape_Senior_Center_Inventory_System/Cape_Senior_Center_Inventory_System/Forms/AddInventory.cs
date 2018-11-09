@@ -19,29 +19,40 @@ namespace Cape_Senior_Center_Inventory_System.Forms
 
         public List<MasterInventory> MasterList = new List<MasterInventory>();
         public List<InventoryHistory> InventoryHistory = new List<InventoryHistory>();
+        public MasterInventory lineItem = new MasterInventory();
         public DataContext.DataContext context = new DataContext.DataContext();
+        public bool editMode = false;
+        public int previousUnits = 0;
 
-
+        public AddInventory()
+        {
+            InitializeComponent();
+        }
         private void AddInventory_Load(object sender, EventArgs e)
         {
             MasterList = context.MasterInventories.ToList();
             InventoryHistory = context.InventoryHistory.ToList();
             itemTypeBox.Items.AddRange(context.ItemType.Select(x => x.Description).ToArray());
         }
-        public AddInventory()
-        {
-            InitializeComponent();
-        }
 
-        private void addButton_Click(object sender, EventArgs e)
+        #region Helper Methods
+        public void prepareEdit(int id)
         {
-            addItem();
-            this.Dispose();
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
+            lineItem = context.MasterInventories.Where(x => x.Id == id).FirstOrDefault();
+            itemTypeBox.Text = lineItem.ItemType;
+            brandTextBox.Text = lineItem.Brand;
+            skuTextBox.Text = lineItem.SKU;
+            unitsTextBox.Text = lineItem.UnitsOnHand.ToString();
+            itemNameBox.Text = lineItem.ItemName;
+            priceUnitBox.Text = lineItem.PriceUnit.ToString();
+            unitPriceBox.Text = lineItem.UnitPrice.ToString();
+            exPriceBox.Text = lineItem.ExtendedPrice.ToString();
+            subTypeBox.Enabled = true;
+            subTypeBox.Text = lineItem.SubType;
+            uomBox.Text = lineItem.UnitOfMeasure;
+            editMode = true;
+            addButton.Text = "Edit";
+            previousUnits = lineItem.UnitsOnHand;
         }
 
         private void addItem()
@@ -49,6 +60,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             context.MasterInventories.Add(new MasterInventory()
             {
                 ItemType = itemTypeBox.Text,
+                SubType = subTypeBox.Text,
                 Brand = brandTextBox.Text,
                 SKU = skuTextBox.Text,
                 UnitsOnHand = Convert.ToInt32(unitsTextBox.Text),
@@ -56,14 +68,15 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 PriceUnit = Convert.ToDouble(priceUnitBox.Text),
                 UnitPrice = Convert.ToDouble(unitPriceBox.Text),
                 ExtendedPrice = Convert.ToDouble(exPriceBox.Text),
+                UnitOfMeasure = uomBox.Text,
                 Created_TS = DateTime.Now,
                 Updated_TS = DateTime.Now,
             });
             context.SaveChanges();
-            addHistory();
+            addHistory(previousUnits);
         }
 
-        private void addHistory()
+        private void addHistory(int prevUnits)
         {
             var data = context.MasterInventories.OrderByDescending(x => x.Id).Select(x => x.Id).First().ToString();
             context.InventoryHistory.Add(new InventoryHistory()
@@ -71,12 +84,43 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 ItemId = Convert.ToInt32(data),
                 ItemName = itemNameBox.Text,
                 CurrentPrice = Convert.ToDouble(unitPriceBox.Text),
-                PreviousUnitsOnHand = 0,
+                PreviousUnitsOnHand = prevUnits,
                 NewUnitsOnHand = Convert.ToInt32(unitsTextBox.Text),
                 Updated_TS = DateTime.Now
             });
             context.SaveChanges();
+        }
+        #endregion
 
+        #region Button Clicks and Dropdowns
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            if (editMode)
+            {
+                lineItem.ItemType = itemTypeBox.Text;
+                lineItem.SubType = subTypeBox.Text;
+                lineItem.Brand = brandTextBox.Text;
+                lineItem.SKU = skuTextBox.Text;
+                lineItem.UnitsOnHand = Convert.ToInt32(unitsTextBox.Text);
+                lineItem.ItemName = itemNameBox.Text;
+                lineItem.PriceUnit = Convert.ToDouble(priceUnitBox.Text);
+                lineItem.UnitPrice = Convert.ToDouble(unitPriceBox.Text);
+                lineItem.ExtendedPrice = Convert.ToDouble(exPriceBox.Text);
+                lineItem.UnitOfMeasure = uomBox.Text;
+                lineItem.Updated_TS = DateTime.Now;
+                context.SaveChanges();
+                addHistory(previousUnits);
+            }
+            else
+            {
+                addItem();
+            }
+
+            this.Dispose();
+        }
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
 
         private void itemTypeBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,6 +147,6 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 subTypeBox.Items.AddRange(twoIndex.ToArray());
             }
         }
-
+        #endregion
     }
 }

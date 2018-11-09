@@ -81,6 +81,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
+            this.reportTextBox = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.generateButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -98,18 +99,8 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTypeDropdown = new System.Windows.Forms.ComboBox();
             this.currentTypeLabel = new System.Windows.Forms.Label();
             this.currentInventoryView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sKUDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitsOnHandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.extendedPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdTSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedTSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.currentEditButton = new System.Windows.Forms.Button();
             this.currentFilterButton = new System.Windows.Forms.Button();
             this.currentAddButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -121,26 +112,16 @@ namespace Cape_Senior_Center_Inventory_System
             this.typeFilterBox = new System.Windows.Forms.ComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
             this.masterListView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sKUDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitsOnHandDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.extendedPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdTSDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedTSDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.masterEditButton = new System.Windows.Forms.Button();
             this.filterButton = new System.Windows.Forms.Button();
             this.addRow = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.reportTextBox = new System.Windows.Forms.RichTextBox();
+            this.masterInventoriesTableAdapter1 = new Cape_Senior_Center_Inventory_System.DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter();
             this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
+            this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterInventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -185,6 +166,7 @@ namespace Cape_Senior_Center_Inventory_System
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addItemToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -193,7 +175,7 @@ namespace Cape_Senior_Center_Inventory_System
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -558,6 +540,17 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
             // 
+            // reportTextBox
+            // 
+            this.reportTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.reportTextBox.Location = new System.Drawing.Point(0, 58);
+            this.reportTextBox.Name = "reportTextBox";
+            this.reportTextBox.ReadOnly = true;
+            this.reportTextBox.Size = new System.Drawing.Size(979, 571);
+            this.reportTextBox.TabIndex = 1;
+            this.reportTextBox.Text = "";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.generateButton);
@@ -736,7 +729,6 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lavender;
             this.currentInventoryView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.currentInventoryView.AutoGenerateColumns = false;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -746,19 +738,6 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.currentInventoryView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.currentInventoryView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.currentInventoryView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.itemTypeDataGridViewTextBoxColumn,
-            this.brandDataGridViewTextBoxColumn,
-            this.sKUDataGridViewTextBoxColumn,
-            this.unitsOnHandDataGridViewTextBoxColumn,
-            this.itemNameDataGridViewTextBoxColumn,
-            this.priceUnitDataGridViewTextBoxColumn,
-            this.unitPriceDataGridViewTextBoxColumn,
-            this.extendedPriceDataGridViewTextBoxColumn,
-            this.createdTSDataGridViewTextBoxColumn,
-            this.updatedTSDataGridViewTextBoxColumn});
-            this.currentInventoryView.DataSource = this.masterInventoriesBindingSource;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -770,7 +749,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentInventoryView.Location = new System.Drawing.Point(3, 43);
             this.currentInventoryView.Margin = new System.Windows.Forms.Padding(2);
             this.currentInventoryView.Name = "currentInventoryView";
-            this.currentInventoryView.ReadOnly = true;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -782,99 +760,13 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentInventoryView.RowTemplate.Height = 24;
             this.currentInventoryView.Size = new System.Drawing.Size(978, 588);
             this.currentInventoryView.TabIndex = 4;
-            this.currentInventoryView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView2_MasterInventory_CellBeginEdit);
+            this.currentInventoryView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.currentInventoryView_CellBeginEdit);
+            this.currentInventoryView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentInventoryView_CellClick);
             this.currentInventoryView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2_CurrentInventory_EndEdit);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 41;
-            // 
-            // itemTypeDataGridViewTextBoxColumn
-            // 
-            this.itemTypeDataGridViewTextBoxColumn.DataPropertyName = "ItemType";
-            this.itemTypeDataGridViewTextBoxColumn.HeaderText = "ItemType";
-            this.itemTypeDataGridViewTextBoxColumn.Name = "itemTypeDataGridViewTextBoxColumn";
-            this.itemTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemTypeDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
-            this.brandDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // sKUDataGridViewTextBoxColumn
-            // 
-            this.sKUDataGridViewTextBoxColumn.DataPropertyName = "SKU";
-            this.sKUDataGridViewTextBoxColumn.HeaderText = "SKU";
-            this.sKUDataGridViewTextBoxColumn.Name = "sKUDataGridViewTextBoxColumn";
-            this.sKUDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sKUDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // unitsOnHandDataGridViewTextBoxColumn
-            // 
-            this.unitsOnHandDataGridViewTextBoxColumn.DataPropertyName = "UnitsOnHand";
-            this.unitsOnHandDataGridViewTextBoxColumn.HeaderText = "UnitsOnHand";
-            this.unitsOnHandDataGridViewTextBoxColumn.Name = "unitsOnHandDataGridViewTextBoxColumn";
-            this.unitsOnHandDataGridViewTextBoxColumn.ReadOnly = true;
-            this.unitsOnHandDataGridViewTextBoxColumn.Width = 96;
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemNameDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // priceUnitDataGridViewTextBoxColumn
-            // 
-            this.priceUnitDataGridViewTextBoxColumn.DataPropertyName = "PriceUnit";
-            this.priceUnitDataGridViewTextBoxColumn.HeaderText = "PriceUnit";
-            this.priceUnitDataGridViewTextBoxColumn.Name = "priceUnitDataGridViewTextBoxColumn";
-            this.priceUnitDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceUnitDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            this.unitPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.unitPriceDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // extendedPriceDataGridViewTextBoxColumn
-            // 
-            this.extendedPriceDataGridViewTextBoxColumn.DataPropertyName = "ExtendedPrice";
-            this.extendedPriceDataGridViewTextBoxColumn.HeaderText = "ExtendedPrice";
-            this.extendedPriceDataGridViewTextBoxColumn.Name = "extendedPriceDataGridViewTextBoxColumn";
-            this.extendedPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.extendedPriceDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // createdTSDataGridViewTextBoxColumn
-            // 
-            this.createdTSDataGridViewTextBoxColumn.DataPropertyName = "Created_TS";
-            this.createdTSDataGridViewTextBoxColumn.HeaderText = "Created_TS";
-            this.createdTSDataGridViewTextBoxColumn.Name = "createdTSDataGridViewTextBoxColumn";
-            this.createdTSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdTSDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // updatedTSDataGridViewTextBoxColumn
-            // 
-            this.updatedTSDataGridViewTextBoxColumn.DataPropertyName = "Updated_TS";
-            this.updatedTSDataGridViewTextBoxColumn.HeaderText = "Updated_TS";
-            this.updatedTSDataGridViewTextBoxColumn.Name = "updatedTSDataGridViewTextBoxColumn";
-            this.updatedTSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.updatedTSDataGridViewTextBoxColumn.Width = 93;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.currentEditButton);
             this.panel1.Controls.Add(this.currentFilterButton);
             this.panel1.Controls.Add(this.currentAddButton);
             this.panel1.Controls.Add(this.label4);
@@ -883,6 +775,16 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(978, 40);
             this.panel1.TabIndex = 6;
+            // 
+            // currentEditButton
+            // 
+            this.currentEditButton.Location = new System.Drawing.Point(121, 12);
+            this.currentEditButton.Name = "currentEditButton";
+            this.currentEditButton.Size = new System.Drawing.Size(75, 23);
+            this.currentEditButton.TabIndex = 11;
+            this.currentEditButton.Text = "Edit";
+            this.currentEditButton.UseVisualStyleBackColor = true;
+            this.currentEditButton.Click += new System.EventHandler(this.currentEditButton_Click);
             // 
             // currentFilterButton
             // 
@@ -998,7 +900,6 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.Lavender;
             this.masterListView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.masterListView.AutoGenerateColumns = false;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1008,20 +909,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.masterListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.masterListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.masterListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.itemTypeDataGridViewTextBoxColumn1,
-            this.brandDataGridViewTextBoxColumn1,
-            this.sKUDataGridViewTextBoxColumn1,
-            this.unitsOnHandDataGridViewTextBoxColumn1,
-            this.itemNameDataGridViewTextBoxColumn1,
-            this.priceUnitDataGridViewTextBoxColumn1,
-            this.unitPriceDataGridViewTextBoxColumn1,
-            this.extendedPriceDataGridViewTextBoxColumn1,
-            this.createdTSDataGridViewTextBoxColumn1,
-            this.updatedTSDataGridViewTextBoxColumn1});
             this.masterListView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.masterListView.DataSource = this.masterInventoriesBindingSource;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1046,95 +934,8 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterListView.Size = new System.Drawing.Size(978, 588);
             this.masterListView.TabIndex = 6;
             this.masterListView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView2_MasterInventory_CellBeginEdit);
+            this.masterListView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.masterListView_CellClick);
             this.masterListView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2_MasterInventory_EndEdit);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // itemTypeDataGridViewTextBoxColumn1
-            // 
-            this.itemTypeDataGridViewTextBoxColumn1.DataPropertyName = "ItemType";
-            this.itemTypeDataGridViewTextBoxColumn1.HeaderText = "ItemType";
-            this.itemTypeDataGridViewTextBoxColumn1.Name = "itemTypeDataGridViewTextBoxColumn1";
-            this.itemTypeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.itemTypeDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // brandDataGridViewTextBoxColumn1
-            // 
-            this.brandDataGridViewTextBoxColumn1.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn1.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn1.Name = "brandDataGridViewTextBoxColumn1";
-            this.brandDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.brandDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // sKUDataGridViewTextBoxColumn1
-            // 
-            this.sKUDataGridViewTextBoxColumn1.DataPropertyName = "SKU";
-            this.sKUDataGridViewTextBoxColumn1.HeaderText = "SKU";
-            this.sKUDataGridViewTextBoxColumn1.Name = "sKUDataGridViewTextBoxColumn1";
-            this.sKUDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.sKUDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // unitsOnHandDataGridViewTextBoxColumn1
-            // 
-            this.unitsOnHandDataGridViewTextBoxColumn1.DataPropertyName = "UnitsOnHand";
-            this.unitsOnHandDataGridViewTextBoxColumn1.HeaderText = "UnitsOnHand";
-            this.unitsOnHandDataGridViewTextBoxColumn1.Name = "unitsOnHandDataGridViewTextBoxColumn1";
-            this.unitsOnHandDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.unitsOnHandDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // itemNameDataGridViewTextBoxColumn1
-            // 
-            this.itemNameDataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn1.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn1.Name = "itemNameDataGridViewTextBoxColumn1";
-            this.itemNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.itemNameDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // priceUnitDataGridViewTextBoxColumn1
-            // 
-            this.priceUnitDataGridViewTextBoxColumn1.DataPropertyName = "PriceUnit";
-            this.priceUnitDataGridViewTextBoxColumn1.HeaderText = "PriceUnit";
-            this.priceUnitDataGridViewTextBoxColumn1.Name = "priceUnitDataGridViewTextBoxColumn1";
-            this.priceUnitDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.priceUnitDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // unitPriceDataGridViewTextBoxColumn1
-            // 
-            this.unitPriceDataGridViewTextBoxColumn1.DataPropertyName = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn1.HeaderText = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn1.Name = "unitPriceDataGridViewTextBoxColumn1";
-            this.unitPriceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.unitPriceDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // extendedPriceDataGridViewTextBoxColumn1
-            // 
-            this.extendedPriceDataGridViewTextBoxColumn1.DataPropertyName = "ExtendedPrice";
-            this.extendedPriceDataGridViewTextBoxColumn1.HeaderText = "ExtendedPrice";
-            this.extendedPriceDataGridViewTextBoxColumn1.Name = "extendedPriceDataGridViewTextBoxColumn1";
-            this.extendedPriceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.extendedPriceDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // createdTSDataGridViewTextBoxColumn1
-            // 
-            this.createdTSDataGridViewTextBoxColumn1.DataPropertyName = "Created_TS";
-            this.createdTSDataGridViewTextBoxColumn1.HeaderText = "Created_TS";
-            this.createdTSDataGridViewTextBoxColumn1.Name = "createdTSDataGridViewTextBoxColumn1";
-            this.createdTSDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.createdTSDataGridViewTextBoxColumn1.Width = 85;
-            // 
-            // updatedTSDataGridViewTextBoxColumn1
-            // 
-            this.updatedTSDataGridViewTextBoxColumn1.DataPropertyName = "Updated_TS";
-            this.updatedTSDataGridViewTextBoxColumn1.HeaderText = "Updated_TS";
-            this.updatedTSDataGridViewTextBoxColumn1.Name = "updatedTSDataGridViewTextBoxColumn1";
-            this.updatedTSDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.updatedTSDataGridViewTextBoxColumn1.Width = 85;
             // 
             // panel2
             // 
@@ -1202,16 +1003,9 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.Size = new System.Drawing.Size(1000, 686);
             this.tabControl1.TabIndex = 1;
             // 
-            // reportTextBox
+            // masterInventoriesTableAdapter1
             // 
-            this.reportTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.reportTextBox.Location = new System.Drawing.Point(0, 58);
-            this.reportTextBox.Name = "reportTextBox";
-            this.reportTextBox.ReadOnly = true;
-            this.reportTextBox.Size = new System.Drawing.Size(979, 571);
-            this.reportTextBox.TabIndex = 1;
-            this.reportTextBox.Text = "";
+            this.masterInventoriesTableAdapter1.ClearBeforeFill = true;
             // 
             // bsMasterInventory
             // 
@@ -1220,6 +1014,13 @@ namespace Cape_Senior_Center_Inventory_System
             // bsCurrentInventory
             // 
             this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
+            // 
+            // addItemToolStripMenuItem
+            // 
+            this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemToolStripMenuItem.Text = "&Add Item";
+            this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -1322,28 +1123,6 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.Button addRow;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sKUDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitsOnHandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceUnitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn extendedPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdTSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updatedTSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemTypeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sKUDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitsOnHandDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceUnitDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn extendedPriceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdTSDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updatedTSDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button filterButton;
         private System.Windows.Forms.TextBox termsTextBox;
         private System.Windows.Forms.Label termsLabel;
@@ -1368,6 +1147,9 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.DateTimePicker startDatePicker;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox reportTextBox;
+        private DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter masterInventoriesTableAdapter1;
+        private System.Windows.Forms.Button currentEditButton;
+        private System.Windows.Forms.ToolStripMenuItem addItemToolStripMenuItem;
     }
 }
 

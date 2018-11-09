@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201811062019468_AddedCurrentPrice.Designer.cs">
       <DependentUpon>201811062019468_AddedCurrentPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811071500268_uom.cs" />
+    <Compile Include="Migrations\201811071500268_uom.Designer.cs">
+      <DependentUpon>201811071500268_uom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -217,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811062019468_AddedCurrentPrice.resx">
       <DependentUpon>201811062019468_AddedCurrentPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071500268_uom.resx">
+      <DependentUpon>201811071500268_uom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

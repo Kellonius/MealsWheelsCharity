@@ -12,9 +12,11 @@ namespace Cape_Senior_Center_Inventory_System.DataContext.Models
         [Key]
         public int Id { get; set; }
         public string ItemType { get; set; }
+        public string SubType { get; set; }
         public string Brand { get; set; }
         public string SKU { get; set; }
         public int UnitsOnHand { get; set; }
+        public string UnitOfMeasure { get; set; }
         public string ItemName { get; set; }
         public double PriceUnit { get; set; }
         public double UnitPrice { get; set; }
