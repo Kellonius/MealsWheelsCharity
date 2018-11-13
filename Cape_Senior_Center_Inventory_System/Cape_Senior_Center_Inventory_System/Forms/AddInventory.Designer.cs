@@ -51,9 +51,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.subTypeBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ItemTypeValidation = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UnitPriceValidation = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ItemNameValidation = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.UnitsValidation = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -81,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 45);
+            this.label2.Location = new System.Drawing.Point(24, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 17;
@@ -89,7 +93,7 @@
             // 
             // brandTextBox
             // 
-            this.brandTextBox.Location = new System.Drawing.Point(68, 39);
+            this.brandTextBox.Location = new System.Drawing.Point(68, 45);
             this.brandTextBox.Name = "brandTextBox";
             this.brandTextBox.Size = new System.Drawing.Size(121, 20);
             this.brandTextBox.TabIndex = 5;
@@ -97,7 +101,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 72);
+            this.label3.Location = new System.Drawing.Point(30, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 18;
@@ -105,7 +109,7 @@
             // 
             // skuTextBox
             // 
-            this.skuTextBox.Location = new System.Drawing.Point(68, 65);
+            this.skuTextBox.Location = new System.Drawing.Point(68, 72);
             this.skuTextBox.Name = "skuTextBox";
             this.skuTextBox.Size = new System.Drawing.Size(121, 20);
             this.skuTextBox.TabIndex = 6;
@@ -113,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Location = new System.Drawing.Point(6, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 16;
@@ -121,10 +125,11 @@
             // 
             // itemNameBox
             // 
-            this.itemNameBox.Location = new System.Drawing.Point(68, 13);
+            this.itemNameBox.Location = new System.Drawing.Point(68, 19);
             this.itemNameBox.Name = "itemNameBox";
             this.itemNameBox.Size = new System.Drawing.Size(121, 20);
             this.itemNameBox.TabIndex = 4;
+            this.itemNameBox.TextChanged += new System.EventHandler(this.itemNameBox_TextChanged);
             // 
             // label5
             // 
@@ -141,6 +146,9 @@
             this.unitsTextBox.Name = "unitsTextBox";
             this.unitsTextBox.Size = new System.Drawing.Size(100, 20);
             this.unitsTextBox.TabIndex = 2;
+            this.unitsTextBox.TextChanged += new System.EventHandler(this.unitsTextBox_TextChanged);
+            this.unitsTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.unitsTextBox_KeyDown);
+            this.unitsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.unitsTextBox_KeyPress);
             // 
             // label6
             // 
@@ -161,7 +169,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 22);
+            this.label7.Location = new System.Drawing.Point(6, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 23;
@@ -169,15 +177,16 @@
             // 
             // priceUnitBox
             // 
-            this.priceUnitBox.Location = new System.Drawing.Point(68, 19);
+            this.priceUnitBox.Location = new System.Drawing.Point(70, 19);
             this.priceUnitBox.Name = "priceUnitBox";
-            this.priceUnitBox.Size = new System.Drawing.Size(127, 20);
+            this.priceUnitBox.Size = new System.Drawing.Size(125, 20);
             this.priceUnitBox.TabIndex = 7;
+            this.priceUnitBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceUnitBox_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 48);
+            this.label8.Location = new System.Drawing.Point(7, 49);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 24;
@@ -189,11 +198,13 @@
             this.unitPriceBox.Name = "unitPriceBox";
             this.unitPriceBox.Size = new System.Drawing.Size(125, 20);
             this.unitPriceBox.TabIndex = 8;
+            this.unitPriceBox.TextChanged += new System.EventHandler(this.unitPriceBox_TextChanged);
+            this.unitPriceBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.unitPriceBox_KeyPress);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 75);
+            this.label9.Location = new System.Drawing.Point(5, 76);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 13);
             this.label9.TabIndex = 25;
@@ -205,9 +216,11 @@
             this.exPriceBox.Name = "exPriceBox";
             this.exPriceBox.Size = new System.Drawing.Size(100, 20);
             this.exPriceBox.TabIndex = 9;
+            this.exPriceBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.exPriceBox_KeyPress);
             // 
             // addButton
             // 
+            this.addButton.Enabled = false;
             this.addButton.Location = new System.Drawing.Point(208, 316);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
@@ -246,19 +259,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ItemTypeValidation);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.subTypeBox);
             this.groupBox1.Controls.Add(this.itemTypeBox);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(83, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 85);
+            this.groupBox1.Size = new System.Drawing.Size(228, 85);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Type Information";
             // 
+            // ItemTypeValidation
+            // 
+            this.ItemTypeValidation.AutoSize = true;
+            this.ItemTypeValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemTypeValidation.ForeColor = System.Drawing.Color.Red;
+            this.ItemTypeValidation.Location = new System.Drawing.Point(196, 23);
+            this.ItemTypeValidation.Name = "ItemTypeValidation";
+            this.ItemTypeValidation.Size = new System.Drawing.Size(17, 24);
+            this.ItemTypeValidation.TabIndex = 15;
+            this.ItemTypeValidation.Text = "*";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.UnitPriceValidation);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.priceUnitBox);
             this.groupBox2.Controls.Add(this.label8);
@@ -267,13 +293,25 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(384, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(210, 100);
+            this.groupBox2.Size = new System.Drawing.Size(238, 100);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Price Control";
             // 
+            // UnitPriceValidation
+            // 
+            this.UnitPriceValidation.AutoSize = true;
+            this.UnitPriceValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UnitPriceValidation.ForeColor = System.Drawing.Color.Red;
+            this.UnitPriceValidation.Location = new System.Drawing.Point(205, 45);
+            this.UnitPriceValidation.Name = "UnitPriceValidation";
+            this.UnitPriceValidation.Size = new System.Drawing.Size(17, 24);
+            this.UnitPriceValidation.TabIndex = 26;
+            this.UnitPriceValidation.Text = "*";
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.ItemNameValidation);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.itemNameBox);
             this.groupBox3.Controls.Add(this.label2);
@@ -282,23 +320,46 @@
             this.groupBox3.Controls.Add(this.skuTextBox);
             this.groupBox3.Location = new System.Drawing.Point(83, 190);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.Size = new System.Drawing.Size(228, 100);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Item Information";
             // 
+            // ItemNameValidation
+            // 
+            this.ItemNameValidation.AutoSize = true;
+            this.ItemNameValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemNameValidation.ForeColor = System.Drawing.Color.Red;
+            this.ItemNameValidation.Location = new System.Drawing.Point(196, 19);
+            this.ItemNameValidation.Name = "ItemNameValidation";
+            this.ItemNameValidation.Size = new System.Drawing.Size(17, 24);
+            this.ItemNameValidation.TabIndex = 19;
+            this.ItemNameValidation.Text = "*";
+            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.UnitsValidation);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.unitsTextBox);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.uomBox);
             this.groupBox4.Location = new System.Drawing.Point(384, 63);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(210, 85);
+            this.groupBox4.Size = new System.Drawing.Size(238, 85);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Inventory Control";
+            // 
+            // UnitsValidation
+            // 
+            this.UnitsValidation.AutoSize = true;
+            this.UnitsValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UnitsValidation.ForeColor = System.Drawing.Color.Red;
+            this.UnitsValidation.Location = new System.Drawing.Point(205, 18);
+            this.UnitsValidation.Name = "UnitsValidation";
+            this.UnitsValidation.Size = new System.Drawing.Size(17, 24);
+            this.UnitsValidation.TabIndex = 22;
+            this.UnitsValidation.Text = "*";
             // 
             // AddInventory
             // 
@@ -354,5 +415,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label ItemTypeValidation;
+        private System.Windows.Forms.Label ItemNameValidation;
+        private System.Windows.Forms.Label UnitsValidation;
+        private System.Windows.Forms.Label UnitPriceValidation;
     }
 }

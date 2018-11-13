@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Cape_Senior_Center_Inventory_System.Forms;
 
 namespace Cape_Senior_Center_Inventory_System
 {
@@ -48,6 +49,7 @@ namespace Cape_Senior_Center_Inventory_System
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterInventoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseDataSet = new Cape_Senior_Center_Inventory_System.DatabaseDataSet();
@@ -92,7 +94,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryTab = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.currentTab = new System.Windows.Forms.TabPage();
-            this.currentClear = new System.Windows.Forms.Button();
             this.currentColumnFilter = new System.Windows.Forms.ComboBox();
             this.currentTextbox = new System.Windows.Forms.TextBox();
             this.currentTermsLabel = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentFilterButton = new System.Windows.Forms.Button();
             this.currentAddButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.currentClear = new System.Windows.Forms.Button();
             this.masterListTab = new System.Windows.Forms.TabPage();
             this.clearButton = new System.Windows.Forms.Button();
             this.columnFilter = new System.Windows.Forms.ComboBox();
@@ -121,7 +123,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterInventoriesTableAdapter1 = new Cape_Senior_Center_Inventory_System.DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter();
             this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
-            this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterInventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -172,10 +173,17 @@ namespace Cape_Senior_Center_Inventory_System
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // addItemToolStripMenuItem
+            // 
+            this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.addItemToolStripMenuItem.Text = "&Add Item";
+            this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -648,7 +656,6 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // currentTab
             // 
-            this.currentTab.Controls.Add(this.currentClear);
             this.currentTab.Controls.Add(this.currentColumnFilter);
             this.currentTab.Controls.Add(this.currentTextbox);
             this.currentTab.Controls.Add(this.currentTermsLabel);
@@ -656,6 +663,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTab.Controls.Add(this.currentTypeLabel);
             this.currentTab.Controls.Add(this.currentInventoryView);
             this.currentTab.Controls.Add(this.panel1);
+            this.currentTab.Controls.Add(this.currentClear);
             this.currentTab.Location = new System.Drawing.Point(4, 22);
             this.currentTab.Name = "currentTab";
             this.currentTab.Padding = new System.Windows.Forms.Padding(3);
@@ -663,17 +671,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTab.TabIndex = 0;
             this.currentTab.Text = "Current";
             this.currentTab.UseVisualStyleBackColor = true;
-            // 
-            // currentClear
-            // 
-            this.currentClear.Location = new System.Drawing.Point(460, 65);
-            this.currentClear.Name = "currentClear";
-            this.currentClear.Size = new System.Drawing.Size(75, 21);
-            this.currentClear.TabIndex = 20;
-            this.currentClear.Text = "Clear";
-            this.currentClear.UseVisualStyleBackColor = true;
-            this.currentClear.Visible = false;
-            this.currentClear.Click += new System.EventHandler(this.currentClear_Click);
             // 
             // currentColumnFilter
             // 
@@ -816,6 +813,17 @@ namespace Cape_Senior_Center_Inventory_System
             this.label4.Size = new System.Drawing.Size(131, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Current Inventory";
+            // 
+            // currentClear
+            // 
+            this.currentClear.Location = new System.Drawing.Point(460, 65);
+            this.currentClear.Name = "currentClear";
+            this.currentClear.Size = new System.Drawing.Size(75, 21);
+            this.currentClear.TabIndex = 20;
+            this.currentClear.Text = "Clear";
+            this.currentClear.UseVisualStyleBackColor = true;
+            this.currentClear.Visible = false;
+            this.currentClear.Click += new System.EventHandler(this.currentClear_Click);
             // 
             // masterListTab
             // 
@@ -1014,13 +1022,6 @@ namespace Cape_Senior_Center_Inventory_System
             // bsCurrentInventory
             // 
             this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
-            // 
-            // addItemToolStripMenuItem
-            // 
-            this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addItemToolStripMenuItem.Text = "&Add Item";
-            this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

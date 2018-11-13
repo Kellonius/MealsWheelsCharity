@@ -33,6 +33,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             MasterList = context.MasterInventories.ToList();
             InventoryHistory = context.InventoryHistory.ToList();
             itemTypeBox.Items.AddRange(context.ItemType.Select(x => x.Description).ToArray());
+            enabledAdd();
         }
 
         #region Helper Methods
@@ -90,6 +91,18 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             });
             context.SaveChanges();
         }
+
+        private void enabledAdd()
+        {
+            if (itemTypeBox.Text != "" && itemNameBox.Text != "" && unitsTextBox.Text != "" && unitPriceBox.Text != "")
+            {
+                addButton.Enabled = true;
+            }
+            else
+            {
+                addButton.Enabled = false;
+            }
+        }
         #endregion
 
         #region Button Clicks and Dropdowns
@@ -146,6 +159,110 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             {
                 subTypeBox.Items.AddRange(twoIndex.ToArray());
             }
+
+            ItemTypeValidation.Visible = false;
+            enabledAdd();
+        }
+        #endregion
+
+        #region Validation
+        private void itemNameBox_TextChanged(object sender, EventArgs e)
+        {
+            if (itemNameBox.Text != "")
+            {
+                ItemNameValidation.Visible = false;
+            }
+            else
+            {
+                ItemNameValidation.Visible = true;
+            }
+            enabledAdd();
+        }
+
+        private void unitsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (unitsTextBox.Text != "")
+            {
+                UnitsValidation.Visible = false;
+            }
+            else
+            {
+                UnitsValidation.Visible = true;
+            }
+            enabledAdd();
+        }
+
+        private void unitPriceBox_TextChanged(object sender, EventArgs e)
+        {
+            if (unitPriceBox.Text != "")
+            {
+                UnitPriceValidation.Visible = false;
+            }
+            else
+            {
+                UnitPriceValidation.Visible = true;
+            }
+            enabledAdd();
+        }
+
+        private bool nonNumberEntered = false;
+        private void unitsTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check for the flag being set in the KeyDown event.
+            if (nonNumberEntered == true)
+            {
+                // Stop the character from being entered into the control since it is non-numerical.
+                e.Handled = true;
+            }
+        }
+
+        private void unitsTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Initialize the flag to false.
+            nonNumberEntered = false;
+
+            // Determine whether the keystroke is a number from the top of the keyboard.
+            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            {
+                // Determine whether the keystroke is a number from the keypad.
+                if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
+                {
+                    // Determine whether the keystroke is a backspace.
+                    if (e.KeyCode != Keys.Back)
+                    {
+                        // A non-numerical keystroke was pressed.
+                        // Set the flag to true and evaluate in KeyPress event.
+                        nonNumberEntered = true;
+                    }
+                }
+            }
+            //If shift key was pressed, it's not a number.
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                nonNumberEntered = true;
+            }
+        }
+
+        private void priceUnitBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumericInput(e);
+        }
+
+        private void unitPriceBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumericInput(e);
+        }
+
+        private void exPriceBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkNumericInput(e);
+        }
+
+        public void checkNumericInput(KeyPressEventArgs e)
+        {
+            String sKeys = "1234567890.'/\b'";
+            if (!sKeys.Contains(e.KeyChar.ToString().ToUpper()))
+                e.Handled = true;
         }
         #endregion
     }

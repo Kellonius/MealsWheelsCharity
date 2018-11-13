@@ -554,5 +554,6 @@ namespace Cape_Senior_Center_Inventory_System
             reportTextBox.AppendText("\n");
         }
         #endregion
+
     }
 }
