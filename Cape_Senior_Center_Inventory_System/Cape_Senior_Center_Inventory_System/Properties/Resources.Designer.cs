@@ -59,15 +59,5 @@ namespace Cape_Senior_Center_Inventory_System.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap clearButton {
-            get {
-                object obj = ResourceManager.GetObject("clearButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
