@@ -643,8 +643,11 @@ namespace Cape_Senior_Center_Inventory_System
         #region Price Reconciliation 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            //clear the text box
-            reportTextBox.Text = string.Empty;
+            //clear the data grid view
+            reportDataGridView.DataSource = null;
+            reportDataGridView.Rows.Clear();
+            reportDataGridView.Columns.Clear();
+            reportDataGridView.Refresh();
 
             //get the dates and set them to midnight
             var endDate = endDatePicker.Value.Date.AddDays(1);
@@ -674,27 +677,72 @@ namespace Cape_Senior_Center_Inventory_System
                         })
                     .ToList<ReconciliationModel>());
             }
-
-            writeReconciliationInfoToReportTextBox(reconciliationModelsByDate);
+            writeReconciliationInfoToReportDataGridView(reconciliationModelsByDate);
+            ////writeReconciliationInfoToReportTextBox(reconciliationModelsByDate);
         }
 
-        public void writeReconciliationInfoToReportTextBox(Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelsByDate)
+        public void writeReconciliationInfoToReportDataGridView(Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelByDate)
         {
-            foreach (var z in reconciliationModelsByDate)
+
+            reportDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
-                reportTextBox.SelectionFont = new Font("Arial", 16, FontStyle.Underline);
-                reportTextBox.AppendText(z.Key.DayOfWeek + ", " + z.Key.ToShortDateString() + "\n");
-                if (z.Value.Count == 0) reportTextBox.AppendText("No change in inventory.\n");
-                foreach (ReconciliationModel w in reconciliationModelsByDate[z.Key])
+                Name = "Item"
+            });
+            foreach (var day in reconciliationModelByDate)
+            {
+                reportDataGridView.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    reportTextBox.AppendText(w.ItemName + "\t" + w.RunningAmount + " @ " + w.UnitPrice + " = $" + w.Total + "\n");
+                    Name = day.Key.DayOfWeek.ToString() + ' ' + day.Key.ToShortDateString()
+                });
+                foreach (ReconciliationModel w in reconciliationModelByDate[day.Key])
+                {
+                    var temp = new {
+                        Item = w.ItemName.ToString(),
+                        Amount = w.RunningAmount.ToString(),
+                        Price = w.UnitPrice.ToString("C"),
+                        Total = w.Total.ToString("C")
+                    };
+
+                    DataGridViewRow existingRow = reportDataGridView.Rows
+                        .Cast<DataGridViewRow>()
+                        .Where(r => {
+                            if (r.Cells["Item"].Value == null)
+                                return false;
+                            return r.Cells["Item"].Value.ToString().Equals(w.ItemName);
+                        })
+                        .FirstOrDefault();
+
+                    if (existingRow == null)
+                    {
+                        reportDataGridView.Rows.Add(temp.Item);
+
+                        existingRow = reportDataGridView.Rows
+                        .Cast<DataGridViewRow>()
+                        .Where(r => {
+                            if (r.Cells["Item"].Value == null)
+                                return false;
+                            return r.Cells["Item"].Value.ToString().Equals(w.ItemName);
+                        })
+                        .FirstOrDefault();
+                    }
+
+                    existingRow.Cells[day.Key.DayOfWeek.ToString() + ' ' + day.Key.ToShortDateString()].Value = temp.Amount + " x " + temp.Price + " = " + temp.Total;
                 }
-                reportTextBox.AppendText("\n");
             }
+
         }
 
 
         #endregion
 
+        private void reportTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
