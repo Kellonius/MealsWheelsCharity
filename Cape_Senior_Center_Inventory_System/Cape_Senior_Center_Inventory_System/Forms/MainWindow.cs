@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.Drawing;
 using System.Drawing.Configuration;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
@@ -32,6 +34,20 @@ namespace Cape_Senior_Center_Inventory_System
         public bool currentInlineEdit = false;
         public List<string> typeFilterIndex;
         public string[] columnNames;
+
+        //PRINT SETUP
+        private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+        private PrintDocument printDocument1 = new PrintDocument();
+
+        // Declare a string to hold the entire document contents.
+        private string documentContents;
+
+        // Declare a variable to hold the portion of the document that
+        // is not printed.
+        private string stringToPrint;
+
+
+        //END PRINT SETUP
 
         public MainWindow(IController controller)
         {
@@ -529,11 +545,105 @@ namespace Cape_Senior_Center_Inventory_System
                 {
                     reportTextBox.AppendText(w.ItemName + "\t" + w.RunningAmount + " @ " + w.UnitPrice + " = $" + w.Total + "\n");
                 }
+
                 reportTextBox.AppendText("\n");
+
             }
         }
 
-        #endregion
+        //pass in report name "reconcilliationReportName" with DateRange
+        private void ReadDocument(string docName)
+        {
+            string docPath = @"c:\";
+            PrintDocument documentToPrint = new PrintDocument();
+            //File.Create(docName);
+            printDocument1.DocumentName = docName;
+            using (FileStream stream = new FileStream(docPath + docName, FileMode.Create))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                documentContents = reader.ReadToEnd();
+            }
 
+            StringReader printReader = new StringReader(reportTextBox.Text);
+            documentToPrint.PrintPage += new PrintPageEventHandler(DocumentToPrint_PrintPage);
+            documentToPrint.Print();
+            stringToPrint = documentContents;
+        }
+
+        private void DocumentToPrint_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            StringReader reader = new StringReader(reportTextBox.Text);
+            float LinesPerPage = 0;
+            float YPosition = 0;
+            int Count = 0;
+            float LeftMargin = e.MarginBounds.Left;
+            float TopMargin = e.MarginBounds.Top;
+            string Line = null;
+            Font PrintFont = this.reportTextBox.Font;
+            SolidBrush PrintBrush = new SolidBrush(Color.Black);
+
+            LinesPerPage = e.MarginBounds.Height / PrintFont.GetHeight(e.Graphics);
+
+            while (Count < LinesPerPage && ((Line = reader.ReadLine()) != null))
+            {
+                YPosition = TopMargin + (Count * PrintFont.GetHeight(e.Graphics));
+                e.Graphics.DrawString(Line, PrintFont, PrintBrush, LeftMargin, YPosition, new StringFormat());
+                Count++;
+            }
+
+            if (Line != null)
+            {
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+            }
+            PrintBrush.Dispose();
+        }
+
+        void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+
+            // Sets the value of charactersOnPage to the number of characters 
+            // of stringToPrint that will fit within the bounds of the page.
+            e.Graphics.MeasureString(stringToPrint, this.Font,
+                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                out charactersOnPage, out linesPerPage);
+
+            // Draws the string within the bounds of the page.
+            e.Graphics.DrawString(reportTextBox.Text, this.Font, Brushes.Black,
+                e.MarginBounds, StringFormat.GenericTypographic);
+
+            // Remove the portion of the string that has been printed.
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+
+            // Check to see if more pages are to be printed.
+            e.HasMorePages = (stringToPrint.Length > 0);
+
+            // If there are no more pages, reset the string to be printed.
+            if (!e.HasMorePages)
+                stringToPrint = documentContents;
+        }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            var endDate = endDatePicker.Value.Date.AddDays(1).ToString("MM-dd-yyyy");
+            var startdate = startDatePicker.Value.Date.ToString("MM-dd-yyyy");
+            string docName = "Inventory_Reconcillation_for_" + startdate + "_to_" + endDate;
+            string docPath = @"c:\";
+
+            ReadDocument(docName);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+
+            File.Delete(docName);
+        }
+
+
+        #endregion
     }
+
 }
