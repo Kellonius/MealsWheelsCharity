@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.Drawing;
 using System.Drawing.Configuration;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Mime;
@@ -36,6 +38,20 @@ namespace Cape_Senior_Center_Inventory_System
         public string chosenPreferenceFilter = "";
       //  public string[] columnNames;
         public int GridWidth = 1000;
+
+        //PRINT SETUP
+        private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+        private PrintDocument printDocument1 = new PrintDocument();
+
+        // Declare a string to hold the entire document contents.
+        private string documentContents;
+
+        // Declare a variable to hold the portion of the document that
+        // is not printed.
+        private string stringToPrint;
+
+
+        //END PRINT SETUP
 
         public bool showDateRangeFilter = false;
         public MainWindow(IController controller)
@@ -1327,6 +1343,7 @@ namespace Cape_Senior_Center_Inventory_System
 
 
         #endregion
+    }
 
         private void reportTextBox_TextChanged(object sender, EventArgs e)
         {
