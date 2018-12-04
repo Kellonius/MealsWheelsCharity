@@ -30,6 +30,7 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
         public virtual DbSet<InventoryHistory> InventoryHistory { get; set; }
         public virtual DbSet<ItemType> ItemType { get; set; }
         public virtual DbSet<ItemSubType> ItemSubType { get; set; }
+        public virtual DbSet<Preferences> Preferences { get; set; }
     }
 
 }

@@ -117,6 +117,7 @@
     <Compile Include="DataContext\Models\ItemSubType.cs" />
     <Compile Include="DataContext\Models\ItemType.cs" />
     <Compile Include="DataContext\Models\MasterInventory.cs" />
+    <Compile Include="DataContext\Models\Preferences.cs" />
     <Compile Include="DataContext\Models\Price.cs" />
     <Compile Include="DataContext\Models\ReconciliationModel.cs" />
     <Compile Include="DataContext\Models\UnitOfMeasure.cs" />
@@ -137,6 +138,12 @@
     </Compile>
     <Compile Include="Forms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserPreferences.Designer.cs">
+      <DependentUpon>UserPreferences.cs</DependentUpon>
     </Compile>
     <Compile Include="Implementations\CategoryRepository.cs" />
     <Compile Include="Implementations\Controller.cs" />
@@ -191,6 +198,18 @@
     <Compile Include="Migrations\201811071500268_uom.Designer.cs">
       <DependentUpon>201811071500268_uom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811161635027_preferences.cs" />
+    <Compile Include="Migrations\201811161635027_preferences.Designer.cs">
+      <DependentUpon>201811161635027_preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811161636260_prefs.cs" />
+    <Compile Include="Migrations\201811161636260_prefs.Designer.cs">
+      <DependentUpon>201811161636260_prefs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812041615190_preferencesname.cs" />
+    <Compile Include="Migrations\201812041615190_preferencesname.Designer.cs">
+      <DependentUpon>201812041615190_preferencesname.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserPreferences.resx">
+      <DependentUpon>UserPreferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805041854031_InitDatabaseSchema.resx">
       <DependentUpon>201805041854031_InitDatabaseSchema.cs</DependentUpon>
@@ -227,6 +249,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811071500268_uom.resx">
       <DependentUpon>201811071500268_uom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811161635027_preferences.resx">
+      <DependentUpon>201811161635027_preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811161636260_prefs.resx">
+      <DependentUpon>201811161636260_prefs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812041615190_preferencesname.resx">
+      <DependentUpon>201812041615190_preferencesname.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -284,6 +315,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\two.png" />
+    <None Include="Resources\three.png" />
+    <None Include="Resources\one.png" />
+    <None Include="Resources\four.png" />
     <None Include="Resources\clearButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

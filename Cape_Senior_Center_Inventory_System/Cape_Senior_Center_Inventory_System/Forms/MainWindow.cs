@@ -415,6 +415,12 @@ namespace Cape_Senior_Center_Inventory_System
         {
             Application.Exit();
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var pref = new UserPreferences();
+            pref.ShowDialog();
+        }
         #endregion
 
         #region Helper Methods
@@ -554,6 +560,7 @@ namespace Cape_Senior_Center_Inventory_System
             reportTextBox.AppendText("\n");
         }
         #endregion
+
 
     }
 }
