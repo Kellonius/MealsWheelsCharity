@@ -501,64 +501,44 @@ namespace Cape_Senior_Center_Inventory_System
                 .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate).ToList()
                 .OrderBy(x => x.Updated_TS.Date).ThenBy(x => x.ItemId).ToList();
 
-            //var dateIndex = startDatePicker.Value;
-            DateTime? dateIndex = startDatePicker.Value.Date;
+            //date, (itemId, itemName, runningAmount, unitPrice, Total)
+            Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelsByDate = new Dictionary<DateTime, List<ReconciliationModel>>();
 
-            //itemId, itemName, runningAmount, unitPrice, Total
-            Dictionary<int, ReconciliationModel> recDict = new Dictionary<int, ReconciliationModel>();
-            var netAmount = 0;
-
-            if (dataToReconcile.Count == 0)
+            for (DateTime date = startdate; date < endDate; date = date.AddDays(1))
             {
-                return;
-            }
-            foreach (var x in dataToReconcile)
-            {
-
-                if (x.Updated_TS.Date != dateIndex)
-                {
-                    if (dateIndex != null)
-                    {
-                        reportTextBox.SelectionFont = new Font("Arial", 16, FontStyle.Underline);
-                        reportTextBox.AppendText(dateIndex.Value.DayOfWeek + ", " + dateIndex.Value.ToShortDateString() + "\n");
-
-                        foreach (var z in recDict)
+                reconciliationModelsByDate.Add(date, dataToReconcile
+                    .FindAll(x => x.Updated_TS.Date == date)
+                    .GroupBy(z => z.ItemId)
+                    .Select(y =>
+                        new ReconciliationModel
                         {
-                            reportTextBox.AppendText(z.Value.ItemName + "\t" + z.Value.RunningAmount + " @ " + z.Value.UnitPrice + " = $" + z.Value.Total + "\n");
-                        }
-                        reportTextBox.AppendText("\n");
-                    }
-                    // Output Header for Date
-                    recDict = new Dictionary<int, ReconciliationModel>();
-                    dateIndex = x.Updated_TS.Date;
-                }
-
-                if (!recDict.ContainsKey(x.ItemId))
-                {
-                    recDict.Add(x.ItemId, new ReconciliationModel
-                    {
-                        ItemId = x.ItemId,
-                        ItemName = x.ItemName,
-                        RunningAmount = 0,
-                        UnitPrice = x.CurrentPrice,
-                        Total = 0
-                    });
-                }
-
-                netAmount = x.NewUnitsOnHand - x.PreviousUnitsOnHand;
-                recDict[x.ItemId].RunningAmount += netAmount;
-                recDict[x.ItemId].Total += (netAmount * x.CurrentPrice);
+                            ItemId = y.First().ItemId,
+                            ItemName = y.First().ItemName,
+                            RunningAmount = y.Sum(s => s.NewUnitsOnHand - s.PreviousUnitsOnHand),
+                            UnitPrice = y.First().CurrentPrice,
+                            Total = y.Sum(c => c.CurrentPrice * (c.NewUnitsOnHand - c.PreviousUnitsOnHand))
+                        })
+                    .ToList<ReconciliationModel>());
             }
 
-            reportTextBox.SelectionFont = new Font("Arial", 16, FontStyle.Underline);
-            reportTextBox.AppendText(dateIndex.Value.DayOfWeek + ", " + dateIndex.Value.ToShortDateString() + "\n");
-            foreach (var z in recDict)
-            {
-                reportTextBox.AppendText(z.Value.ItemName + "\t" + z.Value.RunningAmount + " @ " + z.Value.UnitPrice + " = $" + z.Value.Total + "\n");
-            }
-
-            reportTextBox.AppendText("\n");
+            writeReconciliationInfoToReportTextBox(reconciliationModelsByDate);
         }
+
+        public void writeReconciliationInfoToReportTextBox(Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelsByDate)
+        {
+            foreach (var z in reconciliationModelsByDate)
+            {
+                reportTextBox.SelectionFont = new Font("Arial", 16, FontStyle.Underline);
+                reportTextBox.AppendText(z.Key.DayOfWeek + ", " + z.Key.ToShortDateString() + "\n");
+                if (z.Value.Count == 0) reportTextBox.AppendText("No change in inventory.\n");
+                foreach (ReconciliationModel w in reconciliationModelsByDate[z.Key])
+                {
+                    reportTextBox.AppendText(w.ItemName + "\t" + w.RunningAmount + " @ " + w.UnitPrice + " = $" + w.Total + "\n");
+                }
+                reportTextBox.AppendText("\n");
+            }
+        }
+
         #endregion
 
 
