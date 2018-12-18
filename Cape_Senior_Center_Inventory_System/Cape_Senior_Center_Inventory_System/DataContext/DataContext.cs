@@ -8,7 +8,7 @@ namespace Cape_Senior_Center_Inventory_System.DataContext
     public class DataContext : DbContext
     {
         private static string location =
-            "C:\\Projects\\MealsWheelsCharity\\Cape_Senior_Center_Inventory_System\\Cape_Senior_Center_Inventory_System\\";
+            "C:\\MealsWheelsCharity\\Cape_Senior_Center_Inventory_System\\Cape_Senior_Center_Inventory_System\\";
 
         private static string connectionString = string.Format(
             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}Database\Database.mdf;Integrated Security=True",

@@ -97,7 +97,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
-            this.reportTextBox = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.generateButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -111,11 +110,11 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentInventoryGrid4 = new System.Windows.Forms.DataGridView();
             this.currentInventoryGrid3 = new System.Windows.Forms.DataGridView();
             this.currentInventoryGrid2 = new System.Windows.Forms.DataGridView();
-            this.currentColumnFilter = new System.Windows.Forms.ComboBox();
-            this.currentTextbox = new System.Windows.Forms.TextBox();
-            this.currentTermsLabel = new System.Windows.Forms.Label();
-            this.currentTypeDropdown = new System.Windows.Forms.ComboBox();
-            this.currentTypeLabel = new System.Windows.Forms.Label();
+            this.currentColumnFilterTableOne = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableOne = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableOne = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableOne = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableOne = new System.Windows.Forms.Label();
             this.currentInventoryView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.currentEditButton = new System.Windows.Forms.Button();
@@ -138,6 +137,24 @@ namespace Cape_Senior_Center_Inventory_System
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.masterInventoriesTableAdapter1 = new Cape_Senior_Center_Inventory_System.DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter();
+            this.currentColumnFilterTableTwo = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableTwo = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableTwo = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableTwo = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableTwo = new System.Windows.Forms.Label();
+            this.currentColumnFilterTableThree = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableThree = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableThree = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableThree = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableThree = new System.Windows.Forms.Label();
+            this.currentColumnFilterTableFour = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableFour = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableFour = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableFour = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableFour = new System.Windows.Forms.Label();
+            this.currentClearTwo = new System.Windows.Forms.Button();
+            this.currentClearThree = new System.Windows.Forms.Button();
+            this.currentClearFour = new System.Windows.Forms.Button();
             this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
@@ -180,8 +197,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.preferencesToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1333, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1500, 33);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -191,27 +207,27 @@ namespace Cape_Senior_Center_Inventory_System
             this.addItemToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
             this.addItemToolStripMenuItem.Text = "&Add Item";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
             this.preferencesToolStripMenuItem.Text = "&Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -232,10 +248,10 @@ namespace Cape_Senior_Center_Inventory_System
             // historyTab
             // 
             this.historyTab.Controls.Add(this.tabControl4);
-            this.historyTab.Location = new System.Drawing.Point(4, 25);
-            this.historyTab.Margin = new System.Windows.Forms.Padding(4);
+            this.historyTab.Location = new System.Drawing.Point(4, 29);
+            this.historyTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.historyTab.Name = "historyTab";
-            this.historyTab.Size = new System.Drawing.Size(1325, 817);
+            this.historyTab.Size = new System.Drawing.Size(1492, 1026);
             this.historyTab.TabIndex = 8;
             this.historyTab.Text = "History";
             this.historyTab.UseVisualStyleBackColor = true;
@@ -246,20 +262,20 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl4.Controls.Add(this.pricingHistoryTab);
             this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl4.Location = new System.Drawing.Point(0, 0);
-            this.tabControl4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(1325, 817);
+            this.tabControl4.Size = new System.Drawing.Size(1492, 1026);
             this.tabControl4.TabIndex = 0;
             // 
             // inventoryHistoryTab
             // 
             this.inventoryHistoryTab.Controls.Add(this.inventoryHistoryDataGridView);
             this.inventoryHistoryTab.Controls.Add(this.panel4);
-            this.inventoryHistoryTab.Location = new System.Drawing.Point(4, 25);
+            this.inventoryHistoryTab.Location = new System.Drawing.Point(4, 29);
             this.inventoryHistoryTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryHistoryTab.Name = "inventoryHistoryTab";
-            this.inventoryHistoryTab.Size = new System.Drawing.Size(1317, 788);
+            this.inventoryHistoryTab.Size = new System.Drawing.Size(1484, 993);
             this.inventoryHistoryTab.TabIndex = 2;
             this.inventoryHistoryTab.Text = "Inventory";
             this.inventoryHistoryTab.UseVisualStyleBackColor = true;
@@ -289,7 +305,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.inventoryHistoryDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.inventoryHistoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryHistoryDataGridView.Location = new System.Drawing.Point(0, 60);
+            this.inventoryHistoryDataGridView.Location = new System.Drawing.Point(0, 75);
             this.inventoryHistoryDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryHistoryDataGridView.Name = "inventoryHistoryDataGridView";
             this.inventoryHistoryDataGridView.ReadOnly = true;
@@ -302,7 +318,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.inventoryHistoryDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.inventoryHistoryDataGridView.RowTemplate.Height = 24;
-            this.inventoryHistoryDataGridView.Size = new System.Drawing.Size(1317, 728);
+            this.inventoryHistoryDataGridView.Size = new System.Drawing.Size(1484, 918);
             this.inventoryHistoryDataGridView.TabIndex = 3;
             // 
             // panel4
@@ -316,24 +332,24 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1317, 60);
+            this.panel4.Size = new System.Drawing.Size(1484, 75);
             this.panel4.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(819, 5);
+            this.label8.Location = new System.Drawing.Point(921, 6);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 17);
+            this.label8.Size = new System.Drawing.Size(77, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "End Date";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(693, 5);
+            this.label9.Location = new System.Drawing.Point(780, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 17);
+            this.label9.Size = new System.Drawing.Size(83, 20);
             this.label9.TabIndex = 3;
             this.label9.Text = "Start Date";
             // 
@@ -341,10 +357,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.inventoryHistoryEndDatePicker.CustomFormat = "";
             this.inventoryHistoryEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.inventoryHistoryEndDatePicker.Location = new System.Drawing.Point(821, 25);
+            this.inventoryHistoryEndDatePicker.Location = new System.Drawing.Point(924, 31);
             this.inventoryHistoryEndDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryHistoryEndDatePicker.Name = "inventoryHistoryEndDatePicker";
-            this.inventoryHistoryEndDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.inventoryHistoryEndDatePicker.Size = new System.Drawing.Size(134, 26);
             this.inventoryHistoryEndDatePicker.TabIndex = 2;
             this.inventoryHistoryEndDatePicker.ValueChanged += new System.EventHandler(this.inventoryHistoryEndDatePicker_ValueChanged);
             // 
@@ -352,10 +368,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.inventoryHistoryStartDatePicker.CustomFormat = "";
             this.inventoryHistoryStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.inventoryHistoryStartDatePicker.Location = new System.Drawing.Point(696, 25);
+            this.inventoryHistoryStartDatePicker.Location = new System.Drawing.Point(783, 31);
             this.inventoryHistoryStartDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryHistoryStartDatePicker.Name = "inventoryHistoryStartDatePicker";
-            this.inventoryHistoryStartDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.inventoryHistoryStartDatePicker.Size = new System.Drawing.Size(134, 26);
             this.inventoryHistoryStartDatePicker.TabIndex = 1;
             this.inventoryHistoryStartDatePicker.ValueChanged += new System.EventHandler(this.inventoryHistoryStartDatePicker_ValueChanged);
             // 
@@ -363,9 +379,9 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(408, 25);
+            this.label10.Location = new System.Drawing.Point(459, 31);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 25);
+            this.label10.Size = new System.Drawing.Size(189, 29);
             this.label10.TabIndex = 0;
             this.label10.Text = "Inventory History";
             // 
@@ -373,10 +389,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.pricingHistoryTab.Controls.Add(this.pricingHistoryDataGridView);
             this.pricingHistoryTab.Controls.Add(this.panel5);
-            this.pricingHistoryTab.Location = new System.Drawing.Point(4, 25);
+            this.pricingHistoryTab.Location = new System.Drawing.Point(4, 29);
             this.pricingHistoryTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingHistoryTab.Name = "pricingHistoryTab";
-            this.pricingHistoryTab.Size = new System.Drawing.Size(1317, 788);
+            this.pricingHistoryTab.Size = new System.Drawing.Size(1484, 993);
             this.pricingHistoryTab.TabIndex = 1;
             this.pricingHistoryTab.Text = "Pricing";
             this.pricingHistoryTab.UseVisualStyleBackColor = true;
@@ -413,7 +429,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.pricingHistoryDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.pricingHistoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pricingHistoryDataGridView.Location = new System.Drawing.Point(0, 60);
+            this.pricingHistoryDataGridView.Location = new System.Drawing.Point(0, 75);
             this.pricingHistoryDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingHistoryDataGridView.Name = "pricingHistoryDataGridView";
             this.pricingHistoryDataGridView.ReadOnly = true;
@@ -426,7 +442,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.pricingHistoryDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.pricingHistoryDataGridView.RowTemplate.Height = 24;
-            this.pricingHistoryDataGridView.Size = new System.Drawing.Size(1317, 728);
+            this.pricingHistoryDataGridView.Size = new System.Drawing.Size(1484, 918);
             this.pricingHistoryDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -488,24 +504,24 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1317, 60);
+            this.panel5.Size = new System.Drawing.Size(1484, 75);
             this.panel5.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(819, 5);
+            this.label11.Location = new System.Drawing.Point(921, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 17);
+            this.label11.Size = new System.Drawing.Size(77, 20);
             this.label11.TabIndex = 4;
             this.label11.Text = "End Date";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(693, 5);
+            this.label12.Location = new System.Drawing.Point(780, 6);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 17);
+            this.label12.Size = new System.Drawing.Size(83, 20);
             this.label12.TabIndex = 3;
             this.label12.Text = "Start Date";
             // 
@@ -513,39 +529,39 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.pricingHistoryEndDatePicker.CustomFormat = "";
             this.pricingHistoryEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pricingHistoryEndDatePicker.Location = new System.Drawing.Point(821, 25);
+            this.pricingHistoryEndDatePicker.Location = new System.Drawing.Point(924, 31);
             this.pricingHistoryEndDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingHistoryEndDatePicker.Name = "pricingHistoryEndDatePicker";
-            this.pricingHistoryEndDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.pricingHistoryEndDatePicker.Size = new System.Drawing.Size(134, 26);
             this.pricingHistoryEndDatePicker.TabIndex = 2;
             // 
             // pricingHistoryStartDatePicker
             // 
             this.pricingHistoryStartDatePicker.CustomFormat = "";
             this.pricingHistoryStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pricingHistoryStartDatePicker.Location = new System.Drawing.Point(696, 25);
+            this.pricingHistoryStartDatePicker.Location = new System.Drawing.Point(783, 31);
             this.pricingHistoryStartDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingHistoryStartDatePicker.Name = "pricingHistoryStartDatePicker";
-            this.pricingHistoryStartDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.pricingHistoryStartDatePicker.Size = new System.Drawing.Size(134, 26);
             this.pricingHistoryStartDatePicker.TabIndex = 1;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(419, 25);
+            this.label13.Location = new System.Drawing.Point(471, 31);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(136, 25);
+            this.label13.Size = new System.Drawing.Size(168, 29);
             this.label13.TabIndex = 0;
             this.label13.Text = "Pricing History";
             // 
             // pricingTab
             // 
             this.pricingTab.Controls.Add(this.tabControl3);
-            this.pricingTab.Location = new System.Drawing.Point(4, 25);
+            this.pricingTab.Location = new System.Drawing.Point(4, 29);
             this.pricingTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingTab.Name = "pricingTab";
-            this.pricingTab.Size = new System.Drawing.Size(1325, 817);
+            this.pricingTab.Size = new System.Drawing.Size(1492, 1026);
             this.pricingTab.TabIndex = 9;
             this.pricingTab.Text = "Pricing";
             this.pricingTab.UseVisualStyleBackColor = true;
@@ -558,33 +574,20 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1325, 817);
+            this.tabControl3.Size = new System.Drawing.Size(1492, 1026);
             this.tabControl3.TabIndex = 0;
             // 
             // pricingReconcileTab
             // 
-            this.pricingReconcileTab.Controls.Add(this.reportTextBox);
             this.pricingReconcileTab.Controls.Add(this.panel3);
-            this.pricingReconcileTab.Location = new System.Drawing.Point(4, 25);
+            this.pricingReconcileTab.Location = new System.Drawing.Point(4, 29);
             this.pricingReconcileTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingReconcileTab.Name = "pricingReconcileTab";
             this.pricingReconcileTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pricingReconcileTab.Size = new System.Drawing.Size(1317, 788);
+            this.pricingReconcileTab.Size = new System.Drawing.Size(1484, 993);
             this.pricingReconcileTab.TabIndex = 0;
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
-            // 
-            // reportTextBox
-            // 
-            this.reportTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.reportTextBox.Location = new System.Drawing.Point(0, 71);
-            this.reportTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.reportTextBox.Name = "reportTextBox";
-            this.reportTextBox.ReadOnly = true;
-            this.reportTextBox.Size = new System.Drawing.Size(1304, 702);
-            this.reportTextBox.TabIndex = 1;
-            this.reportTextBox.Text = "";
             // 
             // panel3
             // 
@@ -595,17 +598,17 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel3.Controls.Add(this.startDatePicker);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1312, 64);
+            this.panel3.Size = new System.Drawing.Size(1476, 80);
             this.panel3.TabIndex = 0;
             // 
             // generateButton
             // 
-            this.generateButton.Location = new System.Drawing.Point(1132, 21);
-            this.generateButton.Margin = new System.Windows.Forms.Padding(4);
+            this.generateButton.Location = new System.Drawing.Point(1274, 26);
+            this.generateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(100, 28);
+            this.generateButton.Size = new System.Drawing.Size(112, 35);
             this.generateButton.TabIndex = 9;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
@@ -614,18 +617,18 @@ namespace Cape_Senior_Center_Inventory_System
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1001, 2);
+            this.label2.Location = new System.Drawing.Point(1126, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "End Date";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(876, 2);
+            this.label5.Location = new System.Drawing.Point(986, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.Size = new System.Drawing.Size(83, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Start Date";
             // 
@@ -633,40 +636,40 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.endDatePicker.CustomFormat = "";
             this.endDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.endDatePicker.Location = new System.Drawing.Point(1004, 22);
+            this.endDatePicker.Location = new System.Drawing.Point(1130, 28);
             this.endDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.endDatePicker.Name = "endDatePicker";
-            this.endDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.endDatePicker.Size = new System.Drawing.Size(134, 26);
             this.endDatePicker.TabIndex = 6;
             // 
             // startDatePicker
             // 
             this.startDatePicker.CustomFormat = "";
             this.startDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.startDatePicker.Location = new System.Drawing.Point(879, 22);
+            this.startDatePicker.Location = new System.Drawing.Point(989, 28);
             this.startDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.startDatePicker.Name = "startDatePicker";
-            this.startDatePicker.Size = new System.Drawing.Size(120, 22);
+            this.startDatePicker.Size = new System.Drawing.Size(134, 26);
             this.startDatePicker.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(416, 21);
+            this.label1.Location = new System.Drawing.Point(468, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 25);
+            this.label1.Size = new System.Drawing.Size(385, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Price Reconciliation and Reporting";
             // 
             // inventoryTab
             // 
             this.inventoryTab.Controls.Add(this.tabControl2);
-            this.inventoryTab.Location = new System.Drawing.Point(4, 25);
-            this.inventoryTab.Margin = new System.Windows.Forms.Padding(4);
+            this.inventoryTab.Location = new System.Drawing.Point(4, 29);
+            this.inventoryTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.inventoryTab.Name = "inventoryTab";
-            this.inventoryTab.Size = new System.Drawing.Size(1325, 817);
+            this.inventoryTab.Size = new System.Drawing.Size(1492, 1026);
             this.inventoryTab.TabIndex = 6;
             this.inventoryTab.Text = "Inventory";
             this.inventoryTab.UseVisualStyleBackColor = true;
@@ -677,31 +680,49 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl2.Controls.Add(this.masterListTab);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1325, 817);
+            this.tabControl2.Size = new System.Drawing.Size(1492, 1026);
             this.tabControl2.TabIndex = 0;
             // 
             // currentTab
             // 
+            this.currentTab.Controls.Add(this.currentClearFour);
+            this.currentTab.Controls.Add(this.currentClearThree);
+            this.currentTab.Controls.Add(this.currentClearTwo);
+            this.currentTab.Controls.Add(this.currentColumnFilterTableFour);
+            this.currentTab.Controls.Add(this.currentTextboxTableFour);
+            this.currentTab.Controls.Add(this.currentTermsLabelTableFour);
+            this.currentTab.Controls.Add(this.currentTypeDropdownTableFour);
+            this.currentTab.Controls.Add(this.currentTypeLabelTableFour);
+            this.currentTab.Controls.Add(this.currentColumnFilterTableThree);
+            this.currentTab.Controls.Add(this.currentTextboxTableThree);
+            this.currentTab.Controls.Add(this.currentTermsLabelTableThree);
+            this.currentTab.Controls.Add(this.currentTypeDropdownTableThree);
+            this.currentTab.Controls.Add(this.currentTypeLabelTableThree);
+            this.currentTab.Controls.Add(this.currentColumnFilterTableTwo);
+            this.currentTab.Controls.Add(this.currentTextboxTableTwo);
+            this.currentTab.Controls.Add(this.currentTermsLabelTableTwo);
+            this.currentTab.Controls.Add(this.currentTypeDropdownTableTwo);
+            this.currentTab.Controls.Add(this.currentTypeLabelTableTwo);
             this.currentTab.Controls.Add(this.currentInventoryGrid4);
             this.currentTab.Controls.Add(this.currentInventoryGrid3);
-            this.currentTab.Controls.Add(this.currentInventoryGrid2);
-            this.currentTab.Controls.Add(this.currentColumnFilter);
-            this.currentTab.Controls.Add(this.currentTextbox);
-            this.currentTab.Controls.Add(this.currentTermsLabel);
-            this.currentTab.Controls.Add(this.currentTypeDropdown);
-            this.currentTab.Controls.Add(this.currentTypeLabel);
-            this.currentTab.Controls.Add(this.currentInventoryView);
+            this.currentTab.Controls.Add(this.currentColumnFilterTableOne);
+            this.currentTab.Controls.Add(this.currentTextboxTableOne);
+            this.currentTab.Controls.Add(this.currentTermsLabelTableOne);
+            this.currentTab.Controls.Add(this.currentTypeDropdownTableOne);
+            this.currentTab.Controls.Add(this.currentTypeLabelTableOne);
             this.currentTab.Controls.Add(this.panel1);
             this.currentTab.Controls.Add(this.currentClear);
-            this.currentTab.Location = new System.Drawing.Point(4, 25);
-            this.currentTab.Margin = new System.Windows.Forms.Padding(4);
+            this.currentTab.Controls.Add(this.currentInventoryGrid2);
+            this.currentTab.Controls.Add(this.currentInventoryView);
+            this.currentTab.Location = new System.Drawing.Point(4, 29);
+            this.currentTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.currentTab.Name = "currentTab";
-            this.currentTab.Padding = new System.Windows.Forms.Padding(4);
-            this.currentTab.Size = new System.Drawing.Size(1317, 788);
+            this.currentTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTab.Size = new System.Drawing.Size(1484, 993);
             this.currentTab.TabIndex = 0;
             this.currentTab.Text = "Current";
             this.currentTab.UseVisualStyleBackColor = true;
@@ -728,7 +749,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.currentInventoryGrid4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.currentInventoryGrid4.Location = new System.Drawing.Point(495, 315);
+            this.currentInventoryGrid4.Location = new System.Drawing.Point(557, 394);
             this.currentInventoryGrid4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.currentInventoryGrid4.Name = "currentInventoryGrid4";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -740,7 +761,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.currentInventoryGrid4.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.currentInventoryGrid4.RowTemplate.Height = 24;
-            this.currentInventoryGrid4.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryGrid4.Size = new System.Drawing.Size(926, 594);
             this.currentInventoryGrid4.TabIndex = 23;
             this.currentInventoryGrid4.Visible = false;
             // 
@@ -766,7 +787,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.currentInventoryGrid3.DefaultCellStyle = dataGridViewCellStyle14;
-            this.currentInventoryGrid3.Location = new System.Drawing.Point(4, 317);
+            this.currentInventoryGrid3.Location = new System.Drawing.Point(4, 396);
             this.currentInventoryGrid3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.currentInventoryGrid3.Name = "currentInventoryGrid3";
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -778,7 +799,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.currentInventoryGrid3.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.currentInventoryGrid3.RowTemplate.Height = 24;
-            this.currentInventoryGrid3.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryGrid3.Size = new System.Drawing.Size(926, 594);
             this.currentInventoryGrid3.TabIndex = 22;
             this.currentInventoryGrid3.Visible = false;
             // 
@@ -804,7 +825,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.currentInventoryGrid2.DefaultCellStyle = dataGridViewCellStyle18;
-            this.currentInventoryGrid2.Location = new System.Drawing.Point(487, 59);
+            this.currentInventoryGrid2.Location = new System.Drawing.Point(548, 74);
             this.currentInventoryGrid2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.currentInventoryGrid2.Name = "currentInventoryGrid2";
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -816,64 +837,64 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.currentInventoryGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.currentInventoryGrid2.RowTemplate.Height = 24;
-            this.currentInventoryGrid2.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryGrid2.Size = new System.Drawing.Size(926, 594);
             this.currentInventoryGrid2.TabIndex = 21;
             this.currentInventoryGrid2.Visible = false;
             // 
-            // currentColumnFilter
+            // currentColumnFilterTableOne
             // 
-            this.currentColumnFilter.Enabled = false;
-            this.currentColumnFilter.FormattingEnabled = true;
-            this.currentColumnFilter.Location = new System.Drawing.Point(444, 80);
-            this.currentColumnFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.currentColumnFilter.Name = "currentColumnFilter";
-            this.currentColumnFilter.Size = new System.Drawing.Size(160, 24);
-            this.currentColumnFilter.TabIndex = 19;
-            this.currentColumnFilter.Visible = false;
-            this.currentColumnFilter.SelectedIndexChanged += new System.EventHandler(this.currentColumnFilter_SelectedIndexChanged);
+            this.currentColumnFilterTableOne.Enabled = false;
+            this.currentColumnFilterTableOne.FormattingEnabled = true;
+            this.currentColumnFilterTableOne.Location = new System.Drawing.Point(500, 100);
+            this.currentColumnFilterTableOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableOne.Name = "currentColumnFilterTableOne";
+            this.currentColumnFilterTableOne.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableOne.TabIndex = 19;
+            this.currentColumnFilterTableOne.Visible = false;
+            this.currentColumnFilterTableOne.SelectedIndexChanged += new System.EventHandler(this.currentColumnFilter_SelectedIndexChanged);
             // 
-            // currentTextbox
+            // currentTextboxTableOne
             // 
-            this.currentTextbox.Location = new System.Drawing.Point(303, 80);
-            this.currentTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.currentTextbox.Name = "currentTextbox";
-            this.currentTextbox.Size = new System.Drawing.Size(132, 22);
-            this.currentTextbox.TabIndex = 18;
-            this.currentTextbox.Visible = false;
-            this.currentTextbox.TextChanged += new System.EventHandler(this.currentTextbox_TextChanged);
+            this.currentTextboxTableOne.Location = new System.Drawing.Point(341, 100);
+            this.currentTextboxTableOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableOne.Name = "currentTextboxTableOne";
+            this.currentTextboxTableOne.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableOne.TabIndex = 18;
+            this.currentTextboxTableOne.Visible = false;
+            this.currentTextboxTableOne.TextChanged += new System.EventHandler(this.currentTextbox_TextChanged);
             // 
-            // currentTermsLabel
+            // currentTermsLabelTableOne
             // 
-            this.currentTermsLabel.AutoSize = true;
-            this.currentTermsLabel.Location = new System.Drawing.Point(241, 85);
-            this.currentTermsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTermsLabel.Name = "currentTermsLabel";
-            this.currentTermsLabel.Size = new System.Drawing.Size(52, 17);
-            this.currentTermsLabel.TabIndex = 17;
-            this.currentTermsLabel.Text = "Terms:";
-            this.currentTermsLabel.Visible = false;
+            this.currentTermsLabelTableOne.AutoSize = true;
+            this.currentTermsLabelTableOne.Location = new System.Drawing.Point(271, 106);
+            this.currentTermsLabelTableOne.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableOne.Name = "currentTermsLabelTableOne";
+            this.currentTermsLabelTableOne.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableOne.TabIndex = 17;
+            this.currentTermsLabelTableOne.Text = "Terms:";
+            this.currentTermsLabelTableOne.Visible = false;
             // 
-            // currentTypeDropdown
+            // currentTypeDropdownTableOne
             // 
-            this.currentTypeDropdown.FormattingEnabled = true;
-            this.currentTypeDropdown.Location = new System.Drawing.Point(71, 80);
-            this.currentTypeDropdown.Margin = new System.Windows.Forms.Padding(4);
-            this.currentTypeDropdown.Name = "currentTypeDropdown";
-            this.currentTypeDropdown.Size = new System.Drawing.Size(160, 24);
-            this.currentTypeDropdown.TabIndex = 16;
-            this.currentTypeDropdown.Visible = false;
-            this.currentTypeDropdown.SelectedIndexChanged += new System.EventHandler(this.currentTypeDropdown_SelectedIndexChanged);
+            this.currentTypeDropdownTableOne.FormattingEnabled = true;
+            this.currentTypeDropdownTableOne.Location = new System.Drawing.Point(80, 100);
+            this.currentTypeDropdownTableOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableOne.Name = "currentTypeDropdownTableOne";
+            this.currentTypeDropdownTableOne.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableOne.TabIndex = 16;
+            this.currentTypeDropdownTableOne.Visible = false;
+            this.currentTypeDropdownTableOne.SelectedIndexChanged += new System.EventHandler(this.currentTypeDropdown_SelectedIndexChanged);
             // 
-            // currentTypeLabel
+            // currentTypeLabelTableOne
             // 
-            this.currentTypeLabel.AutoSize = true;
-            this.currentTypeLabel.Location = new System.Drawing.Point(16, 85);
-            this.currentTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTypeLabel.Name = "currentTypeLabel";
-            this.currentTypeLabel.Size = new System.Drawing.Size(44, 17);
-            this.currentTypeLabel.TabIndex = 15;
-            this.currentTypeLabel.Text = "Type:";
-            this.currentTypeLabel.Visible = false;
+            this.currentTypeLabelTableOne.AutoSize = true;
+            this.currentTypeLabelTableOne.Location = new System.Drawing.Point(18, 106);
+            this.currentTypeLabelTableOne.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableOne.Name = "currentTypeLabelTableOne";
+            this.currentTypeLabelTableOne.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableOne.TabIndex = 15;
+            this.currentTypeLabelTableOne.Text = "Type:";
+            this.currentTypeLabelTableOne.Visible = false;
             // 
             // currentInventoryView
             // 
@@ -897,7 +918,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.currentInventoryView.DefaultCellStyle = dataGridViewCellStyle22;
-            this.currentInventoryView.Location = new System.Drawing.Point(4, 53);
+            this.currentInventoryView.Location = new System.Drawing.Point(4, 66);
             this.currentInventoryView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.currentInventoryView.Name = "currentInventoryView";
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -909,7 +930,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.currentInventoryView.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.currentInventoryView.RowTemplate.Height = 24;
-            this.currentInventoryView.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryView.Size = new System.Drawing.Size(926, 594);
             this.currentInventoryView.TabIndex = 4;
             this.currentInventoryView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.currentInventoryView_CellBeginEdit);
             this.currentInventoryView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentInventoryView_CellClick);
@@ -922,18 +943,18 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel1.Controls.Add(this.currentAddButton);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(4, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1309, 49);
+            this.panel1.Size = new System.Drawing.Size(1476, 61);
             this.panel1.TabIndex = 6;
             // 
             // currentEditButton
             // 
-            this.currentEditButton.Location = new System.Drawing.Point(161, 15);
-            this.currentEditButton.Margin = new System.Windows.Forms.Padding(4);
+            this.currentEditButton.Location = new System.Drawing.Point(181, 19);
+            this.currentEditButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.currentEditButton.Name = "currentEditButton";
-            this.currentEditButton.Size = new System.Drawing.Size(100, 28);
+            this.currentEditButton.Size = new System.Drawing.Size(112, 35);
             this.currentEditButton.TabIndex = 11;
             this.currentEditButton.Text = "Edit";
             this.currentEditButton.UseVisualStyleBackColor = true;
@@ -941,10 +962,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // currentFilterButton
             // 
-            this.currentFilterButton.Location = new System.Drawing.Point(53, 15);
-            this.currentFilterButton.Margin = new System.Windows.Forms.Padding(4);
+            this.currentFilterButton.Location = new System.Drawing.Point(60, 19);
+            this.currentFilterButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.currentFilterButton.Name = "currentFilterButton";
-            this.currentFilterButton.Size = new System.Drawing.Size(100, 28);
+            this.currentFilterButton.Size = new System.Drawing.Size(112, 35);
             this.currentFilterButton.TabIndex = 10;
             this.currentFilterButton.Text = "Filter";
             this.currentFilterButton.UseVisualStyleBackColor = true;
@@ -952,10 +973,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // currentAddButton
             // 
-            this.currentAddButton.Location = new System.Drawing.Point(16, 15);
-            this.currentAddButton.Margin = new System.Windows.Forms.Padding(4);
+            this.currentAddButton.Location = new System.Drawing.Point(18, 19);
+            this.currentAddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.currentAddButton.Name = "currentAddButton";
-            this.currentAddButton.Size = new System.Drawing.Size(29, 28);
+            this.currentAddButton.Size = new System.Drawing.Size(33, 35);
             this.currentAddButton.TabIndex = 9;
             this.currentAddButton.Text = "+";
             this.currentAddButton.UseVisualStyleBackColor = true;
@@ -965,21 +986,22 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(397, 16);
+            this.label4.Location = new System.Drawing.Point(447, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 25);
+            this.label4.Size = new System.Drawing.Size(194, 29);
             this.label4.TabIndex = 5;
             this.label4.Text = "Current Inventory";
             // 
             // currentClear
             // 
-            this.currentClear.Location = new System.Drawing.Point(613, 80);
-            this.currentClear.Margin = new System.Windows.Forms.Padding(4);
+            this.currentClear.BackColor = System.Drawing.Color.Transparent;
+            this.currentClear.Location = new System.Drawing.Point(690, 100);
+            this.currentClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.currentClear.Name = "currentClear";
-            this.currentClear.Size = new System.Drawing.Size(100, 26);
+            this.currentClear.Size = new System.Drawing.Size(112, 32);
             this.currentClear.TabIndex = 20;
             this.currentClear.Text = "Clear";
-            this.currentClear.UseVisualStyleBackColor = true;
+            this.currentClear.UseVisualStyleBackColor = false;
             this.currentClear.Visible = false;
             this.currentClear.Click += new System.EventHandler(this.currentClear_Click);
             // 
@@ -993,21 +1015,21 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterListTab.Controls.Add(this.typeLabel);
             this.masterListTab.Controls.Add(this.masterListView);
             this.masterListTab.Controls.Add(this.panel2);
-            this.masterListTab.Location = new System.Drawing.Point(4, 25);
-            this.masterListTab.Margin = new System.Windows.Forms.Padding(4);
+            this.masterListTab.Location = new System.Drawing.Point(4, 29);
+            this.masterListTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.masterListTab.Name = "masterListTab";
-            this.masterListTab.Padding = new System.Windows.Forms.Padding(4);
-            this.masterListTab.Size = new System.Drawing.Size(1317, 788);
+            this.masterListTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.masterListTab.Size = new System.Drawing.Size(1484, 993);
             this.masterListTab.TabIndex = 1;
             this.masterListTab.Text = "Master List";
             this.masterListTab.UseVisualStyleBackColor = true;
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(613, 79);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
+            this.clearButton.Location = new System.Drawing.Point(690, 99);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(100, 26);
+            this.clearButton.Size = new System.Drawing.Size(112, 32);
             this.clearButton.TabIndex = 14;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -1018,20 +1040,20 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.columnFilter.Enabled = false;
             this.columnFilter.FormattingEnabled = true;
-            this.columnFilter.Location = new System.Drawing.Point(444, 79);
-            this.columnFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.columnFilter.Location = new System.Drawing.Point(500, 99);
+            this.columnFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.columnFilter.Name = "columnFilter";
-            this.columnFilter.Size = new System.Drawing.Size(160, 24);
+            this.columnFilter.Size = new System.Drawing.Size(180, 28);
             this.columnFilter.TabIndex = 13;
             this.columnFilter.Visible = false;
             this.columnFilter.SelectedIndexChanged += new System.EventHandler(this.columnFilter_SelectedIndexChanged);
             // 
             // termsTextBox
             // 
-            this.termsTextBox.Location = new System.Drawing.Point(303, 79);
-            this.termsTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.termsTextBox.Location = new System.Drawing.Point(341, 99);
+            this.termsTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.termsTextBox.Name = "termsTextBox";
-            this.termsTextBox.Size = new System.Drawing.Size(132, 22);
+            this.termsTextBox.Size = new System.Drawing.Size(148, 26);
             this.termsTextBox.TabIndex = 12;
             this.termsTextBox.Visible = false;
             this.termsTextBox.TextChanged += new System.EventHandler(this.termsTextBox_TextChanged);
@@ -1039,10 +1061,10 @@ namespace Cape_Senior_Center_Inventory_System
             // termsLabel
             // 
             this.termsLabel.AutoSize = true;
-            this.termsLabel.Location = new System.Drawing.Point(241, 84);
+            this.termsLabel.Location = new System.Drawing.Point(271, 105);
             this.termsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.termsLabel.Name = "termsLabel";
-            this.termsLabel.Size = new System.Drawing.Size(52, 17);
+            this.termsLabel.Size = new System.Drawing.Size(57, 20);
             this.termsLabel.TabIndex = 11;
             this.termsLabel.Text = "Terms:";
             this.termsLabel.Visible = false;
@@ -1050,10 +1072,10 @@ namespace Cape_Senior_Center_Inventory_System
             // typeFilterBox
             // 
             this.typeFilterBox.FormattingEnabled = true;
-            this.typeFilterBox.Location = new System.Drawing.Point(71, 79);
-            this.typeFilterBox.Margin = new System.Windows.Forms.Padding(4);
+            this.typeFilterBox.Location = new System.Drawing.Point(80, 99);
+            this.typeFilterBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.typeFilterBox.Name = "typeFilterBox";
-            this.typeFilterBox.Size = new System.Drawing.Size(160, 24);
+            this.typeFilterBox.Size = new System.Drawing.Size(180, 28);
             this.typeFilterBox.TabIndex = 10;
             this.typeFilterBox.Visible = false;
             this.typeFilterBox.SelectedIndexChanged += new System.EventHandler(this.typeFilterBox_SelectedIndexChanged);
@@ -1061,10 +1083,10 @@ namespace Cape_Senior_Center_Inventory_System
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(16, 84);
+            this.typeLabel.Location = new System.Drawing.Point(18, 105);
             this.typeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(44, 17);
+            this.typeLabel.Size = new System.Drawing.Size(47, 20);
             this.typeLabel.TabIndex = 9;
             this.typeLabel.Text = "Type:";
             this.typeLabel.Visible = false;
@@ -1091,7 +1113,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.masterListView.DefaultCellStyle = dataGridViewCellStyle26;
-            this.masterListView.Location = new System.Drawing.Point(4, 53);
+            this.masterListView.Location = new System.Drawing.Point(4, 66);
             this.masterListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.masterListView.Name = "masterListView";
             dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1104,7 +1126,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterListView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.masterListView.RowTemplate.Height = 24;
             this.masterListView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.masterListView.Size = new System.Drawing.Size(743, 391);
+            this.masterListView.Size = new System.Drawing.Size(836, 489);
             this.masterListView.TabIndex = 6;
             this.masterListView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView2_MasterInventory_CellBeginEdit);
             this.masterListView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.masterListView_CellClick);
@@ -1117,18 +1139,18 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel2.Controls.Add(this.addRow);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(4, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1309, 49);
+            this.panel2.Size = new System.Drawing.Size(1476, 61);
             this.panel2.TabIndex = 8;
             // 
             // masterEditButton
             // 
-            this.masterEditButton.Location = new System.Drawing.Point(161, 15);
-            this.masterEditButton.Margin = new System.Windows.Forms.Padding(4);
+            this.masterEditButton.Location = new System.Drawing.Point(181, 19);
+            this.masterEditButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.masterEditButton.Name = "masterEditButton";
-            this.masterEditButton.Size = new System.Drawing.Size(100, 28);
+            this.masterEditButton.Size = new System.Drawing.Size(112, 35);
             this.masterEditButton.TabIndex = 10;
             this.masterEditButton.Text = "Edit";
             this.masterEditButton.UseVisualStyleBackColor = true;
@@ -1136,10 +1158,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // filterButton
             // 
-            this.filterButton.Location = new System.Drawing.Point(53, 15);
-            this.filterButton.Margin = new System.Windows.Forms.Padding(4);
+            this.filterButton.Location = new System.Drawing.Point(60, 19);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.filterButton.Name = "filterButton";
-            this.filterButton.Size = new System.Drawing.Size(100, 28);
+            this.filterButton.Size = new System.Drawing.Size(112, 35);
             this.filterButton.TabIndex = 9;
             this.filterButton.Text = "Filter";
             this.filterButton.UseVisualStyleBackColor = true;
@@ -1147,10 +1169,10 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // addRow
             // 
-            this.addRow.Location = new System.Drawing.Point(16, 15);
-            this.addRow.Margin = new System.Windows.Forms.Padding(4);
+            this.addRow.Location = new System.Drawing.Point(18, 19);
+            this.addRow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addRow.Name = "addRow";
-            this.addRow.Size = new System.Drawing.Size(29, 28);
+            this.addRow.Size = new System.Drawing.Size(33, 35);
             this.addRow.TabIndex = 8;
             this.addRow.Text = "+";
             this.addRow.UseVisualStyleBackColor = true;
@@ -1160,9 +1182,9 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(380, 16);
+            this.label3.Location = new System.Drawing.Point(428, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 25);
+            this.label3.Size = new System.Drawing.Size(231, 29);
             this.label3.TabIndex = 7;
             this.label3.Text = "Master Inventory List";
             // 
@@ -1172,17 +1194,209 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.Controls.Add(this.pricingTab);
             this.tabControl1.Controls.Add(this.historyTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 33);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1333, 846);
+            this.tabControl1.Size = new System.Drawing.Size(1500, 1059);
             this.tabControl1.TabIndex = 1;
             // 
             // masterInventoriesTableAdapter1
             // 
             this.masterInventoriesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // currentColumnFilterTableTwo
+            // 
+            this.currentColumnFilterTableTwo.Enabled = false;
+            this.currentColumnFilterTableTwo.FormattingEnabled = true;
+            this.currentColumnFilterTableTwo.Location = new System.Drawing.Point(1280, 94);
+            this.currentColumnFilterTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableTwo.Name = "currentColumnFilterTableTwo";
+            this.currentColumnFilterTableTwo.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableTwo.TabIndex = 28;
+            this.currentColumnFilterTableTwo.Visible = false;
+            // 
+            // currentTextboxTableTwo
+            // 
+            this.currentTextboxTableTwo.Location = new System.Drawing.Point(1121, 94);
+            this.currentTextboxTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableTwo.Name = "currentTextboxTableTwo";
+            this.currentTextboxTableTwo.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableTwo.TabIndex = 27;
+            this.currentTextboxTableTwo.Visible = false;
+            // 
+            // currentTermsLabelTableTwo
+            // 
+            this.currentTermsLabelTableTwo.AutoSize = true;
+            this.currentTermsLabelTableTwo.Location = new System.Drawing.Point(1051, 100);
+            this.currentTermsLabelTableTwo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableTwo.Name = "currentTermsLabelTableTwo";
+            this.currentTermsLabelTableTwo.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableTwo.TabIndex = 26;
+            this.currentTermsLabelTableTwo.Text = "Terms:";
+            this.currentTermsLabelTableTwo.Visible = false;
+            // 
+            // currentTypeDropdownTableTwo
+            // 
+            this.currentTypeDropdownTableTwo.FormattingEnabled = true;
+            this.currentTypeDropdownTableTwo.Location = new System.Drawing.Point(860, 94);
+            this.currentTypeDropdownTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableTwo.Name = "currentTypeDropdownTableTwo";
+            this.currentTypeDropdownTableTwo.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableTwo.TabIndex = 25;
+            this.currentTypeDropdownTableTwo.Visible = false;
+            // 
+            // currentTypeLabelTableTwo
+            // 
+            this.currentTypeLabelTableTwo.AutoSize = true;
+            this.currentTypeLabelTableTwo.Location = new System.Drawing.Point(798, 100);
+            this.currentTypeLabelTableTwo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableTwo.Name = "currentTypeLabelTableTwo";
+            this.currentTypeLabelTableTwo.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableTwo.TabIndex = 24;
+            this.currentTypeLabelTableTwo.Text = "Type:";
+            this.currentTypeLabelTableTwo.Visible = false;
+            // 
+            // currentColumnFilterTableThree
+            // 
+            this.currentColumnFilterTableThree.Enabled = false;
+            this.currentColumnFilterTableThree.FormattingEnabled = true;
+            this.currentColumnFilterTableThree.Location = new System.Drawing.Point(500, 457);
+            this.currentColumnFilterTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableThree.Name = "currentColumnFilterTableThree";
+            this.currentColumnFilterTableThree.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableThree.TabIndex = 33;
+            this.currentColumnFilterTableThree.Visible = false;
+            // 
+            // currentTextboxTableThree
+            // 
+            this.currentTextboxTableThree.Location = new System.Drawing.Point(341, 457);
+            this.currentTextboxTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableThree.Name = "currentTextboxTableThree";
+            this.currentTextboxTableThree.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableThree.TabIndex = 32;
+            this.currentTextboxTableThree.Visible = false;
+            // 
+            // currentTermsLabelTableThree
+            // 
+            this.currentTermsLabelTableThree.AutoSize = true;
+            this.currentTermsLabelTableThree.Location = new System.Drawing.Point(271, 463);
+            this.currentTermsLabelTableThree.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableThree.Name = "currentTermsLabelTableThree";
+            this.currentTermsLabelTableThree.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableThree.TabIndex = 31;
+            this.currentTermsLabelTableThree.Text = "Terms:";
+            this.currentTermsLabelTableThree.Visible = false;
+            // 
+            // currentTypeDropdownTableThree
+            // 
+            this.currentTypeDropdownTableThree.FormattingEnabled = true;
+            this.currentTypeDropdownTableThree.Location = new System.Drawing.Point(80, 457);
+            this.currentTypeDropdownTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableThree.Name = "currentTypeDropdownTableThree";
+            this.currentTypeDropdownTableThree.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableThree.TabIndex = 30;
+            this.currentTypeDropdownTableThree.Visible = false;
+            // 
+            // currentTypeLabelTableThree
+            // 
+            this.currentTypeLabelTableThree.AutoSize = true;
+            this.currentTypeLabelTableThree.Location = new System.Drawing.Point(18, 463);
+            this.currentTypeLabelTableThree.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableThree.Name = "currentTypeLabelTableThree";
+            this.currentTypeLabelTableThree.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableThree.TabIndex = 29;
+            this.currentTypeLabelTableThree.Text = "Type:";
+            this.currentTypeLabelTableThree.Visible = false;
+            // 
+            // currentColumnFilterTableFour
+            // 
+            this.currentColumnFilterTableFour.Enabled = false;
+            this.currentColumnFilterTableFour.FormattingEnabled = true;
+            this.currentColumnFilterTableFour.Location = new System.Drawing.Point(1280, 463);
+            this.currentColumnFilterTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableFour.Name = "currentColumnFilterTableFour";
+            this.currentColumnFilterTableFour.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableFour.TabIndex = 38;
+            this.currentColumnFilterTableFour.Visible = false;
+            // 
+            // currentTextboxTableFour
+            // 
+            this.currentTextboxTableFour.Location = new System.Drawing.Point(1121, 463);
+            this.currentTextboxTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableFour.Name = "currentTextboxTableFour";
+            this.currentTextboxTableFour.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableFour.TabIndex = 37;
+            this.currentTextboxTableFour.Visible = false;
+            // 
+            // currentTermsLabelTableFour
+            // 
+            this.currentTermsLabelTableFour.AutoSize = true;
+            this.currentTermsLabelTableFour.Location = new System.Drawing.Point(1051, 469);
+            this.currentTermsLabelTableFour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableFour.Name = "currentTermsLabelTableFour";
+            this.currentTermsLabelTableFour.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableFour.TabIndex = 36;
+            this.currentTermsLabelTableFour.Text = "Terms:";
+            this.currentTermsLabelTableFour.Visible = false;
+            // 
+            // currentTypeDropdownTableFour
+            // 
+            this.currentTypeDropdownTableFour.FormattingEnabled = true;
+            this.currentTypeDropdownTableFour.Location = new System.Drawing.Point(860, 463);
+            this.currentTypeDropdownTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableFour.Name = "currentTypeDropdownTableFour";
+            this.currentTypeDropdownTableFour.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableFour.TabIndex = 35;
+            this.currentTypeDropdownTableFour.Visible = false;
+            // 
+            // currentTypeLabelTableFour
+            // 
+            this.currentTypeLabelTableFour.AutoSize = true;
+            this.currentTypeLabelTableFour.Location = new System.Drawing.Point(798, 469);
+            this.currentTypeLabelTableFour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableFour.Name = "currentTypeLabelTableFour";
+            this.currentTypeLabelTableFour.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableFour.TabIndex = 34;
+            this.currentTypeLabelTableFour.Text = "Type:";
+            this.currentTypeLabelTableFour.Visible = false;
+            // 
+            // currentClearTwo
+            // 
+            this.currentClearTwo.BackColor = System.Drawing.Color.Transparent;
+            this.currentClearTwo.Location = new System.Drawing.Point(1308, 159);
+            this.currentClearTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentClearTwo.Name = "currentClearTwo";
+            this.currentClearTwo.Size = new System.Drawing.Size(112, 32);
+            this.currentClearTwo.TabIndex = 39;
+            this.currentClearTwo.Text = "Clear";
+            this.currentClearTwo.UseVisualStyleBackColor = false;
+            this.currentClearTwo.Visible = false;
+            // 
+            // currentClearThree
+            // 
+            this.currentClearThree.BackColor = System.Drawing.Color.Transparent;
+            this.currentClearThree.Location = new System.Drawing.Point(548, 511);
+            this.currentClearThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentClearThree.Name = "currentClearThree";
+            this.currentClearThree.Size = new System.Drawing.Size(112, 32);
+            this.currentClearThree.TabIndex = 40;
+            this.currentClearThree.Text = "Clear";
+            this.currentClearThree.UseVisualStyleBackColor = false;
+            this.currentClearThree.Visible = false;
+            // 
+            // currentClearFour
+            // 
+            this.currentClearFour.BackColor = System.Drawing.Color.Transparent;
+            this.currentClearFour.Location = new System.Drawing.Point(1308, 526);
+            this.currentClearFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentClearFour.Name = "currentClearFour";
+            this.currentClearFour.Size = new System.Drawing.Size(112, 32);
+            this.currentClearFour.TabIndex = 41;
+            this.currentClearFour.Text = "Clear";
+            this.currentClearFour.UseVisualStyleBackColor = false;
+            this.currentClearFour.Visible = false;
             // 
             // bsMasterInventory
             // 
@@ -1194,9 +1408,9 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 874);
+            this.ClientSize = new System.Drawing.Size(1500, 1092);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -1307,11 +1521,11 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.Button currentFilterButton;
         private System.Windows.Forms.Button currentAddButton;
         private System.Windows.Forms.Button currentClear;
-        private System.Windows.Forms.ComboBox currentColumnFilter;
-        private System.Windows.Forms.TextBox currentTextbox;
-        private System.Windows.Forms.Label currentTermsLabel;
-        private System.Windows.Forms.ComboBox currentTypeDropdown;
-        private System.Windows.Forms.Label currentTypeLabel;
+        private System.Windows.Forms.ComboBox currentColumnFilterTableOne;
+        private System.Windows.Forms.TextBox currentTextboxTableOne;
+        private System.Windows.Forms.Label currentTermsLabelTableOne;
+        private System.Windows.Forms.ComboBox currentTypeDropdownTableOne;
+        private System.Windows.Forms.Label currentTypeLabelTableOne;
         private System.Windows.Forms.Button masterEditButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button generateButton;
@@ -1320,7 +1534,6 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.DateTimePicker endDatePicker;
         private System.Windows.Forms.DateTimePicker startDatePicker;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox reportTextBox;
         private DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter masterInventoriesTableAdapter1;
         private System.Windows.Forms.Button currentEditButton;
         private System.Windows.Forms.ToolStripMenuItem addItemToolStripMenuItem;
@@ -1328,6 +1541,24 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.DataGridView currentInventoryGrid4;
         private System.Windows.Forms.DataGridView currentInventoryGrid3;
         private System.Windows.Forms.DataGridView currentInventoryGrid2;
+        private System.Windows.Forms.ComboBox currentColumnFilterTableTwo;
+        private System.Windows.Forms.TextBox currentTextboxTableTwo;
+        private System.Windows.Forms.Label currentTermsLabelTableTwo;
+        private System.Windows.Forms.ComboBox currentTypeDropdownTableTwo;
+        private System.Windows.Forms.Label currentTypeLabelTableTwo;
+        private System.Windows.Forms.ComboBox currentColumnFilterTableFour;
+        private System.Windows.Forms.TextBox currentTextboxTableFour;
+        private System.Windows.Forms.Label currentTermsLabelTableFour;
+        private System.Windows.Forms.ComboBox currentTypeDropdownTableFour;
+        private System.Windows.Forms.Label currentTypeLabelTableFour;
+        private System.Windows.Forms.ComboBox currentColumnFilterTableThree;
+        private System.Windows.Forms.TextBox currentTextboxTableThree;
+        private System.Windows.Forms.Label currentTermsLabelTableThree;
+        private System.Windows.Forms.ComboBox currentTypeDropdownTableThree;
+        private System.Windows.Forms.Label currentTypeLabelTableThree;
+        private System.Windows.Forms.Button currentClearFour;
+        private System.Windows.Forms.Button currentClearThree;
+        private System.Windows.Forms.Button currentClearTwo;
     }
 }
 

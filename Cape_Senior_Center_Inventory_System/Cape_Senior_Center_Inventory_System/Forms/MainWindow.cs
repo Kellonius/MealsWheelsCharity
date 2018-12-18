@@ -52,12 +52,12 @@ namespace Cape_Senior_Center_Inventory_System
             setupColors();
             var typeFilters = context.ItemType.Select(x => x.Description).ToArray();
             typeFilterBox.Items.AddRange(typeFilters);
-            currentTypeDropdown.Items.AddRange(typeFilters);
+            currentTypeDropdownTableOne.Items.AddRange(typeFilters);
             columnNames = typeof(MasterInventory).GetProperties()
                 .Select(property => property.Name)
                 .ToArray();
             columnFilter.Items.AddRange(columnNames);
-            currentColumnFilter.Items.AddRange(columnNames);
+            currentColumnFilterTableOne.Items.AddRange(columnNames);
 
         }
 
@@ -304,49 +304,140 @@ namespace Cape_Senior_Center_Inventory_System
         #region Current Inventory
         private void currentFilterButton_Click(object sender, EventArgs e)
         {
+            int xDown = 3;
+            int yDown = 50;
+
             if (!currentFilter)
             {
-                currentInventoryView.Location = new Point(3, 100);
-                currentTypeLabel.Visible = true;
-                currentTypeDropdown.Visible = true;
-                currentTermsLabel.Visible = true;
-                currentTextbox.Visible = true;
-                currentColumnFilter.Visible = true;
-                currentClear.Visible = true;
                 currentFilter = true;
+
+                currentTypeLabelTableOne.Location = new Point(currentInventoryView.Location.X + xDown, currentInventoryView.Location.Y);
+                currentTypeDropdownTableOne.Location = new Point(currentTypeLabelTableOne.Location.X + currentTypeLabelTableOne.Width + xDown, currentInventoryView.Location.Y);
+                currentTermsLabelTableOne.Location = new Point(currentTypeDropdownTableOne.Location.X + currentTypeDropdownTableOne.Width + xDown, currentInventoryView.Location.Y);
+                currentTextboxTableOne.Location = new Point(currentTermsLabelTableOne.Location.X + currentTermsLabelTableOne.Width + xDown, currentInventoryView.Location.Y);
+                currentColumnFilterTableOne.Location = new Point(currentTextboxTableOne.Location.X + currentTextboxTableOne.Width + xDown, currentInventoryView.Location.Y);
+                currentClear.Location = new Point(currentColumnFilterTableOne.Location.X + currentColumnFilterTableOne.Width + xDown, currentInventoryView.Location.Y);
+                currentInventoryView.Location = new Point(currentInventoryView.Location.X + xDown, currentInventoryView.Location.Y + yDown);
+
+
+
+                currentTypeLabelTableOne.Visible = true;
+                currentTypeDropdownTableOne.Visible = true;
+                currentTermsLabelTableOne.Visible = true;
+                currentTextboxTableOne.Visible = true;
+                currentColumnFilterTableOne.Visible = true;
+                currentClear.Visible = true;
+
+
+                currentTypeLabelTableTwo.Location = new Point(currentInventoryGrid2.Location.X + xDown, currentInventoryGrid2.Location.Y);
+                currentTypeDropdownTableTwo.Location = new Point(currentTypeLabelTableTwo.Location.X + currentTypeLabelTableTwo.Width + xDown, currentInventoryGrid2.Location.Y);
+                currentTermsLabelTableTwo.Location = new Point(currentTypeDropdownTableTwo.Location.X + currentTypeDropdownTableTwo.Width + xDown, currentInventoryGrid2.Location.Y);
+                currentTextboxTableTwo.Location = new Point(currentTermsLabelTableTwo.Location.X + currentTermsLabelTableTwo.Width + xDown, currentInventoryGrid2.Location.Y);
+                currentColumnFilterTableTwo.Location = new Point(currentTextboxTableTwo.Location.X + currentTextboxTableTwo.Width + xDown, currentInventoryGrid2.Location.Y);
+                currentClearTwo.Location = new Point(currentColumnFilterTableTwo.Location.X + currentColumnFilterTableTwo.Width + xDown, currentInventoryView.Location.Y);
+                currentInventoryGrid2.Location = new Point(currentInventoryGrid2.Location.X + xDown, currentInventoryGrid2.Location.Y + yDown);
+
+
+                currentTypeLabelTableTwo.Visible = true;
+                currentTypeDropdownTableTwo.Visible = true;
+                currentTermsLabelTableTwo.Visible = true;
+                currentTextboxTableTwo.Visible = true;
+                currentColumnFilterTableTwo.Visible = true;
+                currentClearTwo.Visible = true;
+
+
+                currentInventoryGrid3.Location = new Point(currentInventoryView.Location.X + xDown, currentInventoryView.Location.Y + currentInventoryView.Height + yDown);
+
+                currentTypeLabelTableThree.Location = new Point(currentInventoryGrid3.Location.X + xDown, currentInventoryGrid3.Location.Y);
+                currentTypeDropdownTableThree.Location = new Point(currentTypeLabelTableThree.Location.X + currentTypeLabelTableThree.Width + xDown, currentInventoryGrid3.Location.Y);
+                currentTermsLabelTableThree.Location = new Point(currentTypeDropdownTableThree.Location.X + currentTypeDropdownTableThree.Width + xDown, currentInventoryGrid3.Location.Y);
+                currentTextboxTableThree.Location = new Point(currentTermsLabelTableThree.Location.X + currentTermsLabelTableThree.Width + xDown, currentInventoryGrid3.Location.Y);
+                currentColumnFilterTableThree.Location = new Point(currentTextboxTableThree.Location.X + currentTextboxTableThree.Width + xDown, currentInventoryGrid3.Location.Y);
+                currentClearThree.Location = new Point(currentColumnFilterTableThree.Location.X + currentColumnFilterTableThree.Width + xDown, currentInventoryView.Location.Y);
+
+                currentInventoryGrid3.Location = new Point(currentTypeLabelTableThree.Location.X + xDown, currentTypeLabelTableThree.Location.Y + currentTypeLabelTableThree.Height + yDown);
+
+                currentTypeLabelTableThree.Visible = true;
+                currentTypeDropdownTableThree.Visible = true;
+                currentTermsLabelTableThree.Visible = true;
+                currentTextboxTableThree.Visible = true;
+                currentColumnFilterTableThree.Visible = true;
+                currentClearThree.Visible = true;
+
+                currentInventoryGrid4.Location = new Point(currentInventoryGrid2.Location.X + xDown, currentInventoryGrid2.Location.Y + currentInventoryGrid2.Height + yDown);
+
+                currentTypeLabelTableFour.Location = new Point(currentInventoryGrid4.Location.X + xDown, currentInventoryGrid4.Location.Y);
+                currentTypeDropdownTableFour.Location = new Point(currentTypeLabelTableFour.Location.X + currentTypeLabelTableFour.Width + xDown, currentInventoryGrid4.Location.Y);
+                currentTermsLabelTableFour.Location = new Point(currentTypeDropdownTableFour.Location.X + currentTypeDropdownTableFour.Width + xDown, currentInventoryGrid4.Location.Y);
+                currentTextboxTableFour.Location = new Point(currentTermsLabelTableFour.Location.X + currentTermsLabelTableFour.Width + xDown, currentInventoryGrid4.Location.Y);
+                currentColumnFilterTableFour.Location = new Point(currentTextboxTableFour.Location.X + currentTextboxTableFour.Width + xDown, currentInventoryGrid4.Location.Y);
+                currentClearFour.Location = new Point(currentColumnFilterTableFour.Location.X + currentColumnFilterTableFour.Width + xDown, currentInventoryView.Location.Y);
+
+                currentInventoryGrid4.Location = new Point(currentTypeLabelTableFour.Location.X + xDown, currentTypeLabelTableFour.Location.Y + currentTypeLabelTableFour.Height + yDown);
+                
+                currentTypeLabelTableFour.Visible = true;
+                currentTypeDropdownTableFour.Visible = true;
+                currentTermsLabelTableFour.Visible = true;
+                currentTextboxTableFour.Visible = true;
+                currentColumnFilterTableFour.Visible = true;
+                currentClearFour.Visible = true;
+
+                //currentInventoryGrid4.Location = new Point(currentInventoryGrid4.Location.X + xDown, currentInventoryGrid4.Location.Y + yDown);
+                //currentTypeLabelTableFour.Visible = true;
+                //currentTypeDropdownTableFour.Visible = true;
+                //currentTermsLabelTableFour.Visible = true;
+                //currentTextboxTableFour.Visible = true;
+                //currentColumnFilterTableFour.Visible = true;
+                //currentClear.Visible = true;
+                //currentFilter = true;
+       
             }
             else
             {
-                currentInventoryView.Location = new Point(3, 43);
-                currentTypeLabel.Visible = false;
-                currentTypeDropdown.Visible = false;
-                currentTermsLabel.Visible = false;
-                currentTextbox.Visible = false;
-                currentColumnFilter.Visible = false;
+            
+                currentTypeLabelTableOne.Visible = false;
+                currentTypeDropdownTableOne.Visible = false;
+                currentTermsLabelTableOne.Visible = false;
+                currentTextboxTableOne.Visible = false;
+                currentColumnFilterTableOne.Visible = false;
                 currentClear.Visible = false;
                 currentFilter = false;
+                
+
+                currentTypeLabelTableTwo.Visible = false;
+                currentTypeDropdownTableTwo.Visible = false;
+                currentTermsLabelTableTwo.Visible = false;
+                currentTextboxTableTwo.Visible = false;
+                currentColumnFilterTableTwo.Visible = false;
+                currentClear.Visible = false;
+                currentFilter = false;
+
+                currentInventoryView.Location = new Point(3, 43);
+                currentInventoryGrid2.Location = new Point(currentInventoryView.Location.X + currentInventoryView.Width + 10, 43);
+                currentInventoryGrid3.Location = new Point(currentInventoryView.Location.X , currentInventoryView.Location.Y +currentInventoryView.Width+43 );
+                currentInventoryGrid4.Location = new Point(currentInventoryView.Location.X + currentInventoryView.Width + 10, currentInventoryView.Width+43);
             }
         }
 
         private void currentClear_Click(object sender, EventArgs e)
         {
-            currentTypeDropdown.Text = "";
-            currentTextbox.Text = "";
-            currentColumnFilter.Text = "";
-            currentColumnFilter.Enabled = false;
+            currentTypeDropdownTableOne.Text = "";
+            currentTextboxTableOne.Text = "";
+            currentColumnFilterTableOne.Text = "";
+            currentColumnFilterTableOne.Enabled = false;
             CurrentList = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
             refreshView(currentInventoryView, CurrentList);
         }
 
         private void currentTextbox_TextChanged(object sender, EventArgs e)
         {
-            if (currentTextbox.Text != "")
+            if (currentTextboxTableOne.Text != "")
             {
-                currentColumnFilter.Enabled = true;
+                currentColumnFilterTableOne.Enabled = true;
             }
             else
             {
-                currentColumnFilter.Enabled = false;
+                currentColumnFilterTableOne.Enabled = false;
             }
         }
 
@@ -355,7 +446,7 @@ namespace Cape_Senior_Center_Inventory_System
             List<MasterInventory> query = new List<MasterInventory>();
             foreach (var x in context.MasterInventories)
             {
-                if (x.GetType().GetProperty(currentColumnFilter.Text).GetValue(x).ToString().ToLower().Contains(currentTextbox.Text.ToLower()) && x.UnitsOnHand > 0)
+                if (x.GetType().GetProperty(currentColumnFilterTableOne.Text).GetValue(x).ToString().ToLower().Contains(currentTextboxTableOne.Text.ToLower()) && x.UnitsOnHand > 0)
                 {
                     query.Add(x);
                 }
@@ -368,7 +459,7 @@ namespace Cape_Senior_Center_Inventory_System
         private void currentTypeDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             CurrentList = context.MasterInventories
-                .Where(x => x.ItemType == currentTypeDropdown.Text && x.UnitsOnHand > 0).ToList();
+                .Where(x => x.ItemType == currentTypeDropdownTableOne.Text && x.UnitsOnHand > 0).ToList();
             refreshView(currentInventoryView, CurrentList);
         }
 
@@ -537,8 +628,8 @@ namespace Cape_Senior_Center_Inventory_System
             if (preferences.NumCurrentGrids > 1)
             {
                 currentInventoryGrid3.Visible = true;
-                currentInventoryGrid3.DataSource = setupFilters(preferences.CurrentColumnThree); 
-                currentInventoryGrid3.Location = new Point(currentInventoryView.Width/2, currentInventoryView.Height + 50);
+                currentInventoryGrid3.DataSource = setupFilters(preferences.CurrentColumnThree);
+                currentInventoryGrid3.Location = new Point(currentInventoryView.Width / 2, currentInventoryView.Height + 50);
 
                 currentInventoryGrid3.Columns[4].Visible = false;
                 currentInventoryGrid3.Columns[11].Visible = false;
@@ -600,7 +691,8 @@ namespace Cape_Senior_Center_Inventory_System
             if (preferences.NumCurrentGrids == 1)
             {
                 Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 40, 800);
-            }else if (preferences.NumCurrentGrids > 1)
+            }
+            else if (preferences.NumCurrentGrids > 1)
             {
                 Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 40, currentInventoryView.Height * 2 + 200);
             }
@@ -610,30 +702,30 @@ namespace Cape_Senior_Center_Inventory_System
         {
             var newContext = new List<MasterInventory>();
             string caseSwitch = filter;
-                switch (caseSwitch)
-                {
-                    case "All":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
-                        break;
-                    case "Frozen, Cooler":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 &&(x.ItemType == "Frozen" || x.ItemType == "Cooler" )).ToList();
-                        break;
-                    case "Frozen, Dry":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Frozen" || x.ItemType == "Dry Goods")).ToList();
-                        break;
-                    case "Cooler, Dry":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Dry Goods" || x.ItemType == "Cooler")).ToList();
-                        break;
-                    case "Frozen":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Frozen").ToList();
-                        break;
-                    case "Cooler":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Cooler").ToList();
-                        break;
-                    case "Dry":
-                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Dry Goods").ToList();
-                        break;
-                }
+            switch (caseSwitch)
+            {
+                case "All":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
+                    break;
+                case "Frozen, Cooler":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Frozen" || x.ItemType == "Cooler")).ToList();
+                    break;
+                case "Frozen, Dry":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Frozen" || x.ItemType == "Dry Goods")).ToList();
+                    break;
+                case "Cooler, Dry":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Dry Goods" || x.ItemType == "Cooler")).ToList();
+                    break;
+                case "Frozen":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Frozen").ToList();
+                    break;
+                case "Cooler":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Cooler").ToList();
+                    break;
+                case "Dry":
+                    newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Dry Goods").ToList();
+                    break;
+            }
 
             return newContext;
         }
