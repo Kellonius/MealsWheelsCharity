@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Configuration;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net.Mime;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -45,8 +46,8 @@ namespace Cape_Senior_Center_Inventory_System
             MasterList = context.MasterInventories.ToList();
             CurrentList = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
             InventoryHistory = context.InventoryHistory.ToList();
-            currentInventoryView.DataSource = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
             inventoryHistoryDataGridView.DataSource = context.InventoryHistory.Where(x => x.Updated_TS < DateTime.Now).ToList();
+            setupGrid();
             masterListView.DataSource = context.MasterInventories.ToList();
             setupColors();
             var typeFilters = context.ItemType.Select(x => x.Description).ToArray();
@@ -57,6 +58,7 @@ namespace Cape_Senior_Center_Inventory_System
                 .ToArray();
             columnFilter.Items.AddRange(columnNames);
             currentColumnFilter.Items.AddRange(columnNames);
+
         }
 
         #region Single Cell Edits
@@ -222,6 +224,7 @@ namespace Cape_Senior_Center_Inventory_System
         private void masterEditButton_Click(object sender, EventArgs e)
         {
             var editPopup = new AddInventory();
+            editPopup.Text = "Edit Item";
             editPopup.prepareEdit(MasterList[RowIndex].Id);
             editPopup.ShowDialog();
             context = new DataContext.DataContext();
@@ -372,6 +375,7 @@ namespace Cape_Senior_Center_Inventory_System
         private void currentEditButton_Click(object sender, EventArgs e)
         {
             var editPopup = new AddInventory();
+            editPopup.Text = "Edit Item";
             editPopup.prepareEdit(CurrentList[RowIndex].Id);
             editPopup.ShowDialog();
             context = new DataContext.DataContext();
@@ -484,6 +488,156 @@ namespace Cape_Senior_Center_Inventory_System
                 }
             }
         }
+
+        private void setupGrid()
+        {
+
+            //get user preferences
+            var preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+            //currentInventory
+            currentInventoryView.DataSource = setupFilters(preferences.CurrentColumnOne);
+
+            currentInventoryView.Columns[4].Visible = false;
+            currentInventoryView.Columns[11].Visible = false;
+            currentInventoryView.Columns[12].Visible = false;
+
+            int i = 0;
+
+            foreach (DataGridViewColumn c in currentInventoryView.Columns)
+
+            {
+                if (c.Visible)
+                    i += c.Width;
+            }
+
+            currentInventoryView.Width = i + currentInventoryView.RowHeadersWidth + 2;
+
+            if (preferences.NumCurrentGrids > 0)
+            {
+                currentInventoryGrid2.Visible = true;
+                currentInventoryGrid2.DataSource = setupFilters(preferences.CurrentColumnTwo);
+                currentInventoryGrid2.Location = new Point(currentInventoryView.Width + 8, 43);
+
+                currentInventoryGrid2.Columns[4].Visible = false;
+                currentInventoryGrid2.Columns[11].Visible = false;
+                currentInventoryGrid2.Columns[12].Visible = false;
+
+                i = 0;
+
+                foreach (DataGridViewColumn c in currentInventoryGrid2.Columns)
+
+                {
+                    if (c.Visible)
+                        i += c.Width;
+                }
+
+                currentInventoryGrid2.Width = i + currentInventoryGrid2.RowHeadersWidth + 2;
+            }
+
+            if (preferences.NumCurrentGrids > 1)
+            {
+                currentInventoryGrid3.Visible = true;
+                currentInventoryGrid3.DataSource = setupFilters(preferences.CurrentColumnThree); 
+                currentInventoryGrid3.Location = new Point(currentInventoryView.Width/2, currentInventoryView.Height + 50);
+
+                currentInventoryGrid3.Columns[4].Visible = false;
+                currentInventoryGrid3.Columns[11].Visible = false;
+                currentInventoryGrid3.Columns[12].Visible = false;
+
+                i = 0;
+
+                foreach (DataGridViewColumn c in currentInventoryGrid3.Columns)
+
+                {
+                    if (c.Visible)
+                        i += c.Width;
+                }
+
+                currentInventoryGrid3.Width = i + currentInventoryGrid3.RowHeadersWidth + 2;
+
+                if (currentInventoryView.Width >= currentInventoryGrid3.Width)
+                {
+                    currentInventoryGrid3.Width = currentInventoryView.Width;
+                }
+                else
+                {
+                    currentInventoryView.Width = currentInventoryGrid3.Width;
+                }
+            }
+
+            if (preferences.NumCurrentGrids > 2)
+            {
+                currentInventoryGrid4.Visible = true;
+                currentInventoryGrid4.DataSource = setupFilters(preferences.CurrentColumnFour);
+                currentInventoryGrid4.Location = new Point(currentInventoryView.Width + 8, currentInventoryView.Height + 50);
+                currentInventoryGrid3.Location = new Point(4, currentInventoryView.Height + 50);
+
+                currentInventoryGrid4.Columns[4].Visible = false;
+                currentInventoryGrid4.Columns[11].Visible = false;
+                currentInventoryGrid4.Columns[12].Visible = false;
+
+                i = 0;
+
+                foreach (DataGridViewColumn c in currentInventoryGrid4.Columns)
+
+                {
+                    if (c.Visible)
+                        i += c.Width;
+                }
+
+                currentInventoryGrid4.Width = i + currentInventoryGrid4.RowHeadersWidth + 2;
+
+                if (currentInventoryGrid2.Width >= currentInventoryGrid4.Width)
+                {
+                    currentInventoryGrid4.Width = currentInventoryGrid2.Width;
+                }
+                else
+                {
+                    currentInventoryGrid2.Width = currentInventoryGrid4.Width;
+                }
+            }
+
+            if (preferences.NumCurrentGrids == 1)
+            {
+                Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 40, 800);
+            }else if (preferences.NumCurrentGrids > 1)
+            {
+                Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 40, currentInventoryView.Height * 2 + 200);
+            }
+        }
+
+        private List<MasterInventory> setupFilters(string filter)
+        {
+            var newContext = new List<MasterInventory>();
+            string caseSwitch = filter;
+                switch (caseSwitch)
+                {
+                    case "All":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
+                        break;
+                    case "Frozen, Cooler":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 &&(x.ItemType == "Frozen" || x.ItemType == "Cooler" )).ToList();
+                        break;
+                    case "Frozen, Dry":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Frozen" || x.ItemType == "Dry Goods")).ToList();
+                        break;
+                    case "Cooler, Dry":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && (x.ItemType == "Dry Goods" || x.ItemType == "Cooler")).ToList();
+                        break;
+                    case "Frozen":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Frozen").ToList();
+                        break;
+                    case "Cooler":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Cooler").ToList();
+                        break;
+                    case "Dry":
+                        newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Dry Goods").ToList();
+                        break;
+                }
+
+            return newContext;
+        }
+
         #endregion
 
         #region Price Reconciliation 
@@ -539,8 +693,8 @@ namespace Cape_Senior_Center_Inventory_System
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

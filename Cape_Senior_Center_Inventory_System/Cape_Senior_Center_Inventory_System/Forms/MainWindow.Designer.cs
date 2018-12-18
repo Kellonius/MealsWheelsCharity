@@ -48,6 +48,18 @@ namespace Cape_Senior_Center_Inventory_System
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,6 +108,9 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryTab = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.currentTab = new System.Windows.Forms.TabPage();
+            this.currentInventoryGrid4 = new System.Windows.Forms.DataGridView();
+            this.currentInventoryGrid3 = new System.Windows.Forms.DataGridView();
+            this.currentInventoryGrid2 = new System.Windows.Forms.DataGridView();
             this.currentColumnFilter = new System.Windows.Forms.ComboBox();
             this.currentTextbox = new System.Windows.Forms.TextBox();
             this.currentTermsLabel = new System.Windows.Forms.Label();
@@ -143,6 +158,9 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryTab.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.currentTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryView)).BeginInit();
             this.panel1.SuspendLayout();
             this.masterListTab.SuspendLayout();
@@ -215,7 +233,7 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.historyTab.Controls.Add(this.tabControl4);
             this.historyTab.Location = new System.Drawing.Point(4, 25);
-            this.historyTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.historyTab.Margin = new System.Windows.Forms.Padding(4);
             this.historyTab.Name = "historyTab";
             this.historyTab.Size = new System.Drawing.Size(1325, 817);
             this.historyTab.TabIndex = 8;
@@ -228,7 +246,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl4.Controls.Add(this.pricingHistoryTab);
             this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl4.Location = new System.Drawing.Point(0, 0);
-            this.tabControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl4.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
             this.tabControl4.Size = new System.Drawing.Size(1325, 817);
@@ -561,7 +579,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.reportTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.reportTextBox.Location = new System.Drawing.Point(0, 71);
-            this.reportTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.reportTextBox.Name = "reportTextBox";
             this.reportTextBox.ReadOnly = true;
             this.reportTextBox.Size = new System.Drawing.Size(1304, 702);
@@ -577,7 +595,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel3.Controls.Add(this.startDatePicker);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1312, 64);
             this.panel3.TabIndex = 0;
@@ -585,7 +603,7 @@ namespace Cape_Senior_Center_Inventory_System
             // generateButton
             // 
             this.generateButton.Location = new System.Drawing.Point(1132, 21);
-            this.generateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.generateButton.Margin = new System.Windows.Forms.Padding(4);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(100, 28);
             this.generateButton.TabIndex = 9;
@@ -646,7 +664,7 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.inventoryTab.Controls.Add(this.tabControl2);
             this.inventoryTab.Location = new System.Drawing.Point(4, 25);
-            this.inventoryTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inventoryTab.Margin = new System.Windows.Forms.Padding(4);
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Size = new System.Drawing.Size(1325, 817);
             this.inventoryTab.TabIndex = 6;
@@ -659,7 +677,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl2.Controls.Add(this.masterListTab);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -668,6 +686,9 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // currentTab
             // 
+            this.currentTab.Controls.Add(this.currentInventoryGrid4);
+            this.currentTab.Controls.Add(this.currentInventoryGrid3);
+            this.currentTab.Controls.Add(this.currentInventoryGrid2);
             this.currentTab.Controls.Add(this.currentColumnFilter);
             this.currentTab.Controls.Add(this.currentTextbox);
             this.currentTab.Controls.Add(this.currentTermsLabel);
@@ -677,20 +698,134 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTab.Controls.Add(this.panel1);
             this.currentTab.Controls.Add(this.currentClear);
             this.currentTab.Location = new System.Drawing.Point(4, 25);
-            this.currentTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentTab.Margin = new System.Windows.Forms.Padding(4);
             this.currentTab.Name = "currentTab";
-            this.currentTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentTab.Padding = new System.Windows.Forms.Padding(4);
             this.currentTab.Size = new System.Drawing.Size(1317, 788);
             this.currentTab.TabIndex = 0;
             this.currentTab.Text = "Current";
             this.currentTab.UseVisualStyleBackColor = true;
+            // 
+            // currentInventoryGrid4
+            // 
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
+            this.currentInventoryGrid4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.currentInventoryGrid4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.currentInventoryGrid4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentInventoryGrid4.DefaultCellStyle = dataGridViewCellStyle10;
+            this.currentInventoryGrid4.Location = new System.Drawing.Point(495, 315);
+            this.currentInventoryGrid4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.currentInventoryGrid4.Name = "currentInventoryGrid4";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid4.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.currentInventoryGrid4.RowTemplate.Height = 24;
+            this.currentInventoryGrid4.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryGrid4.TabIndex = 23;
+            this.currentInventoryGrid4.Visible = false;
+            // 
+            // currentInventoryGrid3
+            // 
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Lavender;
+            this.currentInventoryGrid3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.currentInventoryGrid3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.currentInventoryGrid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentInventoryGrid3.DefaultCellStyle = dataGridViewCellStyle14;
+            this.currentInventoryGrid3.Location = new System.Drawing.Point(4, 317);
+            this.currentInventoryGrid3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.currentInventoryGrid3.Name = "currentInventoryGrid3";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid3.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.currentInventoryGrid3.RowTemplate.Height = 24;
+            this.currentInventoryGrid3.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryGrid3.TabIndex = 22;
+            this.currentInventoryGrid3.Visible = false;
+            // 
+            // currentInventoryGrid2
+            // 
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
+            this.currentInventoryGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.currentInventoryGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.currentInventoryGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentInventoryGrid2.DefaultCellStyle = dataGridViewCellStyle18;
+            this.currentInventoryGrid2.Location = new System.Drawing.Point(487, 59);
+            this.currentInventoryGrid2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.currentInventoryGrid2.Name = "currentInventoryGrid2";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.currentInventoryGrid2.RowTemplate.Height = 24;
+            this.currentInventoryGrid2.Size = new System.Drawing.Size(823, 475);
+            this.currentInventoryGrid2.TabIndex = 21;
+            this.currentInventoryGrid2.Visible = false;
             // 
             // currentColumnFilter
             // 
             this.currentColumnFilter.Enabled = false;
             this.currentColumnFilter.FormattingEnabled = true;
             this.currentColumnFilter.Location = new System.Drawing.Point(444, 80);
-            this.currentColumnFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentColumnFilter.Margin = new System.Windows.Forms.Padding(4);
             this.currentColumnFilter.Name = "currentColumnFilter";
             this.currentColumnFilter.Size = new System.Drawing.Size(160, 24);
             this.currentColumnFilter.TabIndex = 19;
@@ -700,7 +835,7 @@ namespace Cape_Senior_Center_Inventory_System
             // currentTextbox
             // 
             this.currentTextbox.Location = new System.Drawing.Point(303, 80);
-            this.currentTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.currentTextbox.Name = "currentTextbox";
             this.currentTextbox.Size = new System.Drawing.Size(132, 22);
             this.currentTextbox.TabIndex = 18;
@@ -722,7 +857,7 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.currentTypeDropdown.FormattingEnabled = true;
             this.currentTypeDropdown.Location = new System.Drawing.Point(71, 80);
-            this.currentTypeDropdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentTypeDropdown.Margin = new System.Windows.Forms.Padding(4);
             this.currentTypeDropdown.Name = "currentTypeDropdown";
             this.currentTypeDropdown.Size = new System.Drawing.Size(160, 24);
             this.currentTypeDropdown.TabIndex = 16;
@@ -742,38 +877,39 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // currentInventoryView
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
-            this.currentInventoryView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.currentInventoryView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
+            this.currentInventoryView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.currentInventoryView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.currentInventoryView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.currentInventoryView.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentInventoryView.DefaultCellStyle = dataGridViewCellStyle22;
             this.currentInventoryView.Location = new System.Drawing.Point(4, 53);
             this.currentInventoryView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.currentInventoryView.Name = "currentInventoryView";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.currentInventoryView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryView.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.currentInventoryView.RowTemplate.Height = 24;
-            this.currentInventoryView.Size = new System.Drawing.Size(1304, 724);
+            this.currentInventoryView.Size = new System.Drawing.Size(823, 475);
             this.currentInventoryView.TabIndex = 4;
             this.currentInventoryView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.currentInventoryView_CellBeginEdit);
             this.currentInventoryView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentInventoryView_CellClick);
@@ -787,7 +923,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1309, 49);
             this.panel1.TabIndex = 6;
@@ -795,7 +931,7 @@ namespace Cape_Senior_Center_Inventory_System
             // currentEditButton
             // 
             this.currentEditButton.Location = new System.Drawing.Point(161, 15);
-            this.currentEditButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentEditButton.Margin = new System.Windows.Forms.Padding(4);
             this.currentEditButton.Name = "currentEditButton";
             this.currentEditButton.Size = new System.Drawing.Size(100, 28);
             this.currentEditButton.TabIndex = 11;
@@ -806,7 +942,7 @@ namespace Cape_Senior_Center_Inventory_System
             // currentFilterButton
             // 
             this.currentFilterButton.Location = new System.Drawing.Point(53, 15);
-            this.currentFilterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentFilterButton.Margin = new System.Windows.Forms.Padding(4);
             this.currentFilterButton.Name = "currentFilterButton";
             this.currentFilterButton.Size = new System.Drawing.Size(100, 28);
             this.currentFilterButton.TabIndex = 10;
@@ -817,7 +953,7 @@ namespace Cape_Senior_Center_Inventory_System
             // currentAddButton
             // 
             this.currentAddButton.Location = new System.Drawing.Point(16, 15);
-            this.currentAddButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentAddButton.Margin = new System.Windows.Forms.Padding(4);
             this.currentAddButton.Name = "currentAddButton";
             this.currentAddButton.Size = new System.Drawing.Size(29, 28);
             this.currentAddButton.TabIndex = 9;
@@ -838,7 +974,7 @@ namespace Cape_Senior_Center_Inventory_System
             // currentClear
             // 
             this.currentClear.Location = new System.Drawing.Point(613, 80);
-            this.currentClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentClear.Margin = new System.Windows.Forms.Padding(4);
             this.currentClear.Name = "currentClear";
             this.currentClear.Size = new System.Drawing.Size(100, 26);
             this.currentClear.TabIndex = 20;
@@ -858,9 +994,9 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterListTab.Controls.Add(this.masterListView);
             this.masterListTab.Controls.Add(this.panel2);
             this.masterListTab.Location = new System.Drawing.Point(4, 25);
-            this.masterListTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterListTab.Margin = new System.Windows.Forms.Padding(4);
             this.masterListTab.Name = "masterListTab";
-            this.masterListTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterListTab.Padding = new System.Windows.Forms.Padding(4);
             this.masterListTab.Size = new System.Drawing.Size(1317, 788);
             this.masterListTab.TabIndex = 1;
             this.masterListTab.Text = "Master List";
@@ -869,7 +1005,7 @@ namespace Cape_Senior_Center_Inventory_System
             // clearButton
             // 
             this.clearButton.Location = new System.Drawing.Point(613, 79);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(100, 26);
             this.clearButton.TabIndex = 14;
@@ -883,7 +1019,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.columnFilter.Enabled = false;
             this.columnFilter.FormattingEnabled = true;
             this.columnFilter.Location = new System.Drawing.Point(444, 79);
-            this.columnFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.columnFilter.Margin = new System.Windows.Forms.Padding(4);
             this.columnFilter.Name = "columnFilter";
             this.columnFilter.Size = new System.Drawing.Size(160, 24);
             this.columnFilter.TabIndex = 13;
@@ -893,7 +1029,7 @@ namespace Cape_Senior_Center_Inventory_System
             // termsTextBox
             // 
             this.termsTextBox.Location = new System.Drawing.Point(303, 79);
-            this.termsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.termsTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.termsTextBox.Name = "termsTextBox";
             this.termsTextBox.Size = new System.Drawing.Size(132, 22);
             this.termsTextBox.TabIndex = 12;
@@ -915,7 +1051,7 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.typeFilterBox.FormattingEnabled = true;
             this.typeFilterBox.Location = new System.Drawing.Point(71, 79);
-            this.typeFilterBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typeFilterBox.Margin = new System.Windows.Forms.Padding(4);
             this.typeFilterBox.Name = "typeFilterBox";
             this.typeFilterBox.Size = new System.Drawing.Size(160, 24);
             this.typeFilterBox.TabIndex = 10;
@@ -935,40 +1071,40 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // masterListView
             // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Lavender;
-            this.masterListView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.masterListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.Lavender;
+            this.masterListView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.masterListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.masterListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.masterListView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.masterListView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.masterListView.DefaultCellStyle = dataGridViewCellStyle26;
             this.masterListView.Location = new System.Drawing.Point(4, 53);
             this.masterListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.masterListView.Name = "masterListView";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.masterListView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.masterListView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.masterListView.RowTemplate.Height = 24;
             this.masterListView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.masterListView.Size = new System.Drawing.Size(1304, 724);
+            this.masterListView.Size = new System.Drawing.Size(743, 391);
             this.masterListView.TabIndex = 6;
             this.masterListView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView2_MasterInventory_CellBeginEdit);
             this.masterListView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.masterListView_CellClick);
@@ -982,7 +1118,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1309, 49);
             this.panel2.TabIndex = 8;
@@ -990,7 +1126,7 @@ namespace Cape_Senior_Center_Inventory_System
             // masterEditButton
             // 
             this.masterEditButton.Location = new System.Drawing.Point(161, 15);
-            this.masterEditButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterEditButton.Margin = new System.Windows.Forms.Padding(4);
             this.masterEditButton.Name = "masterEditButton";
             this.masterEditButton.Size = new System.Drawing.Size(100, 28);
             this.masterEditButton.TabIndex = 10;
@@ -1001,7 +1137,7 @@ namespace Cape_Senior_Center_Inventory_System
             // filterButton
             // 
             this.filterButton.Location = new System.Drawing.Point(53, 15);
-            this.filterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(4);
             this.filterButton.Name = "filterButton";
             this.filterButton.Size = new System.Drawing.Size(100, 28);
             this.filterButton.TabIndex = 9;
@@ -1012,7 +1148,7 @@ namespace Cape_Senior_Center_Inventory_System
             // addRow
             // 
             this.addRow.Location = new System.Drawing.Point(16, 15);
-            this.addRow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addRow.Margin = new System.Windows.Forms.Padding(4);
             this.addRow.Name = "addRow";
             this.addRow.Size = new System.Drawing.Size(29, 28);
             this.addRow.TabIndex = 8;
@@ -1037,7 +1173,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.Controls.Add(this.historyTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 28);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1066,6 +1202,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Cape Girardeau Senior Center Inventory Management";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip.ResumeLayout(false);
@@ -1091,6 +1228,9 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl2.ResumeLayout(false);
             this.currentTab.ResumeLayout(false);
             this.currentTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1185,6 +1325,9 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.Button currentEditButton;
         private System.Windows.Forms.ToolStripMenuItem addItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.DataGridView currentInventoryGrid4;
+        private System.Windows.Forms.DataGridView currentInventoryGrid3;
+        private System.Windows.Forms.DataGridView currentInventoryGrid2;
     }
 }
 

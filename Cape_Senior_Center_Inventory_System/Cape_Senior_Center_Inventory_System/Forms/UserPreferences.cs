@@ -8,17 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Cape_Senior_Center_Inventory_System.Forms
 {
     public partial class UserPreferences : Form
     {
         public DataContext.DataContext context = new DataContext.DataContext();
+
         public UserPreferences()
         {
             InitializeComponent();
         }
+
         #region Load
+
         private void UserPreferences_Load(object sender, EventArgs e)
         {
             //get existing preferences
@@ -78,9 +82,11 @@ namespace Cape_Senior_Center_Inventory_System.Forms
 
             }
         }
+
         #endregion
 
         #region DropdownControls
+
         private void currentInventoryDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             var caseSwitch = currentInventoryDropDown.SelectedIndex;
@@ -182,17 +188,27 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                     break;
             }
         }
+
         #endregion
 
         #region Buttons
+
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             var saveName = preferencesNameBox.Text;
             Preferences newPreferences = new Preferences();
+
+            // if default remove all others
+
+            if (defaultCheckBox.Checked)
+            {
+                context.Preferences.ToList().ForEach(c => c.isDefault = false);
+            }
 
             //check for existing name
             var preferencesExists = context.Preferences.Any(x => x.PreferencesName == saveName);
@@ -235,12 +251,6 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 newPreferences.isDefault = defaultCheckBox.Checked;
                 context.Preferences.Add(newPreferences);
             }
-            // if default remove all others
-
-            if (defaultCheckBox.Checked)
-            {
-                context.Preferences.ToList().ForEach(c=> c.isDefault = false);
-            }
 
             //save
 
@@ -250,5 +260,115 @@ namespace Cape_Senior_Center_Inventory_System.Forms
 
         #endregion
 
+        private void preferencesNameBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var preferences = context.Preferences.FirstOrDefault(x => x.PreferencesName == preferencesNameBox.Text);
+
+            if (preferences == null)
+                return;
+
+            preferencesNameBox.Text = preferences.PreferencesName;
+            defaultCheckBox.Checked = preferences.isDefault;
+
+            currentInventoryDropDown.SelectedIndex = preferences.NumCurrentGrids;
+            oneDrop.Text = preferences.CurrentColumnOne;
+            twoDrop.Text = preferences.CurrentColumnTwo;
+            threeDrop.Text = preferences.CurrentColumnThree;
+            fourDrop.Text = preferences.CurrentColumnFour;
+
+            masterInventoryDropDown.SelectedIndex = preferences.NumMasterGrids;
+            masterOneDrop.Text = preferences.MasterColumnOne;
+            masterTwoDrop.Text = preferences.MasterColumnTwo;
+            masterThreeDrop.Text = preferences.MasterColumnThree;
+            masterFourDrop.Text = preferences.MasterColumnFour;
+
+            deleteButton.Enabled = true;
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to delete this user profile? This cannot be undone!", "Delete",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+                var itemToDelete =
+                    context.Preferences.FirstOrDefault(x => x.PreferencesName == preferencesNameBox.Text);
+                context.Preferences.Remove(itemToDelete);
+                context.SaveChanges();
+                refresh(false);
+            }
+        }
+
+        private void refresh(bool clear)
+        {
+            //get existing preferences
+            var preferences = context.Preferences;
+            var defaultPreferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+
+            preferencesNameBox.Text = "";
+            preferencesNameBox.Items.Clear();
+            var savedNames = context.Preferences.Select(x => x.PreferencesName).ToArray();
+            preferencesNameBox.Items.AddRange(savedNames);
+
+            if (defaultPreferences == null || clear)
+            {
+                currentInventoryDropDown.SelectedIndex = 0;
+                oneDrop.SelectedIndex = 0;
+                twoDrop.Text = "";
+                twoDrop.Hide();
+                threeDrop.Text = "";
+                threeDrop.Hide();
+                fourDrop.Text = "";
+                fourDrop.Hide();
+
+                masterInventoryDropDown.SelectedIndex = 0;
+                masterOneDrop.SelectedIndex = 0;
+                masterTwoDrop.Text = "";
+                masterTwoDrop.Hide();
+                masterThreeDrop.Text = "";
+                masterThreeDrop.Hide();
+                masterFourDrop.Text = "";
+                masterFourDrop.Hide();
+                defaultCheckBox.Checked = false;
+
+            }
+            else
+            {
+
+                preferencesNameBox.Text = defaultPreferences.PreferencesName;
+                defaultCheckBox.Checked = true;
+
+                currentInventoryDropDown.SelectedIndex = defaultPreferences.NumCurrentGrids;
+                oneDrop.Text = defaultPreferences.CurrentColumnOne;
+                twoDrop.Text = defaultPreferences.CurrentColumnTwo;
+                threeDrop.Text = defaultPreferences.CurrentColumnThree;
+                fourDrop.Text = defaultPreferences.CurrentColumnFour;
+
+                masterInventoryDropDown.SelectedIndex = defaultPreferences.NumMasterGrids;
+                masterOneDrop.Text = defaultPreferences.MasterColumnOne;
+                masterTwoDrop.Text = defaultPreferences.MasterColumnTwo;
+                masterThreeDrop.Text = defaultPreferences.MasterColumnThree;
+                masterFourDrop.Text = defaultPreferences.MasterColumnFour;
+
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            refresh(true);
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            var saveName = Interaction.InputBox("Enter a name for your profile", "Add New Profile", "");
+            if (saveName != string.Empty)
+            {
+                refresh(true);
+                preferencesNameBox.Items.Add(saveName);
+                preferencesNameBox.SelectedIndex = preferencesNameBox.Items.Count - 1;
+            }
+        }
     }
 }

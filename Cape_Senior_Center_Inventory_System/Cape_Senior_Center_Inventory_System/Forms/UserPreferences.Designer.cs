@@ -55,9 +55,12 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.preferencesNameBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.defaultCheckBox = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.preferencesNameBox = new System.Windows.Forms.ComboBox();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryImage)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -79,9 +82,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.currentInventoryImage);
             this.groupBox1.Location = new System.Drawing.Point(52, 164);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(788, 208);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -91,7 +94,7 @@
             // 
             this.fourDrop.FormattingEnabled = true;
             this.fourDrop.Location = new System.Drawing.Point(612, 145);
-            this.fourDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fourDrop.Margin = new System.Windows.Forms.Padding(4);
             this.fourDrop.Name = "fourDrop";
             this.fourDrop.Size = new System.Drawing.Size(160, 24);
             this.fourDrop.TabIndex = 10;
@@ -101,7 +104,7 @@
             // 
             this.threeDrop.FormattingEnabled = true;
             this.threeDrop.Location = new System.Drawing.Point(612, 112);
-            this.threeDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.threeDrop.Margin = new System.Windows.Forms.Padding(4);
             this.threeDrop.Name = "threeDrop";
             this.threeDrop.Size = new System.Drawing.Size(160, 24);
             this.threeDrop.TabIndex = 9;
@@ -111,7 +114,7 @@
             // 
             this.twoDrop.FormattingEnabled = true;
             this.twoDrop.Location = new System.Drawing.Point(612, 79);
-            this.twoDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.twoDrop.Margin = new System.Windows.Forms.Padding(4);
             this.twoDrop.Name = "twoDrop";
             this.twoDrop.Size = new System.Drawing.Size(160, 24);
             this.twoDrop.TabIndex = 8;
@@ -154,7 +157,7 @@
             // 
             this.oneDrop.FormattingEnabled = true;
             this.oneDrop.Location = new System.Drawing.Point(612, 46);
-            this.oneDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.oneDrop.Margin = new System.Windows.Forms.Padding(4);
             this.oneDrop.Name = "oneDrop";
             this.oneDrop.Size = new System.Drawing.Size(160, 24);
             this.oneDrop.TabIndex = 4;
@@ -178,7 +181,7 @@
             "Three",
             "Four"});
             this.currentInventoryDropDown.Location = new System.Drawing.Point(8, 69);
-            this.currentInventoryDropDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentInventoryDropDown.Margin = new System.Windows.Forms.Padding(4);
             this.currentInventoryDropDown.Name = "currentInventoryDropDown";
             this.currentInventoryDropDown.Size = new System.Drawing.Size(117, 24);
             this.currentInventoryDropDown.TabIndex = 2;
@@ -198,7 +201,7 @@
             // 
             this.currentInventoryImage.Image = global::Cape_Senior_Center_Inventory_System.Properties.Resources.one;
             this.currentInventoryImage.Location = new System.Drawing.Point(177, 23);
-            this.currentInventoryImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentInventoryImage.Margin = new System.Windows.Forms.Padding(4);
             this.currentInventoryImage.Name = "currentInventoryImage";
             this.currentInventoryImage.Size = new System.Drawing.Size(301, 165);
             this.currentInventoryImage.TabIndex = 0;
@@ -218,9 +221,9 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.masterImage);
             this.groupBox2.Location = new System.Drawing.Point(52, 380);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(788, 208);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
@@ -230,7 +233,7 @@
             // 
             this.masterFourDrop.FormattingEnabled = true;
             this.masterFourDrop.Location = new System.Drawing.Point(612, 145);
-            this.masterFourDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterFourDrop.Margin = new System.Windows.Forms.Padding(4);
             this.masterFourDrop.Name = "masterFourDrop";
             this.masterFourDrop.Size = new System.Drawing.Size(160, 24);
             this.masterFourDrop.TabIndex = 10;
@@ -240,7 +243,7 @@
             // 
             this.masterThreeDrop.FormattingEnabled = true;
             this.masterThreeDrop.Location = new System.Drawing.Point(612, 112);
-            this.masterThreeDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterThreeDrop.Margin = new System.Windows.Forms.Padding(4);
             this.masterThreeDrop.Name = "masterThreeDrop";
             this.masterThreeDrop.Size = new System.Drawing.Size(160, 24);
             this.masterThreeDrop.TabIndex = 9;
@@ -250,7 +253,7 @@
             // 
             this.masterTwoDrop.FormattingEnabled = true;
             this.masterTwoDrop.Location = new System.Drawing.Point(612, 79);
-            this.masterTwoDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterTwoDrop.Margin = new System.Windows.Forms.Padding(4);
             this.masterTwoDrop.Name = "masterTwoDrop";
             this.masterTwoDrop.Size = new System.Drawing.Size(160, 24);
             this.masterTwoDrop.TabIndex = 8;
@@ -294,7 +297,7 @@
             this.masterOneDrop.Enabled = false;
             this.masterOneDrop.FormattingEnabled = true;
             this.masterOneDrop.Location = new System.Drawing.Point(612, 46);
-            this.masterOneDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterOneDrop.Margin = new System.Windows.Forms.Padding(4);
             this.masterOneDrop.Name = "masterOneDrop";
             this.masterOneDrop.Size = new System.Drawing.Size(160, 24);
             this.masterOneDrop.TabIndex = 4;
@@ -318,7 +321,7 @@
             "Three",
             "Four"});
             this.masterInventoryDropDown.Location = new System.Drawing.Point(8, 69);
-            this.masterInventoryDropDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterInventoryDropDown.Margin = new System.Windows.Forms.Padding(4);
             this.masterInventoryDropDown.Name = "masterInventoryDropDown";
             this.masterInventoryDropDown.Size = new System.Drawing.Size(117, 24);
             this.masterInventoryDropDown.TabIndex = 2;
@@ -338,7 +341,7 @@
             // 
             this.masterImage.Image = global::Cape_Senior_Center_Inventory_System.Properties.Resources.one;
             this.masterImage.Location = new System.Drawing.Point(177, 23);
-            this.masterImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.masterImage.Margin = new System.Windows.Forms.Padding(4);
             this.masterImage.Name = "masterImage";
             this.masterImage.Size = new System.Drawing.Size(301, 165);
             this.masterImage.TabIndex = 0;
@@ -347,7 +350,7 @@
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(265, 615);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 28);
             this.saveButton.TabIndex = 12;
@@ -358,7 +361,7 @@
             // closeButton
             // 
             this.closeButton.Location = new System.Drawing.Point(528, 615);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(4);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(100, 28);
             this.closeButton.TabIndex = 13;
@@ -368,32 +371,18 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.addButton);
+            this.groupBox3.Controls.Add(this.clearButton);
+            this.groupBox3.Controls.Add(this.deleteButton);
             this.groupBox3.Controls.Add(this.defaultCheckBox);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.preferencesNameBox);
             this.groupBox3.Location = new System.Drawing.Point(52, 65);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 85);
+            this.groupBox3.Size = new System.Drawing.Size(788, 85);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "General";
-            // 
-            // preferencesNameBox
-            // 
-            this.preferencesNameBox.FormattingEnabled = true;
-            this.preferencesNameBox.Location = new System.Drawing.Point(66, 34);
-            this.preferencesNameBox.Name = "preferencesNameBox";
-            this.preferencesNameBox.Size = new System.Drawing.Size(121, 24);
-            this.preferencesNameBox.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name:";
             // 
             // defaultCheckBox
             // 
@@ -405,6 +394,56 @@
             this.defaultCheckBox.Text = "Set As Default";
             this.defaultCheckBox.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Name:";
+            // 
+            // preferencesNameBox
+            // 
+            this.preferencesNameBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.preferencesNameBox.FormattingEnabled = true;
+            this.preferencesNameBox.Location = new System.Drawing.Point(66, 34);
+            this.preferencesNameBox.Name = "preferencesNameBox";
+            this.preferencesNameBox.Size = new System.Drawing.Size(121, 24);
+            this.preferencesNameBox.TabIndex = 0;
+            this.preferencesNameBox.SelectedIndexChanged += new System.EventHandler(this.preferencesNameBox_SelectedIndexChanged);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Location = new System.Drawing.Point(696, 35);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 3;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(586, 35);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 4;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(476, 35);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 5;
+            this.addButton.Text = "Add New";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
             // UserPreferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -415,7 +454,7 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserPreferences";
             this.Text = "UserPreferences";
             this.Load += new System.EventHandler(this.UserPreferences_Load);
@@ -463,5 +502,8 @@
         private System.Windows.Forms.CheckBox defaultCheckBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox preferencesNameBox;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button addButton;
     }
 }
