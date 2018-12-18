@@ -97,7 +97,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
-            this.reportDataGridView = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.generateButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -108,21 +107,39 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryTab = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.currentTab = new System.Windows.Forms.TabPage();
+            this.currentClearFour = new System.Windows.Forms.Button();
+            this.currentClearThree = new System.Windows.Forms.Button();
+            this.currentClearTwo = new System.Windows.Forms.Button();
+            this.currentColumnFilterTableFour = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableFour = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableFour = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableFour = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableFour = new System.Windows.Forms.Label();
+            this.currentColumnFilterTableThree = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableThree = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableThree = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableThree = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableThree = new System.Windows.Forms.Label();
+            this.currentColumnFilterTableTwo = new System.Windows.Forms.ComboBox();
+            this.currentTextboxTableTwo = new System.Windows.Forms.TextBox();
+            this.currentTermsLabelTableTwo = new System.Windows.Forms.Label();
+            this.currentTypeDropdownTableTwo = new System.Windows.Forms.ComboBox();
+            this.currentTypeLabelTableTwo = new System.Windows.Forms.Label();
             this.currentInventoryGrid4 = new System.Windows.Forms.DataGridView();
             this.currentInventoryGrid3 = new System.Windows.Forms.DataGridView();
-            this.currentInventoryGrid2 = new System.Windows.Forms.DataGridView();
             this.currentColumnFilterTableOne = new System.Windows.Forms.ComboBox();
             this.currentTextboxTableOne = new System.Windows.Forms.TextBox();
             this.currentTermsLabelTableOne = new System.Windows.Forms.Label();
             this.currentTypeDropdownTableOne = new System.Windows.Forms.ComboBox();
             this.currentTypeLabelTableOne = new System.Windows.Forms.Label();
-            this.currentInventoryView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.currentEditButton = new System.Windows.Forms.Button();
             this.currentFilterButton = new System.Windows.Forms.Button();
             this.currentAddButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.currentClear = new System.Windows.Forms.Button();
+            this.currentInventoryGrid2 = new System.Windows.Forms.DataGridView();
+            this.currentInventoryView = new System.Windows.Forms.DataGridView();
             this.masterListTab = new System.Windows.Forms.TabPage();
             this.clearButton = new System.Windows.Forms.Button();
             this.columnFilter = new System.Windows.Forms.ComboBox();
@@ -138,26 +155,9 @@ namespace Cape_Senior_Center_Inventory_System
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.masterInventoriesTableAdapter1 = new Cape_Senior_Center_Inventory_System.DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter();
-            this.currentColumnFilterTableTwo = new System.Windows.Forms.ComboBox();
-            this.currentTextboxTableTwo = new System.Windows.Forms.TextBox();
-            this.currentTermsLabelTableTwo = new System.Windows.Forms.Label();
-            this.currentTypeDropdownTableTwo = new System.Windows.Forms.ComboBox();
-            this.currentTypeLabelTableTwo = new System.Windows.Forms.Label();
-            this.currentColumnFilterTableThree = new System.Windows.Forms.ComboBox();
-            this.currentTextboxTableThree = new System.Windows.Forms.TextBox();
-            this.currentTermsLabelTableThree = new System.Windows.Forms.Label();
-            this.currentTypeDropdownTableThree = new System.Windows.Forms.ComboBox();
-            this.currentTypeLabelTableThree = new System.Windows.Forms.Label();
-            this.currentColumnFilterTableFour = new System.Windows.Forms.ComboBox();
-            this.currentTextboxTableFour = new System.Windows.Forms.TextBox();
-            this.currentTermsLabelTableFour = new System.Windows.Forms.Label();
-            this.currentTypeDropdownTableFour = new System.Windows.Forms.ComboBox();
-            this.currentTypeLabelTableFour = new System.Windows.Forms.Label();
-            this.currentClearTwo = new System.Windows.Forms.Button();
-            this.currentClearThree = new System.Windows.Forms.Button();
-            this.currentClearFour = new System.Windows.Forms.Button();
             this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterInventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -172,22 +172,22 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.pricingReconcileTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.inventoryTab.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.currentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid3)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryView)).BeginInit();
-            this.panel1.SuspendLayout();
             this.masterListTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterListView)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -592,21 +592,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
             // 
-            // reportDataGridView
-            // 
-            this.reportDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.reportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reportDataGridView.Location = new System.Drawing.Point(0, 71);
-            this.reportDataGridView.Name = "reportDataGridView";
-            this.reportDataGridView.RowTemplate.Height = 24;
-            this.reportDataGridView.Size = new System.Drawing.Size(1311, 682);
-            this.reportDataGridView.TabIndex = 2;
-            this.reportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reportDataGridView_CellContentClick);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.generateButton);
@@ -745,6 +730,198 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTab.Text = "Current";
             this.currentTab.UseVisualStyleBackColor = true;
             // 
+            // currentClearFour
+            // 
+            this.currentClearFour.BackColor = System.Drawing.Color.Transparent;
+            this.currentClearFour.Location = new System.Drawing.Point(1308, 526);
+            this.currentClearFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentClearFour.Name = "currentClearFour";
+            this.currentClearFour.Size = new System.Drawing.Size(112, 32);
+            this.currentClearFour.TabIndex = 41;
+            this.currentClearFour.Text = "Clear";
+            this.currentClearFour.UseVisualStyleBackColor = false;
+            this.currentClearFour.Visible = false;
+            // 
+            // currentClearThree
+            // 
+            this.currentClearThree.BackColor = System.Drawing.Color.Transparent;
+            this.currentClearThree.Location = new System.Drawing.Point(548, 511);
+            this.currentClearThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentClearThree.Name = "currentClearThree";
+            this.currentClearThree.Size = new System.Drawing.Size(112, 32);
+            this.currentClearThree.TabIndex = 40;
+            this.currentClearThree.Text = "Clear";
+            this.currentClearThree.UseVisualStyleBackColor = false;
+            this.currentClearThree.Visible = false;
+            // 
+            // currentClearTwo
+            // 
+            this.currentClearTwo.BackColor = System.Drawing.Color.Transparent;
+            this.currentClearTwo.Location = new System.Drawing.Point(1308, 159);
+            this.currentClearTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentClearTwo.Name = "currentClearTwo";
+            this.currentClearTwo.Size = new System.Drawing.Size(112, 32);
+            this.currentClearTwo.TabIndex = 39;
+            this.currentClearTwo.Text = "Clear";
+            this.currentClearTwo.UseVisualStyleBackColor = false;
+            this.currentClearTwo.Visible = false;
+            // 
+            // currentColumnFilterTableFour
+            // 
+            this.currentColumnFilterTableFour.Enabled = false;
+            this.currentColumnFilterTableFour.FormattingEnabled = true;
+            this.currentColumnFilterTableFour.Location = new System.Drawing.Point(1280, 463);
+            this.currentColumnFilterTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableFour.Name = "currentColumnFilterTableFour";
+            this.currentColumnFilterTableFour.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableFour.TabIndex = 38;
+            this.currentColumnFilterTableFour.Visible = false;
+            // 
+            // currentTextboxTableFour
+            // 
+            this.currentTextboxTableFour.Location = new System.Drawing.Point(1121, 463);
+            this.currentTextboxTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableFour.Name = "currentTextboxTableFour";
+            this.currentTextboxTableFour.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableFour.TabIndex = 37;
+            this.currentTextboxTableFour.Visible = false;
+            // 
+            // currentTermsLabelTableFour
+            // 
+            this.currentTermsLabelTableFour.AutoSize = true;
+            this.currentTermsLabelTableFour.Location = new System.Drawing.Point(1051, 469);
+            this.currentTermsLabelTableFour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableFour.Name = "currentTermsLabelTableFour";
+            this.currentTermsLabelTableFour.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableFour.TabIndex = 36;
+            this.currentTermsLabelTableFour.Text = "Terms:";
+            this.currentTermsLabelTableFour.Visible = false;
+            // 
+            // currentTypeDropdownTableFour
+            // 
+            this.currentTypeDropdownTableFour.FormattingEnabled = true;
+            this.currentTypeDropdownTableFour.Location = new System.Drawing.Point(860, 463);
+            this.currentTypeDropdownTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableFour.Name = "currentTypeDropdownTableFour";
+            this.currentTypeDropdownTableFour.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableFour.TabIndex = 35;
+            this.currentTypeDropdownTableFour.Visible = false;
+            // 
+            // currentTypeLabelTableFour
+            // 
+            this.currentTypeLabelTableFour.AutoSize = true;
+            this.currentTypeLabelTableFour.Location = new System.Drawing.Point(798, 469);
+            this.currentTypeLabelTableFour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableFour.Name = "currentTypeLabelTableFour";
+            this.currentTypeLabelTableFour.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableFour.TabIndex = 34;
+            this.currentTypeLabelTableFour.Text = "Type:";
+            this.currentTypeLabelTableFour.Visible = false;
+            // 
+            // currentColumnFilterTableThree
+            // 
+            this.currentColumnFilterTableThree.Enabled = false;
+            this.currentColumnFilterTableThree.FormattingEnabled = true;
+            this.currentColumnFilterTableThree.Location = new System.Drawing.Point(500, 457);
+            this.currentColumnFilterTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableThree.Name = "currentColumnFilterTableThree";
+            this.currentColumnFilterTableThree.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableThree.TabIndex = 33;
+            this.currentColumnFilterTableThree.Visible = false;
+            // 
+            // currentTextboxTableThree
+            // 
+            this.currentTextboxTableThree.Location = new System.Drawing.Point(341, 457);
+            this.currentTextboxTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableThree.Name = "currentTextboxTableThree";
+            this.currentTextboxTableThree.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableThree.TabIndex = 32;
+            this.currentTextboxTableThree.Visible = false;
+            // 
+            // currentTermsLabelTableThree
+            // 
+            this.currentTermsLabelTableThree.AutoSize = true;
+            this.currentTermsLabelTableThree.Location = new System.Drawing.Point(271, 463);
+            this.currentTermsLabelTableThree.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableThree.Name = "currentTermsLabelTableThree";
+            this.currentTermsLabelTableThree.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableThree.TabIndex = 31;
+            this.currentTermsLabelTableThree.Text = "Terms:";
+            this.currentTermsLabelTableThree.Visible = false;
+            // 
+            // currentTypeDropdownTableThree
+            // 
+            this.currentTypeDropdownTableThree.FormattingEnabled = true;
+            this.currentTypeDropdownTableThree.Location = new System.Drawing.Point(80, 457);
+            this.currentTypeDropdownTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableThree.Name = "currentTypeDropdownTableThree";
+            this.currentTypeDropdownTableThree.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableThree.TabIndex = 30;
+            this.currentTypeDropdownTableThree.Visible = false;
+            // 
+            // currentTypeLabelTableThree
+            // 
+            this.currentTypeLabelTableThree.AutoSize = true;
+            this.currentTypeLabelTableThree.Location = new System.Drawing.Point(18, 463);
+            this.currentTypeLabelTableThree.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableThree.Name = "currentTypeLabelTableThree";
+            this.currentTypeLabelTableThree.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableThree.TabIndex = 29;
+            this.currentTypeLabelTableThree.Text = "Type:";
+            this.currentTypeLabelTableThree.Visible = false;
+            // 
+            // currentColumnFilterTableTwo
+            // 
+            this.currentColumnFilterTableTwo.Enabled = false;
+            this.currentColumnFilterTableTwo.FormattingEnabled = true;
+            this.currentColumnFilterTableTwo.Location = new System.Drawing.Point(1280, 94);
+            this.currentColumnFilterTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentColumnFilterTableTwo.Name = "currentColumnFilterTableTwo";
+            this.currentColumnFilterTableTwo.Size = new System.Drawing.Size(180, 28);
+            this.currentColumnFilterTableTwo.TabIndex = 28;
+            this.currentColumnFilterTableTwo.Visible = false;
+            // 
+            // currentTextboxTableTwo
+            // 
+            this.currentTextboxTableTwo.Location = new System.Drawing.Point(1121, 94);
+            this.currentTextboxTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTextboxTableTwo.Name = "currentTextboxTableTwo";
+            this.currentTextboxTableTwo.Size = new System.Drawing.Size(148, 26);
+            this.currentTextboxTableTwo.TabIndex = 27;
+            this.currentTextboxTableTwo.Visible = false;
+            // 
+            // currentTermsLabelTableTwo
+            // 
+            this.currentTermsLabelTableTwo.AutoSize = true;
+            this.currentTermsLabelTableTwo.Location = new System.Drawing.Point(1051, 100);
+            this.currentTermsLabelTableTwo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTermsLabelTableTwo.Name = "currentTermsLabelTableTwo";
+            this.currentTermsLabelTableTwo.Size = new System.Drawing.Size(57, 20);
+            this.currentTermsLabelTableTwo.TabIndex = 26;
+            this.currentTermsLabelTableTwo.Text = "Terms:";
+            this.currentTermsLabelTableTwo.Visible = false;
+            // 
+            // currentTypeDropdownTableTwo
+            // 
+            this.currentTypeDropdownTableTwo.FormattingEnabled = true;
+            this.currentTypeDropdownTableTwo.Location = new System.Drawing.Point(860, 94);
+            this.currentTypeDropdownTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentTypeDropdownTableTwo.Name = "currentTypeDropdownTableTwo";
+            this.currentTypeDropdownTableTwo.Size = new System.Drawing.Size(180, 28);
+            this.currentTypeDropdownTableTwo.TabIndex = 25;
+            this.currentTypeDropdownTableTwo.Visible = false;
+            // 
+            // currentTypeLabelTableTwo
+            // 
+            this.currentTypeLabelTableTwo.AutoSize = true;
+            this.currentTypeLabelTableTwo.Location = new System.Drawing.Point(798, 100);
+            this.currentTypeLabelTableTwo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentTypeLabelTableTwo.Name = "currentTypeLabelTableTwo";
+            this.currentTypeLabelTableTwo.Size = new System.Drawing.Size(47, 20);
+            this.currentTypeLabelTableTwo.TabIndex = 24;
+            this.currentTypeLabelTableTwo.Text = "Type:";
+            this.currentTypeLabelTableTwo.Visible = false;
+            // 
             // currentInventoryGrid4
             // 
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
@@ -821,44 +998,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentInventoryGrid3.TabIndex = 22;
             this.currentInventoryGrid3.Visible = false;
             // 
-            // currentInventoryGrid2
-            // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
-            this.currentInventoryGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.currentInventoryGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.currentInventoryGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.currentInventoryGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.currentInventoryGrid2.DefaultCellStyle = dataGridViewCellStyle18;
-            this.currentInventoryGrid2.Location = new System.Drawing.Point(548, 74);
-            this.currentInventoryGrid2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.currentInventoryGrid2.Name = "currentInventoryGrid2";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.currentInventoryGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.currentInventoryGrid2.RowTemplate.Height = 24;
-            this.currentInventoryGrid2.Size = new System.Drawing.Size(926, 594);
-            this.currentInventoryGrid2.TabIndex = 21;
-            this.currentInventoryGrid2.Visible = false;
-            // 
             // currentColumnFilterTableOne
             // 
             this.currentColumnFilterTableOne.Enabled = false;
@@ -913,46 +1052,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTypeLabelTableOne.TabIndex = 15;
             this.currentTypeLabelTableOne.Text = "Type:";
             this.currentTypeLabelTableOne.Visible = false;
-            // 
-            // currentInventoryView
-            // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
-            this.currentInventoryView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.currentInventoryView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.currentInventoryView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.currentInventoryView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.currentInventoryView.DefaultCellStyle = dataGridViewCellStyle22;
-            this.currentInventoryView.Location = new System.Drawing.Point(4, 66);
-            this.currentInventoryView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.currentInventoryView.Name = "currentInventoryView";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.currentInventoryView.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.currentInventoryView.RowTemplate.Height = 24;
-            this.currentInventoryView.Size = new System.Drawing.Size(926, 594);
-            this.currentInventoryView.TabIndex = 4;
-            this.currentInventoryView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.currentInventoryView_CellBeginEdit);
-            this.currentInventoryView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentInventoryView_CellClick);
-            this.currentInventoryView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2_CurrentInventory_EndEdit);
             // 
             // panel1
             // 
@@ -1022,6 +1121,84 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentClear.UseVisualStyleBackColor = false;
             this.currentClear.Visible = false;
             this.currentClear.Click += new System.EventHandler(this.currentClear_Click);
+            // 
+            // currentInventoryGrid2
+            // 
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lavender;
+            this.currentInventoryGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.currentInventoryGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.currentInventoryGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentInventoryGrid2.DefaultCellStyle = dataGridViewCellStyle18;
+            this.currentInventoryGrid2.Location = new System.Drawing.Point(548, 74);
+            this.currentInventoryGrid2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.currentInventoryGrid2.Name = "currentInventoryGrid2";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.currentInventoryGrid2.RowTemplate.Height = 24;
+            this.currentInventoryGrid2.Size = new System.Drawing.Size(926, 594);
+            this.currentInventoryGrid2.TabIndex = 21;
+            this.currentInventoryGrid2.Visible = false;
+            // 
+            // currentInventoryView
+            // 
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Lavender;
+            this.currentInventoryView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.currentInventoryView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.currentInventoryView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentInventoryView.DefaultCellStyle = dataGridViewCellStyle22;
+            this.currentInventoryView.Location = new System.Drawing.Point(4, 66);
+            this.currentInventoryView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.currentInventoryView.Name = "currentInventoryView";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.currentInventoryView.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.currentInventoryView.RowTemplate.Height = 24;
+            this.currentInventoryView.Size = new System.Drawing.Size(926, 594);
+            this.currentInventoryView.TabIndex = 4;
+            this.currentInventoryView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.currentInventoryView_CellBeginEdit);
+            this.currentInventoryView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentInventoryView_CellClick);
+            this.currentInventoryView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2_CurrentInventory_EndEdit);
             // 
             // masterListTab
             // 
@@ -1224,198 +1401,6 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.masterInventoriesTableAdapter1.ClearBeforeFill = true;
             // 
-            // currentColumnFilterTableTwo
-            // 
-            this.currentColumnFilterTableTwo.Enabled = false;
-            this.currentColumnFilterTableTwo.FormattingEnabled = true;
-            this.currentColumnFilterTableTwo.Location = new System.Drawing.Point(1280, 94);
-            this.currentColumnFilterTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentColumnFilterTableTwo.Name = "currentColumnFilterTableTwo";
-            this.currentColumnFilterTableTwo.Size = new System.Drawing.Size(180, 28);
-            this.currentColumnFilterTableTwo.TabIndex = 28;
-            this.currentColumnFilterTableTwo.Visible = false;
-            // 
-            // currentTextboxTableTwo
-            // 
-            this.currentTextboxTableTwo.Location = new System.Drawing.Point(1121, 94);
-            this.currentTextboxTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTextboxTableTwo.Name = "currentTextboxTableTwo";
-            this.currentTextboxTableTwo.Size = new System.Drawing.Size(148, 26);
-            this.currentTextboxTableTwo.TabIndex = 27;
-            this.currentTextboxTableTwo.Visible = false;
-            // 
-            // currentTermsLabelTableTwo
-            // 
-            this.currentTermsLabelTableTwo.AutoSize = true;
-            this.currentTermsLabelTableTwo.Location = new System.Drawing.Point(1051, 100);
-            this.currentTermsLabelTableTwo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTermsLabelTableTwo.Name = "currentTermsLabelTableTwo";
-            this.currentTermsLabelTableTwo.Size = new System.Drawing.Size(57, 20);
-            this.currentTermsLabelTableTwo.TabIndex = 26;
-            this.currentTermsLabelTableTwo.Text = "Terms:";
-            this.currentTermsLabelTableTwo.Visible = false;
-            // 
-            // currentTypeDropdownTableTwo
-            // 
-            this.currentTypeDropdownTableTwo.FormattingEnabled = true;
-            this.currentTypeDropdownTableTwo.Location = new System.Drawing.Point(860, 94);
-            this.currentTypeDropdownTableTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTypeDropdownTableTwo.Name = "currentTypeDropdownTableTwo";
-            this.currentTypeDropdownTableTwo.Size = new System.Drawing.Size(180, 28);
-            this.currentTypeDropdownTableTwo.TabIndex = 25;
-            this.currentTypeDropdownTableTwo.Visible = false;
-            // 
-            // currentTypeLabelTableTwo
-            // 
-            this.currentTypeLabelTableTwo.AutoSize = true;
-            this.currentTypeLabelTableTwo.Location = new System.Drawing.Point(798, 100);
-            this.currentTypeLabelTableTwo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTypeLabelTableTwo.Name = "currentTypeLabelTableTwo";
-            this.currentTypeLabelTableTwo.Size = new System.Drawing.Size(47, 20);
-            this.currentTypeLabelTableTwo.TabIndex = 24;
-            this.currentTypeLabelTableTwo.Text = "Type:";
-            this.currentTypeLabelTableTwo.Visible = false;
-            // 
-            // currentColumnFilterTableThree
-            // 
-            this.currentColumnFilterTableThree.Enabled = false;
-            this.currentColumnFilterTableThree.FormattingEnabled = true;
-            this.currentColumnFilterTableThree.Location = new System.Drawing.Point(500, 457);
-            this.currentColumnFilterTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentColumnFilterTableThree.Name = "currentColumnFilterTableThree";
-            this.currentColumnFilterTableThree.Size = new System.Drawing.Size(180, 28);
-            this.currentColumnFilterTableThree.TabIndex = 33;
-            this.currentColumnFilterTableThree.Visible = false;
-            // 
-            // currentTextboxTableThree
-            // 
-            this.currentTextboxTableThree.Location = new System.Drawing.Point(341, 457);
-            this.currentTextboxTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTextboxTableThree.Name = "currentTextboxTableThree";
-            this.currentTextboxTableThree.Size = new System.Drawing.Size(148, 26);
-            this.currentTextboxTableThree.TabIndex = 32;
-            this.currentTextboxTableThree.Visible = false;
-            // 
-            // currentTermsLabelTableThree
-            // 
-            this.currentTermsLabelTableThree.AutoSize = true;
-            this.currentTermsLabelTableThree.Location = new System.Drawing.Point(271, 463);
-            this.currentTermsLabelTableThree.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTermsLabelTableThree.Name = "currentTermsLabelTableThree";
-            this.currentTermsLabelTableThree.Size = new System.Drawing.Size(57, 20);
-            this.currentTermsLabelTableThree.TabIndex = 31;
-            this.currentTermsLabelTableThree.Text = "Terms:";
-            this.currentTermsLabelTableThree.Visible = false;
-            // 
-            // currentTypeDropdownTableThree
-            // 
-            this.currentTypeDropdownTableThree.FormattingEnabled = true;
-            this.currentTypeDropdownTableThree.Location = new System.Drawing.Point(80, 457);
-            this.currentTypeDropdownTableThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTypeDropdownTableThree.Name = "currentTypeDropdownTableThree";
-            this.currentTypeDropdownTableThree.Size = new System.Drawing.Size(180, 28);
-            this.currentTypeDropdownTableThree.TabIndex = 30;
-            this.currentTypeDropdownTableThree.Visible = false;
-            // 
-            // currentTypeLabelTableThree
-            // 
-            this.currentTypeLabelTableThree.AutoSize = true;
-            this.currentTypeLabelTableThree.Location = new System.Drawing.Point(18, 463);
-            this.currentTypeLabelTableThree.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTypeLabelTableThree.Name = "currentTypeLabelTableThree";
-            this.currentTypeLabelTableThree.Size = new System.Drawing.Size(47, 20);
-            this.currentTypeLabelTableThree.TabIndex = 29;
-            this.currentTypeLabelTableThree.Text = "Type:";
-            this.currentTypeLabelTableThree.Visible = false;
-            // 
-            // currentColumnFilterTableFour
-            // 
-            this.currentColumnFilterTableFour.Enabled = false;
-            this.currentColumnFilterTableFour.FormattingEnabled = true;
-            this.currentColumnFilterTableFour.Location = new System.Drawing.Point(1280, 463);
-            this.currentColumnFilterTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentColumnFilterTableFour.Name = "currentColumnFilterTableFour";
-            this.currentColumnFilterTableFour.Size = new System.Drawing.Size(180, 28);
-            this.currentColumnFilterTableFour.TabIndex = 38;
-            this.currentColumnFilterTableFour.Visible = false;
-            // 
-            // currentTextboxTableFour
-            // 
-            this.currentTextboxTableFour.Location = new System.Drawing.Point(1121, 463);
-            this.currentTextboxTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTextboxTableFour.Name = "currentTextboxTableFour";
-            this.currentTextboxTableFour.Size = new System.Drawing.Size(148, 26);
-            this.currentTextboxTableFour.TabIndex = 37;
-            this.currentTextboxTableFour.Visible = false;
-            // 
-            // currentTermsLabelTableFour
-            // 
-            this.currentTermsLabelTableFour.AutoSize = true;
-            this.currentTermsLabelTableFour.Location = new System.Drawing.Point(1051, 469);
-            this.currentTermsLabelTableFour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTermsLabelTableFour.Name = "currentTermsLabelTableFour";
-            this.currentTermsLabelTableFour.Size = new System.Drawing.Size(57, 20);
-            this.currentTermsLabelTableFour.TabIndex = 36;
-            this.currentTermsLabelTableFour.Text = "Terms:";
-            this.currentTermsLabelTableFour.Visible = false;
-            // 
-            // currentTypeDropdownTableFour
-            // 
-            this.currentTypeDropdownTableFour.FormattingEnabled = true;
-            this.currentTypeDropdownTableFour.Location = new System.Drawing.Point(860, 463);
-            this.currentTypeDropdownTableFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTypeDropdownTableFour.Name = "currentTypeDropdownTableFour";
-            this.currentTypeDropdownTableFour.Size = new System.Drawing.Size(180, 28);
-            this.currentTypeDropdownTableFour.TabIndex = 35;
-            this.currentTypeDropdownTableFour.Visible = false;
-            // 
-            // currentTypeLabelTableFour
-            // 
-            this.currentTypeLabelTableFour.AutoSize = true;
-            this.currentTypeLabelTableFour.Location = new System.Drawing.Point(798, 469);
-            this.currentTypeLabelTableFour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentTypeLabelTableFour.Name = "currentTypeLabelTableFour";
-            this.currentTypeLabelTableFour.Size = new System.Drawing.Size(47, 20);
-            this.currentTypeLabelTableFour.TabIndex = 34;
-            this.currentTypeLabelTableFour.Text = "Type:";
-            this.currentTypeLabelTableFour.Visible = false;
-            // 
-            // currentClearTwo
-            // 
-            this.currentClearTwo.BackColor = System.Drawing.Color.Transparent;
-            this.currentClearTwo.Location = new System.Drawing.Point(1308, 159);
-            this.currentClearTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentClearTwo.Name = "currentClearTwo";
-            this.currentClearTwo.Size = new System.Drawing.Size(112, 32);
-            this.currentClearTwo.TabIndex = 39;
-            this.currentClearTwo.Text = "Clear";
-            this.currentClearTwo.UseVisualStyleBackColor = false;
-            this.currentClearTwo.Visible = false;
-            // 
-            // currentClearThree
-            // 
-            this.currentClearThree.BackColor = System.Drawing.Color.Transparent;
-            this.currentClearThree.Location = new System.Drawing.Point(548, 511);
-            this.currentClearThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentClearThree.Name = "currentClearThree";
-            this.currentClearThree.Size = new System.Drawing.Size(112, 32);
-            this.currentClearThree.TabIndex = 40;
-            this.currentClearThree.Text = "Clear";
-            this.currentClearThree.UseVisualStyleBackColor = false;
-            this.currentClearThree.Visible = false;
-            // 
-            // currentClearFour
-            // 
-            this.currentClearFour.BackColor = System.Drawing.Color.Transparent;
-            this.currentClearFour.Location = new System.Drawing.Point(1308, 526);
-            this.currentClearFour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentClearFour.Name = "currentClearFour";
-            this.currentClearFour.Size = new System.Drawing.Size(112, 32);
-            this.currentClearFour.TabIndex = 41;
-            this.currentClearFour.Text = "Clear";
-            this.currentClearFour.UseVisualStyleBackColor = false;
-            this.currentClearFour.Visible = false;
-            // 
             // bsMasterInventory
             // 
             this.bsMasterInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
@@ -1423,6 +1408,18 @@ namespace Cape_Senior_Center_Inventory_System
             // bsCurrentInventory
             // 
             this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
+            // 
+            // reportDataGridView
+            // 
+            this.reportDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportDataGridView.Location = new System.Drawing.Point(6, 78);
+            this.reportDataGridView.Name = "reportDataGridView";
+            this.reportDataGridView.RowTemplate.Height = 28;
+            this.reportDataGridView.Size = new System.Drawing.Size(1478, 916);
+            this.reportDataGridView.TabIndex = 1;
             // 
             // MainWindow
             // 
@@ -1454,7 +1451,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.pricingReconcileTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.inventoryTab.ResumeLayout(false);
@@ -1463,10 +1459,10 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryGrid2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentInventoryView)).EndInit();
             this.masterListTab.ResumeLayout(false);
             this.masterListTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterListView)).EndInit();
@@ -1475,6 +1471,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1578,6 +1575,7 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.Button currentClearFour;
         private System.Windows.Forms.Button currentClearThree;
         private System.Windows.Forms.Button currentClearTwo;
+        private System.Windows.Forms.DataGridView reportDataGridView;
     }
 }
 
