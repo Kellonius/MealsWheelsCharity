@@ -97,6 +97,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
+            this.reportDataGridView = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.generateButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -171,6 +172,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.pricingReconcileTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.inventoryTab.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -579,6 +581,7 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // pricingReconcileTab
             // 
+            this.pricingReconcileTab.Controls.Add(this.reportDataGridView);
             this.pricingReconcileTab.Controls.Add(this.panel3);
             this.pricingReconcileTab.Location = new System.Drawing.Point(4, 29);
             this.pricingReconcileTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -588,6 +591,21 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingReconcileTab.TabIndex = 0;
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
+            // 
+            // reportDataGridView
+            // 
+            this.reportDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.reportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportDataGridView.Location = new System.Drawing.Point(0, 71);
+            this.reportDataGridView.Name = "reportDataGridView";
+            this.reportDataGridView.RowTemplate.Height = 24;
+            this.reportDataGridView.Size = new System.Drawing.Size(1311, 682);
+            this.reportDataGridView.TabIndex = 2;
+            this.reportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reportDataGridView_CellContentClick);
             // 
             // panel3
             // 
@@ -1436,6 +1454,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.pricingReconcileTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.inventoryTab.ResumeLayout(false);
