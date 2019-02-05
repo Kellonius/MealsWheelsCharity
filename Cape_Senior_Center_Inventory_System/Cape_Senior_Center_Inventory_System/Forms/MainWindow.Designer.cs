@@ -97,6 +97,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.pricingReconcileTab = new System.Windows.Forms.TabPage();
+            this.reportDataGridView = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.generateButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -157,7 +158,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterInventoriesTableAdapter1 = new Cape_Senior_Center_Inventory_System.DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter();
             this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
-            this.reportDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterInventoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -172,6 +172,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.pricingReconcileTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.inventoryTab.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -187,7 +188,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -199,7 +199,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.preferencesToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1500, 33);
+            this.menuStrip.Size = new System.Drawing.Size(1511, 33);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -253,7 +253,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.historyTab.Location = new System.Drawing.Point(4, 29);
             this.historyTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.historyTab.Name = "historyTab";
-            this.historyTab.Size = new System.Drawing.Size(1492, 1026);
+            this.historyTab.Size = new System.Drawing.Size(1492, 1366);
             this.historyTab.TabIndex = 8;
             this.historyTab.Text = "History";
             this.historyTab.UseVisualStyleBackColor = true;
@@ -267,7 +267,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(1492, 1026);
+            this.tabControl4.Size = new System.Drawing.Size(1492, 1366);
             this.tabControl4.TabIndex = 0;
             // 
             // inventoryHistoryTab
@@ -277,7 +277,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryHistoryTab.Location = new System.Drawing.Point(4, 29);
             this.inventoryHistoryTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inventoryHistoryTab.Name = "inventoryHistoryTab";
-            this.inventoryHistoryTab.Size = new System.Drawing.Size(1484, 993);
+            this.inventoryHistoryTab.Size = new System.Drawing.Size(1484, 1333);
             this.inventoryHistoryTab.TabIndex = 2;
             this.inventoryHistoryTab.Text = "Inventory";
             this.inventoryHistoryTab.UseVisualStyleBackColor = true;
@@ -320,7 +320,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.inventoryHistoryDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.inventoryHistoryDataGridView.RowTemplate.Height = 24;
-            this.inventoryHistoryDataGridView.Size = new System.Drawing.Size(1484, 918);
+            this.inventoryHistoryDataGridView.Size = new System.Drawing.Size(1484, 1258);
             this.inventoryHistoryDataGridView.TabIndex = 3;
             // 
             // panel4
@@ -394,7 +394,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingHistoryTab.Location = new System.Drawing.Point(4, 29);
             this.pricingHistoryTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingHistoryTab.Name = "pricingHistoryTab";
-            this.pricingHistoryTab.Size = new System.Drawing.Size(1484, 993);
+            this.pricingHistoryTab.Size = new System.Drawing.Size(1484, 1333);
             this.pricingHistoryTab.TabIndex = 1;
             this.pricingHistoryTab.Text = "Pricing";
             this.pricingHistoryTab.UseVisualStyleBackColor = true;
@@ -444,7 +444,7 @@ namespace Cape_Senior_Center_Inventory_System
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.pricingHistoryDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.pricingHistoryDataGridView.RowTemplate.Height = 24;
-            this.pricingHistoryDataGridView.Size = new System.Drawing.Size(1484, 918);
+            this.pricingHistoryDataGridView.Size = new System.Drawing.Size(1484, 1258);
             this.pricingHistoryDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -563,7 +563,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.Location = new System.Drawing.Point(4, 29);
             this.pricingTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingTab.Name = "pricingTab";
-            this.pricingTab.Size = new System.Drawing.Size(1492, 1026);
+            this.pricingTab.Size = new System.Drawing.Size(1492, 1366);
             this.pricingTab.TabIndex = 9;
             this.pricingTab.Text = "Pricing";
             this.pricingTab.UseVisualStyleBackColor = true;
@@ -576,7 +576,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1492, 1026);
+            this.tabControl3.Size = new System.Drawing.Size(1492, 1366);
             this.tabControl3.TabIndex = 0;
             // 
             // pricingReconcileTab
@@ -587,10 +587,22 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingReconcileTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pricingReconcileTab.Name = "pricingReconcileTab";
             this.pricingReconcileTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pricingReconcileTab.Size = new System.Drawing.Size(1484, 993);
+            this.pricingReconcileTab.Size = new System.Drawing.Size(1484, 1333);
             this.pricingReconcileTab.TabIndex = 0;
             this.pricingReconcileTab.Text = "Reconcile";
             this.pricingReconcileTab.UseVisualStyleBackColor = true;
+            // 
+            // reportDataGridView
+            // 
+            this.reportDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportDataGridView.Location = new System.Drawing.Point(6, 78);
+            this.reportDataGridView.Name = "reportDataGridView";
+            this.reportDataGridView.RowTemplate.Height = 28;
+            this.reportDataGridView.Size = new System.Drawing.Size(1478, 1256);
+            this.reportDataGridView.TabIndex = 1;
             // 
             // panel3
             // 
@@ -672,7 +684,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryTab.Location = new System.Drawing.Point(4, 29);
             this.inventoryTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.inventoryTab.Name = "inventoryTab";
-            this.inventoryTab.Size = new System.Drawing.Size(1492, 1026);
+            this.inventoryTab.Size = new System.Drawing.Size(1503, 1040);
             this.inventoryTab.TabIndex = 6;
             this.inventoryTab.Text = "Inventory";
             this.inventoryTab.UseVisualStyleBackColor = true;
@@ -687,7 +699,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1492, 1026);
+            this.tabControl2.Size = new System.Drawing.Size(1503, 1040);
             this.tabControl2.TabIndex = 0;
             // 
             // currentTab
@@ -725,7 +737,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.currentTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.currentTab.Name = "currentTab";
             this.currentTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.currentTab.Size = new System.Drawing.Size(1484, 993);
+            this.currentTab.Size = new System.Drawing.Size(1495, 1007);
             this.currentTab.TabIndex = 0;
             this.currentTab.Text = "Current";
             this.currentTab.UseVisualStyleBackColor = true;
@@ -1063,7 +1075,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel1.Location = new System.Drawing.Point(4, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1476, 61);
+            this.panel1.Size = new System.Drawing.Size(1487, 61);
             this.panel1.TabIndex = 6;
             // 
             // currentEditButton
@@ -1214,7 +1226,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.masterListTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.masterListTab.Name = "masterListTab";
             this.masterListTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.masterListTab.Size = new System.Drawing.Size(1484, 993);
+            this.masterListTab.Size = new System.Drawing.Size(1484, 1845);
             this.masterListTab.TabIndex = 1;
             this.masterListTab.Text = "Master List";
             this.masterListTab.UseVisualStyleBackColor = true;
@@ -1394,7 +1406,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1500, 1059);
+            this.tabControl1.Size = new System.Drawing.Size(1511, 1073);
             this.tabControl1.TabIndex = 1;
             // 
             // masterInventoriesTableAdapter1
@@ -1409,23 +1421,11 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.bsCurrentInventory.DataSource = typeof(Cape_Senior_Center_Inventory_System.DTOs.InventoryModel);
             // 
-            // reportDataGridView
-            // 
-            this.reportDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reportDataGridView.Location = new System.Drawing.Point(6, 78);
-            this.reportDataGridView.Name = "reportDataGridView";
-            this.reportDataGridView.RowTemplate.Height = 28;
-            this.reportDataGridView.Size = new System.Drawing.Size(1478, 916);
-            this.reportDataGridView.TabIndex = 1;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 1092);
+            this.ClientSize = new System.Drawing.Size(1511, 1106);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -1451,6 +1451,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.pricingTab.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.pricingReconcileTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.inventoryTab.ResumeLayout(false);
@@ -1471,7 +1472,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
