@@ -47,12 +47,17 @@ namespace Cape_Senior_Center_Inventory_System
             CurrentList = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
             InventoryHistory = context.InventoryHistory.ToList();
             inventoryHistoryDataGridView.DataSource = context.InventoryHistory.Where(x => x.Updated_TS < DateTime.Now).ToList();
-            setupGrid();
-            masterListView.DataSource = context.MasterInventories.ToList();
+
+            setupGridForCurrentInventory();
+            setupGridForMasterInventory();
             setupColors();
 
             var typeFilters = context.ItemType.Select(x => x.Description).ToArray();
-            typeFilterBox.Items.AddRange(typeFilters);
+            masterTypeDropdownTableOne.Items.AddRange(typeFilters);
+            masterTypeDropdownTableTwo.Items.AddRange(typeFilters);
+            masterTypeDropdownTableThree.Items.AddRange(typeFilters);
+            masterTypeDropdownTableFour.Items.AddRange(typeFilters);
+
             currentTypeDropdownTableOne.Items.AddRange(typeFilters);
             currentTypeDropdownTableTwo.Items.AddRange(typeFilters);
             currentTypeDropdownTableThree.Items.AddRange(typeFilters);
@@ -62,7 +67,11 @@ namespace Cape_Senior_Center_Inventory_System
             columnNames = typeof(MasterInventory).GetProperties()
                 .Select(property => property.Name)
                 .ToArray();
-            columnFilter.Items.AddRange(columnNames);
+            masterColumnFilterTableOne.Items.AddRange(columnNames);
+            masterColumnFilterTableTwo.Items.AddRange(columnNames);
+            masterColumnFilterTableThree.Items.AddRange(columnNames);
+            masterColumnFilterTableFour.Items.AddRange(columnNames);
+
             currentColumnFilterTableOne.Items.AddRange(columnNames);
             currentColumnFilterTableTwo.Items.AddRange(columnNames);
             currentColumnFilterTableThree.Items.AddRange(columnNames);
@@ -82,8 +91,8 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void DataGridView2_MasterInventory_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            editId = (int)masterListView.Rows[RowIndex].Cells[0].Value;
-            previousUnits = (int)masterListView.Rows[RowIndex].Cells[5].Value;
+            editId = (int)masterInventoryView.Rows[RowIndex].Cells[0].Value;
+            previousUnits = (int)masterInventoryView.Rows[RowIndex].Cells[5].Value;
         }
 
         private void currentInventoryView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -100,7 +109,7 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void DataGridView2_MasterInventory_EndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            var data = masterListView.Rows[RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            var data = masterInventoryView.Rows[RowIndex].Cells[e.ColumnIndex].Value.ToString();
             cellEndEdit(data, e);
         }
 
@@ -217,7 +226,7 @@ namespace Cape_Senior_Center_Inventory_System
             MasterList = context.MasterInventories.ToList();
             CurrentList = context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList();
             refreshView(currentInventoryView, context.MasterInventories.Where(x => x.UnitsOnHand > 0).ToList());
-            refreshView(masterListView, context.MasterInventories.ToList());
+            refreshView(masterInventoryView, context.MasterInventories.ToList());
         }
         #endregion
 
@@ -241,44 +250,156 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void filterButton_Click(object sender, EventArgs e)
         {
+            int xDown = 3;
+            int yDown = 30;
+
             if (!masterFilter)
             {
-                masterListView.Location = new Point(3, 100);
-                typeLabel.Visible = true;
-                typeFilterBox.Visible = true;
-                termsLabel.Visible = true;
-                termsTextBox.Visible = true;
-                columnFilter.Visible = true;
-                clearButton.Visible = true;
                 masterFilter = true;
+
+                masterTypeLabelTableOne.Location = new Point(masterInventoryView.Location.X + xDown, masterInventoryView.Location.Y);
+                masterTypeDropdownTableOne.Location = new Point(masterTypeLabelTableOne.Location.X + masterTypeLabelTableOne.Width + xDown, masterInventoryView.Location.Y);
+                masterTermsLabelTableOne.Location = new Point(masterTypeDropdownTableOne.Location.X + masterTypeDropdownTableOne.Width + xDown, masterInventoryView.Location.Y);
+                masterTextboxTableOne.Location = new Point(masterTermsLabelTableOne.Location.X + masterTermsLabelTableOne.Width + xDown, masterInventoryView.Location.Y);
+                masterColumnFilterTableOne.Location = new Point(masterTextboxTableOne.Location.X + masterTextboxTableOne.Width + xDown, masterInventoryView.Location.Y);
+                masterClear.Location = new Point(masterColumnFilterTableOne.Location.X + masterColumnFilterTableOne.Width + xDown, masterInventoryView.Location.Y);
+                masterInventoryView.Location = new Point(masterInventoryView.Location.X + xDown, masterInventoryView.Location.Y + yDown);
+
+
+
+                masterTypeLabelTableOne.Visible = true;
+                masterTypeDropdownTableOne.Visible = true;
+                masterTermsLabelTableOne.Visible = true;
+                masterTextboxTableOne.Visible = true;
+                masterColumnFilterTableOne.Visible = true;
+                masterClear.Visible = true;
+
+                if (masterInventoryGrid2.Visible == true)
+                {
+                    masterTypeLabelTableTwo.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y);
+                    masterTypeDropdownTableTwo.Location = new Point(masterTypeLabelTableTwo.Location.X + masterTypeLabelTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                    masterTermsLabelTableTwo.Location = new Point(masterTypeDropdownTableTwo.Location.X + masterTypeDropdownTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                    masterTextboxTableTwo.Location = new Point(masterTermsLabelTableTwo.Location.X + masterTermsLabelTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                    masterColumnFilterTableTwo.Location = new Point(masterTextboxTableTwo.Location.X + masterTextboxTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                    masterClearTwo.Location = new Point(masterColumnFilterTableTwo.Location.X + masterColumnFilterTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                    masterInventoryGrid2.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + yDown);
+
+
+                    masterTypeLabelTableTwo.Visible = true;
+                    masterTypeDropdownTableTwo.Visible = true;
+                    masterTermsLabelTableTwo.Visible = true;
+                    masterTextboxTableTwo.Visible = true;
+                    masterColumnFilterTableTwo.Visible = true;
+                    masterClearTwo.Visible = true;
+                }
+
+                if (masterInventoryGrid3.Visible == true)
+                {
+                    masterInventoryGrid3.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryView.Location.Y + masterInventoryView.Height + yDown);
+
+                    masterTypeLabelTableThree.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryGrid3.Location.Y);
+                    masterTypeDropdownTableThree.Location = new Point(masterTypeLabelTableThree.Location.X + masterTypeLabelTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                    masterTermsLabelTableThree.Location = new Point(masterTypeDropdownTableThree.Location.X + masterTypeDropdownTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                    masterTextboxTableThree.Location = new Point(masterTermsLabelTableThree.Location.X + masterTermsLabelTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                    masterColumnFilterTableThree.Location = new Point(masterTextboxTableThree.Location.X + masterTextboxTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                    masterClearThree.Location = new Point(masterColumnFilterTableThree.Location.X + masterColumnFilterTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+
+
+                    masterInventoryGrid3.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryView.Location.Y + masterInventoryView.Height + yDown * 2);
+
+                    masterTypeLabelTableThree.Visible = true;
+                    masterTypeDropdownTableThree.Visible = true;
+                    masterTermsLabelTableThree.Visible = true;
+                    masterTextboxTableThree.Visible = true;
+                    masterColumnFilterTableThree.Visible = true;
+                    masterClearThree.Visible = true;
+                }
+
+                if (masterInventoryGrid4.Visible == true)
+                {
+                    masterInventoryGrid4.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + masterInventoryGrid2.Height + yDown);
+
+                    masterTypeLabelTableFour.Location = new Point(masterInventoryGrid4.Location.X + xDown, masterInventoryGrid4.Location.Y);
+                    masterTypeDropdownTableFour.Location = new Point(masterTypeLabelTableFour.Location.X + masterTypeLabelTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                    masterTermsLabelTableFour.Location = new Point(masterTypeDropdownTableFour.Location.X + masterTypeDropdownTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                    masterTextboxTableFour.Location = new Point(masterTermsLabelTableFour.Location.X + masterTermsLabelTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                    masterColumnFilterTableFour.Location = new Point(masterTextboxTableFour.Location.X + masterTextboxTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                    masterClearFour.Location = new Point(masterColumnFilterTableFour.Location.X + masterColumnFilterTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+
+                    masterInventoryGrid4.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + masterInventoryGrid2.Height + yDown * 2);
+
+                    masterTypeLabelTableFour.Visible = true;
+                    masterTypeDropdownTableFour.Visible = true;
+                    masterTermsLabelTableFour.Visible = true;
+                    masterTextboxTableFour.Visible = true;
+                    masterColumnFilterTableFour.Visible = true;
+                    masterClearFour.Visible = true;
+                }
+
             }
             else
             {
-                masterListView.Location = new Point(3, 43);
-                typeLabel.Visible = false;
-                typeFilterBox.Visible = false;
-                termsLabel.Visible = false;
-                termsTextBox.Visible = false;
-                columnFilter.Visible = false;
-                clearButton.Visible = false;
+
+                masterTypeLabelTableOne.Visible = false;
+                masterTypeDropdownTableOne.Visible = false;
+                masterTermsLabelTableOne.Visible = false;
+                masterTextboxTableOne.Visible = false;
+                masterColumnFilterTableOne.Visible = false;
+                masterClear.Visible = false;
                 masterFilter = false;
+
+
+                masterTypeLabelTableTwo.Visible = false;
+                masterTypeDropdownTableTwo.Visible = false;
+                masterTermsLabelTableTwo.Visible = false;
+                masterTextboxTableTwo.Visible = false;
+                masterColumnFilterTableTwo.Visible = false;
+                masterClearTwo.Visible = false;
+                masterFilter = false;
+
+                masterTypeLabelTableThree.Visible = false;
+                masterTypeDropdownTableThree.Visible = false;
+                masterTermsLabelTableThree.Visible = false;
+                masterTextboxTableThree.Visible = false;
+                masterColumnFilterTableThree.Visible = false;
+                masterClearThree.Visible = false;
+                masterFilter = false;
+
+                masterTypeLabelTableFour.Visible = false;
+                masterTypeDropdownTableFour.Visible = false;
+                masterTermsLabelTableFour.Visible = false;
+                masterTextboxTableFour.Visible = false;
+                masterColumnFilterTableFour.Visible = false;
+                masterClearFour.Visible = false;
+                masterFilter = false;
+
+                masterInventoryView.Location = new Point(3, 43);
+
+                masterInventoryGrid2.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, 43);
+
+
+                masterInventoryGrid3.Location = new Point(masterInventoryView.Location.X, masterInventoryView.Height + yDown * 2);
+
+
+
+                masterInventoryGrid4.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, masterInventoryView.Height + yDown * 2);
             }
         }
 
         private void typeFilterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MasterList = context.MasterInventories.Where(x => x.ItemType == typeFilterBox.Text).ToList();
-            refreshView(masterListView, MasterList);
+            MasterList = context.MasterInventories.Where(x => x.ItemType == masterTypeDropdownTableOne.Text).ToList();
+            refreshView(masterInventoryView, MasterList);
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            typeFilterBox.Text = "";
-            termsTextBox.Text = "";
-            columnFilter.Text = "";
-            columnFilter.Enabled = false;
+            masterTypeDropdownTableOne.Text = "";
+            masterTextboxTableOne.Text = "";
+            masterColumnFilterTableOne.Text = "";
+            masterColumnFilterTableOne.Enabled = false;
             MasterList = context.MasterInventories.ToList();
-            refreshView(masterListView, MasterList);
+            refreshView(masterInventoryView, MasterList);
         }
 
         private void columnFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -286,25 +407,25 @@ namespace Cape_Senior_Center_Inventory_System
             List<MasterInventory> query = new List<MasterInventory>();
             foreach (var x in context.MasterInventories)
             {
-                if (x.GetType().GetProperty(columnFilter.Text).GetValue(x).ToString().ToLower().Contains(termsTextBox.Text.ToLower()))
+                if (x.GetType().GetProperty(masterColumnFilterTableOne.Text).GetValue(x).ToString().ToLower().Contains(masterTextboxTableOne.Text.ToLower()))
                 {
                     query.Add(x);
                 }
             }
 
             MasterList = query;
-            refreshView(masterListView, MasterList);
+            refreshView(masterInventoryView, MasterList);
         }
 
         private void termsTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (termsTextBox.Text != "")
+            if (masterTextboxTableOne.Text != "")
             {
-                columnFilter.Enabled = true;
+                masterColumnFilterTableOne.Enabled = true;
             }
             else
             {
-                columnFilter.Enabled = false;
+                masterColumnFilterTableOne.Enabled = false;
             }
         }
         #endregion
@@ -436,10 +557,11 @@ namespace Cape_Senior_Center_Inventory_System
                 currentFilter = false;
 
                 currentInventoryView.Location = new Point(3, 43);
+
                 currentInventoryGrid2.Location = new Point(currentInventoryView.Location.X + currentInventoryView.Width + 10, 43);
 
 
-                currentInventoryGrid3.Location = new Point(currentInventoryGrid3.Location.X, currentInventoryView.Height + yDown * 2);
+                currentInventoryGrid3.Location = new Point(currentInventoryView.Location.X, currentInventoryView.Height + yDown * 2);
 
 
 
@@ -543,6 +665,8 @@ namespace Cape_Senior_Center_Inventory_System
         {
             var pref = new UserPreferences();
             pref.ShowDialog();
+            setupGridForCurrentInventory();
+
         }
         #endregion
 
@@ -575,7 +699,7 @@ namespace Cape_Senior_Center_Inventory_System
             MasterList = context.MasterInventories.ToList();
             InventoryHistory = context.InventoryHistory.Where(x => x.Updated_TS < DateTime.Now).ToList();
             refreshView(currentInventoryView, CurrentList);
-            refreshView(masterListView, MasterList);
+            refreshView(masterInventoryView, MasterList);
             refreshHistory(inventoryHistoryDataGridView, InventoryHistory);
         }
 
@@ -608,13 +732,14 @@ namespace Cape_Senior_Center_Inventory_System
             }
         }
 
-        private void setupGrid()
+        private void setupGridForCurrentInventory()
         {
-
+            DataContext.DataContext context = new DataContext.DataContext();
             //get user preferences
+            currentInventoryView.Location = new Point(3, 43);
             var preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
             //currentInventory
-            currentInventoryView.DataSource = setupFilters(preferences.CurrentColumnOne);
+            currentInventoryView.DataSource = setupFiltersForCurrentInventory(preferences.CurrentColumnOne);
 
             currentInventoryView.Columns[4].Visible = false;
             currentInventoryView.Columns[11].Visible = false;
@@ -634,7 +759,7 @@ namespace Cape_Senior_Center_Inventory_System
             if (preferences.NumCurrentGrids > 0)
             {
                 currentInventoryGrid2.Visible = true;
-                currentInventoryGrid2.DataSource = setupFilters(preferences.CurrentColumnTwo);
+                currentInventoryGrid2.DataSource = setupFiltersForCurrentInventory(preferences.CurrentColumnTwo);
                 currentInventoryGrid2.Location = new Point(currentInventoryView.Width + 8, 43);
 
                 currentInventoryGrid2.Columns[4].Visible = false;
@@ -656,7 +781,7 @@ namespace Cape_Senior_Center_Inventory_System
             if (preferences.NumCurrentGrids > 1)
             {
                 currentInventoryGrid3.Visible = true;
-                currentInventoryGrid3.DataSource = setupFilters(preferences.CurrentColumnThree);
+                currentInventoryGrid3.DataSource = setupFiltersForCurrentInventory(preferences.CurrentColumnThree);
                 currentInventoryGrid3.Location = new Point(currentInventoryView.Width / 2, currentInventoryView.Height + 50);
 
                 currentInventoryGrid3.Columns[4].Visible = false;
@@ -687,7 +812,7 @@ namespace Cape_Senior_Center_Inventory_System
             if (preferences.NumCurrentGrids > 2)
             {
                 currentInventoryGrid4.Visible = true;
-                currentInventoryGrid4.DataSource = setupFilters(preferences.CurrentColumnFour);
+                currentInventoryGrid4.DataSource = setupFiltersForCurrentInventory(preferences.CurrentColumnFour);
                 currentInventoryGrid4.Location = new Point(currentInventoryView.Width + 8, currentInventoryView.Height + 50);
                 currentInventoryGrid3.Location = new Point(4, currentInventoryView.Height + 50);
 
@@ -726,7 +851,126 @@ namespace Cape_Senior_Center_Inventory_System
             }
         }
 
-        private List<MasterInventory> setupFilters(string filter)
+
+        private void setupGridForMasterInventory()
+        {
+            DataContext.DataContext context = new DataContext.DataContext();
+            //get user preferences
+            var preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+            //masterInventory
+            masterInventoryView.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnOne);
+            masterInventoryView.Location = new Point(3, 43);
+            masterInventoryView.Columns[4].Visible = false;
+            masterInventoryView.Columns[11].Visible = false;
+            masterInventoryView.Columns[12].Visible = false;
+
+            int i = 0;
+
+            foreach (DataGridViewColumn c in masterInventoryView.Columns)
+
+            {
+                if (c.Visible)
+                    i += c.Width;
+            }
+
+            masterInventoryView.Width = i + masterInventoryView.RowHeadersWidth + 2;
+
+            if (preferences.NumMasterGrids > 0)
+            {
+                masterInventoryGrid2.Visible = true;
+                masterInventoryGrid2.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnTwo);
+                masterInventoryGrid2.Location = new Point(masterInventoryView.Width + 8, 43);
+
+                masterInventoryGrid2.Columns[4].Visible = false;
+                masterInventoryGrid2.Columns[11].Visible = false;
+                masterInventoryGrid2.Columns[12].Visible = false;
+
+                i = 0;
+
+                foreach (DataGridViewColumn c in masterInventoryGrid2.Columns)
+
+                {
+                    if (c.Visible)
+                        i += c.Width;
+                }
+
+                masterInventoryGrid2.Width = i + masterInventoryGrid2.RowHeadersWidth + 2;
+            }
+
+            if (preferences.NumMasterGrids > 1)
+            {
+                masterInventoryGrid3.Visible = true;
+                masterInventoryGrid3.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnThree);
+                masterInventoryGrid3.Location = new Point(masterInventoryView.Width / 2, masterInventoryView.Height + 50);
+
+                masterInventoryGrid3.Columns[4].Visible = false;
+                masterInventoryGrid3.Columns[11].Visible = false;
+                masterInventoryGrid3.Columns[12].Visible = false;
+
+                i = 0;
+
+                foreach (DataGridViewColumn c in masterInventoryGrid3.Columns)
+
+                {
+                    if (c.Visible)
+                        i += c.Width;
+                }
+
+                masterInventoryGrid3.Width = i + masterInventoryGrid3.RowHeadersWidth + 2;
+
+                if (masterInventoryView.Width >= masterInventoryGrid3.Width)
+                {
+                    masterInventoryGrid3.Width = masterInventoryView.Width;
+                }
+                else
+                {
+                    masterInventoryView.Width = masterInventoryGrid3.Width;
+                }
+            }
+
+            if (preferences.NumMasterGrids > 2)
+            {
+                masterInventoryGrid4.Visible = true;
+                masterInventoryGrid4.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnFour);
+                masterInventoryGrid4.Location = new Point(masterInventoryView.Width + 8, masterInventoryView.Height + 50);
+                masterInventoryGrid3.Location = new Point(4, masterInventoryView.Height + 50);
+
+                masterInventoryGrid4.Columns[4].Visible = false;
+                masterInventoryGrid4.Columns[11].Visible = false;
+                masterInventoryGrid4.Columns[12].Visible = false;
+
+                i = 0;
+
+                foreach (DataGridViewColumn c in masterInventoryGrid4.Columns)
+
+                {
+                    if (c.Visible)
+                        i += c.Width;
+                }
+
+                masterInventoryGrid4.Width = i + masterInventoryGrid4.RowHeadersWidth + 2;
+
+                if (masterInventoryGrid2.Width >= masterInventoryGrid4.Width)
+                {
+                    masterInventoryGrid4.Width = masterInventoryGrid2.Width;
+                }
+                else
+                {
+                    masterInventoryGrid2.Width = masterInventoryGrid4.Width;
+                }
+            }
+
+            if (preferences.NumMasterGrids == 1)
+            {
+                Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 40, 800);
+            }
+            else if (preferences.NumMasterGrids > 1)
+            {
+                Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 80, masterInventoryView.Height * 2 + 270);
+            }
+        }
+
+        private List<MasterInventory> setupFiltersForCurrentInventory(string filter)
         {
             var newContext = new List<MasterInventory>();
             string caseSwitch = filter;
@@ -752,6 +996,38 @@ namespace Cape_Senior_Center_Inventory_System
                     break;
                 case "Dry":
                     newContext = context.MasterInventories.Where(x => x.UnitsOnHand > 0 && x.ItemType == "Dry Goods").ToList();
+                    break;
+            }
+
+            return newContext;
+        }
+
+        private List<MasterInventory> setupFiltersForMasterInventory(string filter)
+        {
+            var newContext = new List<MasterInventory>();
+            string caseSwitch = filter;
+            switch (caseSwitch)
+            {
+                case "All":
+                    newContext = context.MasterInventories.ToList();
+                    break;
+                case "Frozen, Cooler":
+                    newContext = context.MasterInventories.Where(x => (x.ItemType == "Frozen" || x.ItemType == "Cooler")).ToList();
+                    break;
+                case "Frozen, Dry":
+                    newContext = context.MasterInventories.Where(x => (x.ItemType == "Frozen" || x.ItemType == "Dry Goods")).ToList();
+                    break;
+                case "Cooler, Dry":
+                    newContext = context.MasterInventories.Where(x => (x.ItemType == "Dry Goods" || x.ItemType == "Cooler")).ToList();
+                    break;
+                case "Frozen":
+                    newContext = context.MasterInventories.Where(x => x.ItemType == "Frozen").ToList();
+                    break;
+                case "Cooler":
+                    newContext = context.MasterInventories.Where(x => x.ItemType == "Cooler").ToList();
+                    break;
+                case "Dry":
+                    newContext = context.MasterInventories.Where(x => x.ItemType == "Dry Goods").ToList();
                     break;
             }
 
@@ -864,6 +1140,11 @@ namespace Cape_Senior_Center_Inventory_System
         }
 
         private void reportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void masterListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

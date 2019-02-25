@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Data.Entity;
 
 namespace Cape_Senior_Center_Inventory_System.Forms
 {
@@ -230,6 +231,8 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 existingPreferences.NumCurrentGrids = currentInventoryDropDown.SelectedIndex;
                 existingPreferences.NumMasterGrids = masterInventoryDropDown.SelectedIndex;
                 existingPreferences.isDefault = defaultCheckBox.Checked;
+                context.Entry(existingPreferences).State = EntityState.Modified;
+                context.SaveChanges();
             }
             else
             {
@@ -250,11 +253,12 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 newPreferences.NumMasterGrids = masterInventoryDropDown.SelectedIndex;
                 newPreferences.isDefault = defaultCheckBox.Checked;
                 context.Preferences.Add(newPreferences);
+                context.SaveChanges();
             }
 
-            //save
+          
 
-            context.SaveChanges();
+         
 
         }
 
