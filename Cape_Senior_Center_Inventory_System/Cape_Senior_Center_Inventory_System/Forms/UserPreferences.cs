@@ -16,12 +16,17 @@ namespace Cape_Senior_Center_Inventory_System.Forms
     public partial class UserPreferences : Form
     {
         public DataContext.DataContext context = new DataContext.DataContext();
-
+        private MainWindow mainWindow = null;
         public UserPreferences()
         {
             InitializeComponent();
         }
+        public UserPreferences(MainWindow main)
+        {
+            mainWindow = main;
+            InitializeComponent();
 
+        }
         #region Load
 
         private void UserPreferences_Load(object sender, EventArgs e)
@@ -256,12 +261,15 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 context.SaveChanges();
             }
 
-          
 
-         
+
 
         }
 
+        private void Set_Click(object sender, EventArgs e)
+        {
+            mainWindow.chosenPreferenceFilter = preferencesNameBox.SelectedItem.ToString();
+        }
         #endregion
 
         private void preferencesNameBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -374,5 +382,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 preferencesNameBox.SelectedIndex = preferencesNameBox.Items.Count - 1;
             }
         }
+
+   
     }
 }

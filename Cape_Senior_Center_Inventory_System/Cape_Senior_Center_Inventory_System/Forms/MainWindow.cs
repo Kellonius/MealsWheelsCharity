@@ -32,8 +32,9 @@ namespace Cape_Senior_Center_Inventory_System
         public bool currentFilter = false;
         public bool currentInlineEdit = false;
         public List<string> typeFilterIndex;
-        public string[] columnNames;
-
+        public string chosenPreferenceFilter = "";
+      //  public string[] columnNames;
+        public int GridWidth = 1000;
         public MainWindow(IController controller)
         {
             this.controller = controller;
@@ -51,7 +52,7 @@ namespace Cape_Senior_Center_Inventory_System
             setupGridForCurrentInventory();
             setupGridForMasterInventory();
             setupColors();
-
+            Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 80, masterInventoryView.Height * 2 + 270);
             var typeFilters = context.ItemType.Select(x => x.Description).ToArray();
             masterTypeDropdownTableOne.Items.AddRange(typeFilters);
             masterTypeDropdownTableTwo.Items.AddRange(typeFilters);
@@ -64,7 +65,7 @@ namespace Cape_Senior_Center_Inventory_System
             currentTypeDropdownTableFour.Items.AddRange(typeFilters);
 
 
-            columnNames = typeof(MasterInventory).GetProperties()
+            var columnNames = typeof(MasterInventory).GetProperties()
                 .Select(property => property.Name)
                 .ToArray();
             masterColumnFilterTableOne.Items.AddRange(columnNames);
@@ -235,7 +236,7 @@ namespace Cape_Senior_Center_Inventory_System
         {
             var popup = new AddInventory();
             popup.ShowDialog();
-            refreshAll();
+
         }
 
         private void masterEditButton_Click(object sender, EventArgs e)
@@ -378,9 +379,15 @@ namespace Cape_Senior_Center_Inventory_System
                 masterInventoryGrid2.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, 43);
 
 
-                masterInventoryGrid3.Location = new Point(masterInventoryView.Location.X, masterInventoryView.Height + yDown * 2);
+                if (masterInventoryGrid4.Visible == false)
+                {
+                    masterInventoryGrid3.Location = new Point((int)(masterInventoryGrid2.Location.X / 2), masterInventoryGrid3.Height + yDown * 2);
 
-
+                }
+                else
+                {
+                    masterInventoryGrid3.Location = new Point(masterInventoryView.Location.X, masterInventoryView.Height + yDown * 2);
+                }
 
                 masterInventoryGrid4.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, masterInventoryView.Height + yDown * 2);
             }
@@ -560,8 +567,15 @@ namespace Cape_Senior_Center_Inventory_System
 
                 currentInventoryGrid2.Location = new Point(currentInventoryView.Location.X + currentInventoryView.Width + 10, 43);
 
-
-                currentInventoryGrid3.Location = new Point(currentInventoryView.Location.X, currentInventoryView.Height + yDown * 2);
+                if (currentInventoryGrid4.Visible == false)
+                {
+                    currentInventoryGrid3.Location = new Point((int)(currentInventoryGrid2.Location.X/2), currentInventoryGrid3.Height + yDown * 2);
+                 
+                }
+                else
+                {
+                    currentInventoryGrid3.Location = new Point(currentInventoryView.Location.X, currentInventoryView.Height + yDown * 2);
+                }
 
 
 
@@ -663,10 +677,19 @@ namespace Cape_Senior_Center_Inventory_System
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var pref = new UserPreferences();
+            var pref = new UserPreferences(this);
             pref.ShowDialog();
-            setupGridForCurrentInventory();
 
+            if (masterFilter)
+            {
+                filterButton_Click("update", new EventArgs());
+            }
+            if (currentFilter)
+            {
+                currentFilterButton_Click("update", new EventArgs());
+            }
+            setupGridForCurrentInventory();
+            setupGridForMasterInventory();
         }
         #endregion
 
@@ -682,6 +705,7 @@ namespace Cape_Senior_Center_Inventory_System
             }));
         }
 
+        
         private void refreshHistory(DataGridView refresh, List<InventoryHistory> dataSource)
         {
             // Fixes end edit data refresh issue. Causes row one to select. (related to grid refresh?)
@@ -692,6 +716,7 @@ namespace Cape_Senior_Center_Inventory_System
                 setupColors();
             }));
         }
+
 
         public void refreshAll()
         {
@@ -730,31 +755,56 @@ namespace Cape_Senior_Center_Inventory_System
                     cell.Style.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
                 }
             }
+            for (int i = 0; i < masterInventoryView.Rows.Count; i++)
+            {
+                var cell = masterInventoryView.Rows[i].Cells[5];
+                if ((int)cell.Value <= 5)
+                {
+                    cell.Style.ForeColor = Color.Red;
+                    cell.Style.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                }
+            }
         }
 
         private void setupGridForCurrentInventory()
         {
             DataContext.DataContext context = new DataContext.DataContext();
             //get user preferences
+
             currentInventoryView.Location = new Point(3, 43);
-            var preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+
+            currentInventoryGrid2.Visible = false;
+            currentInventoryGrid3.Visible = false;
+            currentInventoryGrid4.Visible = false;
+            Preferences preferences = new Preferences();
+            if (string.IsNullOrWhiteSpace(chosenPreferenceFilter))
+             {
+                 preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+            }
+            else
+            {
+                preferences = context.Preferences.FirstOrDefault(x => x.PreferencesName==chosenPreferenceFilter);
+            }
             //currentInventory
             currentInventoryView.DataSource = setupFiltersForCurrentInventory(preferences.CurrentColumnOne);
 
             currentInventoryView.Columns[4].Visible = false;
             currentInventoryView.Columns[11].Visible = false;
             currentInventoryView.Columns[12].Visible = false;
-
+            currentInventoryView.Width = GridWidth;
+            currentInventoryGrid2.Width = GridWidth;
+            currentInventoryGrid3.Width = GridWidth;
+            currentInventoryGrid4.Width = GridWidth;
             int i = 0;
 
-            foreach (DataGridViewColumn c in currentInventoryView.Columns)
+            //foreach (DataGridViewColumn c in currentInventoryView.Columns)
 
-            {
-                if (c.Visible)
-                    i += c.Width;
-            }
+            //{
+            //    if (c.Visible)
+            //        i += c.Width;
+            //}
 
-            currentInventoryView.Width = i + currentInventoryView.RowHeadersWidth + 2;
+          //  currentInventoryView.Width = i + currentInventoryView.RowHeadersWidth + 2;
 
             if (preferences.NumCurrentGrids > 0)
             {
@@ -768,14 +818,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 i = 0;
 
-                foreach (DataGridViewColumn c in currentInventoryGrid2.Columns)
+                //foreach (DataGridViewColumn c in currentInventoryGrid2.Columns)
 
-                {
-                    if (c.Visible)
-                        i += c.Width;
-                }
+                //{
+                //    if (c.Visible)
+                //        i += c.Width;
+                //}
 
-                currentInventoryGrid2.Width = i + currentInventoryGrid2.RowHeadersWidth + 2;
+                //currentInventoryGrid2.Width = i + currentInventoryGrid2.RowHeadersWidth + 2;
             }
 
             if (preferences.NumCurrentGrids > 1)
@@ -790,14 +840,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 i = 0;
 
-                foreach (DataGridViewColumn c in currentInventoryGrid3.Columns)
+                //foreach (DataGridViewColumn c in currentInventoryGrid3.Columns)
 
-                {
-                    if (c.Visible)
-                        i += c.Width;
-                }
+                //{
+                //    if (c.Visible)
+                //        i += c.Width;
+                //}
 
-                currentInventoryGrid3.Width = i + currentInventoryGrid3.RowHeadersWidth + 2;
+                //currentInventoryGrid3.Width = i + currentInventoryGrid3.RowHeadersWidth + 2;
 
                 if (currentInventoryView.Width >= currentInventoryGrid3.Width)
                 {
@@ -822,14 +872,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 i = 0;
 
-                foreach (DataGridViewColumn c in currentInventoryGrid4.Columns)
+                //foreach (DataGridViewColumn c in currentInventoryGrid4.Columns)
 
-                {
-                    if (c.Visible)
-                        i += c.Width;
-                }
+                //{
+                //    if (c.Visible)
+                //        i += c.Width;
+                //}
 
-                currentInventoryGrid4.Width = i + currentInventoryGrid4.RowHeadersWidth + 2;
+                //currentInventoryGrid4.Width = i + currentInventoryGrid4.RowHeadersWidth + 2;
 
                 if (currentInventoryGrid2.Width >= currentInventoryGrid4.Width)
                 {
@@ -841,14 +891,14 @@ namespace Cape_Senior_Center_Inventory_System
                 }
             }
 
-            if (preferences.NumCurrentGrids == 1)
-            {
-                Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 40, 800);
-            }
-            else if (preferences.NumCurrentGrids > 1)
-            {
-                Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 80, currentInventoryView.Height * 2 + 270);
-            }
+            //if (preferences.NumCurrentGrids == 1)
+            //{
+            //    Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 40, 800);
+            //}
+            //else if (preferences.NumCurrentGrids > 1)
+            //{
+            //    Application.OpenForms[0].Size = new System.Drawing.Size(currentInventoryView.Width + currentInventoryGrid2.Width + 80, currentInventoryView.Height * 2 + 270);
+            //}
         }
 
 
@@ -856,24 +906,44 @@ namespace Cape_Senior_Center_Inventory_System
         {
             DataContext.DataContext context = new DataContext.DataContext();
             //get user preferences
-            var preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+            masterInventoryGrid2.Visible = false;
+            masterInventoryGrid3.Visible = false;
+            masterInventoryGrid4.Visible = false;
+            Preferences preferences = new Preferences();
+            if (string.IsNullOrWhiteSpace(chosenPreferenceFilter))
+            {
+                preferences = context.Preferences.FirstOrDefault(x => x.isDefault);
+            }
+            else
+            {
+                preferences = context.Preferences.FirstOrDefault(x => x.PreferencesName == chosenPreferenceFilter);
+            }
             //masterInventory
-            masterInventoryView.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnOne);
+
+
+
+
+            masterInventoryView.DataSource = setupFiltersForCurrentInventory(preferences.MasterColumnOne);
             masterInventoryView.Location = new Point(3, 43);
             masterInventoryView.Columns[4].Visible = false;
             masterInventoryView.Columns[11].Visible = false;
             masterInventoryView.Columns[12].Visible = false;
+            masterInventoryView.Width = GridWidth;
+            masterInventoryGrid2.Width = GridWidth;
+            masterInventoryGrid3.Width = GridWidth;
+            masterInventoryGrid4.Width = GridWidth;
 
             int i = 0;
 
-            foreach (DataGridViewColumn c in masterInventoryView.Columns)
+            //foreach (DataGridViewColumn c in masterInventoryView.Columns)
 
-            {
-                if (c.Visible)
-                    i += c.Width;
-            }
+            //{
+            //    if (c.Visible)
+            //        i += c.Width;
+            //}
 
-            masterInventoryView.Width = i + masterInventoryView.RowHeadersWidth + 2;
+            //masterInventoryView.Width = i + masterInventoryView.RowHeadersWidth + 2;
+            
 
             if (preferences.NumMasterGrids > 0)
             {
@@ -887,14 +957,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 i = 0;
 
-                foreach (DataGridViewColumn c in masterInventoryGrid2.Columns)
+                //foreach (DataGridViewColumn c in masterInventoryGrid2.Columns)
 
-                {
-                    if (c.Visible)
-                        i += c.Width;
-                }
+                //{
+                //    if (c.Visible)
+                //        i += c.Width;
+                //}
 
-                masterInventoryGrid2.Width = i + masterInventoryGrid2.RowHeadersWidth + 2;
+                //masterInventoryGrid2.Width = i + masterInventoryGrid2.RowHeadersWidth + 2;
             }
 
             if (preferences.NumMasterGrids > 1)
@@ -909,14 +979,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 i = 0;
 
-                foreach (DataGridViewColumn c in masterInventoryGrid3.Columns)
+                //foreach (DataGridViewColumn c in masterInventoryGrid3.Columns)
 
-                {
-                    if (c.Visible)
-                        i += c.Width;
-                }
+                //{
+                //    if (c.Visible)
+                //        i += c.Width;
+                //}
 
-                masterInventoryGrid3.Width = i + masterInventoryGrid3.RowHeadersWidth + 2;
+                //masterInventoryGrid3.Width = i + masterInventoryGrid3.RowHeadersWidth + 2;
 
                 if (masterInventoryView.Width >= masterInventoryGrid3.Width)
                 {
@@ -941,14 +1011,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 i = 0;
 
-                foreach (DataGridViewColumn c in masterInventoryGrid4.Columns)
+                //foreach (DataGridViewColumn c in masterInventoryGrid4.Columns)
 
-                {
-                    if (c.Visible)
-                        i += c.Width;
-                }
+                //{
+                //    if (c.Visible)
+                //        i += c.Width;
+                //}
 
-                masterInventoryGrid4.Width = i + masterInventoryGrid4.RowHeadersWidth + 2;
+                //masterInventoryGrid4.Width = i + masterInventoryGrid4.RowHeadersWidth + 2;
 
                 if (masterInventoryGrid2.Width >= masterInventoryGrid4.Width)
                 {
@@ -960,14 +1030,14 @@ namespace Cape_Senior_Center_Inventory_System
                 }
             }
 
-            if (preferences.NumMasterGrids == 1)
-            {
-                Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 40, 800);
-            }
-            else if (preferences.NumMasterGrids > 1)
-            {
-                Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 80, masterInventoryView.Height * 2 + 270);
-            }
+            //if (preferences.NumMasterGrids == 1)
+            //{
+            //    Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 40, 800);
+            //}
+            //else if (preferences.NumMasterGrids > 1)
+            //{
+            //    Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 80, masterInventoryView.Height * 2 + 270);
+            //}
         }
 
         private List<MasterInventory> setupFiltersForCurrentInventory(string filter)
@@ -1015,13 +1085,13 @@ namespace Cape_Senior_Center_Inventory_System
                     newContext = context.MasterInventories.Where(x => (x.ItemType == "Frozen" || x.ItemType == "Cooler")).ToList();
                     break;
                 case "Frozen, Dry":
-                    newContext = context.MasterInventories.Where(x => (x.ItemType == "Frozen" || x.ItemType == "Dry Goods")).ToList();
+                    newContext = context.MasterInventories.Where(x =>(x.ItemType == "Frozen" || x.ItemType == "Dry Goods")).ToList();
                     break;
                 case "Cooler, Dry":
                     newContext = context.MasterInventories.Where(x => (x.ItemType == "Dry Goods" || x.ItemType == "Cooler")).ToList();
                     break;
                 case "Frozen":
-                    newContext = context.MasterInventories.Where(x => x.ItemType == "Frozen").ToList();
+                    newContext = context.MasterInventories.Where(x =>  x.ItemType == "Frozen").ToList();
                     break;
                 case "Cooler":
                     newContext = context.MasterInventories.Where(x => x.ItemType == "Cooler").ToList();
