@@ -425,7 +425,11 @@
             // defaultCheckBox
             // 
             this.defaultCheckBox.AutoSize = true;
+<<<<<<< HEAD
             this.defaultCheckBox.Location = new System.Drawing.Point(67, 64);
+=======
+            this.defaultCheckBox.Location = new System.Drawing.Point(67, 62);
+>>>>>>> Move the user preferences button above the form
             this.defaultCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.defaultCheckBox.Name = "defaultCheckBox";
             this.defaultCheckBox.Size = new System.Drawing.Size(120, 21);
