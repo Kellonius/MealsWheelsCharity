@@ -100,7 +100,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             {
                 case 0:
                     currentInventoryImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.one;
-                    oneDrop.Enabled = false;
+                    oneDrop.Enabled = true;
                     twoDrop.Visible = false;
                     threeDrop.Visible = false;
                     fourDrop.Visible = false;
@@ -151,7 +151,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             {
                 case 0:
                     masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.one;
-                    masterOneDrop.Enabled = false;
+                    masterOneDrop.Enabled = true;
                     masterTwoDrop.Visible = false;
                     masterThreeDrop.Visible = false;
                     masterFourDrop.Visible = false;
