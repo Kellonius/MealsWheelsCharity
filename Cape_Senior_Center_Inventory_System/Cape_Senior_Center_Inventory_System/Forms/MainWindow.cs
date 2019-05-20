@@ -1147,6 +1147,79 @@ namespace Cape_Senior_Center_Inventory_System
             ////writeReconciliationInfoToReportTextBox(reconciliationModelsByDate);
         }
 
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            var endDate = endDatePicker.Value.Date.AddDays(1);
+            var startdate = startDatePicker.Value.Date;
+
+            List<InventoryHistory> dataToReconcile = context.InventoryHistory
+                .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate).ToList()
+                .OrderBy(x => x.ItemName).ToList();
+
+            List<BalanceReportItemModel> items = new List<BalanceReportItemModel>();
+
+            double dataTotal = 0;
+            double incomingTotal = 0;
+            double outgoingTotal = 0;
+            double total = 0;
+
+            foreach (InventoryHistory data in dataToReconcile)
+            {
+                dataTotal = data.CurrentPrice * (data.NewUnitsOnHand - data.PreviousUnitsOnHand);
+
+                if (items.Exists(x => x.ItemId == data.ItemId))
+                {
+                    items.Find(x => x.ItemId == data.ItemId).Total += dataTotal;
+                }
+                else
+                {
+                    BalanceReportItemModel model = new BalanceReportItemModel
+                    {
+                        ItemId = data.ItemId,
+                        Name = data.ItemName,
+                        Total = dataTotal
+                    };
+
+                    items.Add(model);
+                }
+
+                total += dataTotal;
+            }
+
+            items.ForEach(item =>
+            {
+                if (item.Total < 0)
+                {
+                    outgoingTotal += item.Total;
+                } else
+                {
+                    incomingTotal += item.Total;
+                }
+            });
+
+            BalanceReportTotalsModel totals = new BalanceReportTotalsModel
+            {
+                incomingTotal = incomingTotal,
+                outgoingTotal = outgoingTotal,
+                total = total
+            };
+
+            generatePdfOrSomething(items, totals);
+        }
+
+        private void generatePdfOrSomething(List<BalanceReportItemModel> items, BalanceReportTotalsModel totals)
+        {
+            items.ForEach(item =>
+            {
+                Console.WriteLine("Item Name: " + item.Name);
+                Console.WriteLine("Item Total: " + item.Total);
+                Console.WriteLine("");
+            });
+            Console.WriteLine("Incoming Total: " + totals.incomingTotal);
+            Console.WriteLine("Outgoing Total: " + totals.outgoingTotal);
+            Console.WriteLine("Total Total: " + totals.total);
+        }
+
         public void writeReconciliationInfoToReportDataGridView(Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelByDate)
         {
 

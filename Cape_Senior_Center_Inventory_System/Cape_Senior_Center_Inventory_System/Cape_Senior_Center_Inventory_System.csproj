@@ -110,6 +110,7 @@
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataContext\DataContext.cs" />
+    <Compile Include="DataContext\Models\BalanceReportTotalsModel.cs" />
     <Compile Include="DataContext\Models\Inventory.cs" />
     <Compile Include="DataContext\Models\InventoryHistory.cs" />
     <Compile Include="DataContext\Models\Item.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Forms\AddInventory.Designer.cs">
       <DependentUpon>AddInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\Models\BalanceReportItemModel.cs" />
     <Compile Include="Forms\CustomButtons.cs">
       <SubType>Component</SubType>
     </Compile>
