@@ -27,6 +27,7 @@ namespace Cape_Senior_Center_Inventory_System
         public DataContext.DataContext context = new DataContext.DataContext();
         public int previousUnits = 0;
         public int editId = 0;
+        public int masterEditId = 0;
         public int RowIndex;
         public bool masterFilter = false;
         public bool currentFilter = false;
@@ -88,6 +89,26 @@ namespace Cape_Senior_Center_Inventory_System
         private void masterListView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RowIndex = e.RowIndex;
+        }
+
+        private void firstMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            masterEditId = (int)masterInventoryView.Rows[e.RowIndex].Cells[0].Value;
+        }
+
+        private void secondMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            masterEditId = (int)masterInventoryGrid2.Rows[e.RowIndex].Cells[0].Value;
+        }
+
+        private void thirdMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            masterEditId = (int)masterInventoryGrid3.Rows[e.RowIndex].Cells[0].Value;
+        }
+
+        private void fourthMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            masterEditId = (int)masterInventoryGrid4.Rows[e.RowIndex].Cells[0].Value;
         }
 
         private void DataGridView2_MasterInventory_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -243,7 +264,7 @@ namespace Cape_Senior_Center_Inventory_System
         {
             var editPopup = new AddInventory();
             editPopup.Text = "Edit Item";
-            editPopup.prepareEdit(MasterList[RowIndex].Id);
+            editPopup.prepareEdit(masterEditId);
             editPopup.ShowDialog();
             context = new DataContext.DataContext();
             refreshAll();
@@ -627,15 +648,15 @@ namespace Cape_Senior_Center_Inventory_System
             refreshView(currentInventoryView, CurrentList);
         }
 
-        private void currentEditButton_Click(object sender, EventArgs e)
-        {
-            var editPopup = new AddInventory();
-            editPopup.Text = "Edit Item";
-            editPopup.prepareEdit(CurrentList[RowIndex].Id);
-            editPopup.ShowDialog();
-            context = new DataContext.DataContext();
-            refreshAll();
-        }
+        //private void currentEditButton_Click(object sender, EventArgs e)
+        //{
+        //    var editPopup = new AddInventory();
+        //    editPopup.Text = "Edit Item";
+        //    editPopup.prepareEdit(CurrentList[RowIndex].Id);
+        //    editPopup.ShowDialog();
+        //    context = new DataContext.DataContext();
+        //    refreshAll();
+        //}
 
         #endregion
 
