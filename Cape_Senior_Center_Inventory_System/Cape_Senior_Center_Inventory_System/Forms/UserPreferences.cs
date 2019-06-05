@@ -54,12 +54,12 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             oneDrop.SelectedIndex = 0;
 
             //Master Inventry Controls
-            masterInventoryDropDown.SelectedIndex = 0;
-            masterOneDrop.Items.AddRange(types.ToArray());
-            masterTwoDrop.Items.AddRange(types.ToArray());
-            masterThreeDrop.Items.AddRange(types.ToArray());
-            masterFourDrop.Items.AddRange(types.ToArray());
-            masterOneDrop.SelectedIndex = 0;
+            //masterInventoryDropDown.SelectedIndex = 0;
+            //masterOneDrop.Items.AddRange(types.ToArray());
+            //masterTwoDrop.Items.AddRange(types.ToArray());
+            //masterThreeDrop.Items.AddRange(types.ToArray());
+            //masterFourDrop.Items.AddRange(types.ToArray());
+            //masterOneDrop.SelectedIndex = 0;
 
             var savedNames = context.Preferences.Select(x => x.PreferencesName).ToArray();
             preferencesNameBox.Items.AddRange(savedNames);
@@ -80,11 +80,11 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 threeDrop.Text = defaultPreferences.CurrentColumnThree;
                 fourDrop.Text = defaultPreferences.CurrentColumnFour;
 
-                masterInventoryDropDown.SelectedIndex = defaultPreferences.NumMasterGrids;
-                masterOneDrop.Text = defaultPreferences.MasterColumnOne;
-                masterTwoDrop.Text = defaultPreferences.MasterColumnTwo;
-                masterThreeDrop.Text = defaultPreferences.MasterColumnThree;
-                masterFourDrop.Text = defaultPreferences.MasterColumnFour;
+                //masterInventoryDropDown.SelectedIndex = defaultPreferences.NumMasterGrids;
+                //masterOneDrop.Text = defaultPreferences.MasterColumnOne;
+                //masterTwoDrop.Text = defaultPreferences.MasterColumnTwo;
+                //masterThreeDrop.Text = defaultPreferences.MasterColumnThree;
+                //masterFourDrop.Text = defaultPreferences.MasterColumnFour;
 
             }
         }
@@ -144,56 +144,56 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             }
         }
 
-        private void masterInventoryDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var caseSwitch = masterInventoryDropDown.SelectedIndex;
-            switch (caseSwitch)
-            {
-                case 0:
-                    masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.one;
-                    masterOneDrop.Enabled = true;
-                    masterTwoDrop.Visible = false;
-                    masterThreeDrop.Visible = false;
-                    masterFourDrop.Visible = false;
-                    masterTwoLabel.Visible = true;
-                    masterThreeLabel.Visible = false;
-                    masterFourLabel.Visible = false;
-                    masterTwoLabel.Visible = false;
-                    masterThreeLabel.Visible = false;
-                    masterFourLabel.Visible = false;
-                    break;
-                case 1:
-                    masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.two;
-                    masterOneDrop.Enabled = true;
-                    masterTwoDrop.Visible = true;
-                    masterThreeDrop.Visible = false;
-                    masterFourDrop.Visible = false;
-                    masterTwoLabel.Visible = true;
-                    masterThreeLabel.Visible = false;
-                    masterFourLabel.Visible = false;
-                    break;
-                case 2:
-                    masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.three;
-                    masterOneDrop.Enabled = true;
-                    masterTwoDrop.Visible = true;
-                    masterThreeDrop.Visible = true;
-                    masterFourDrop.Visible = false;
-                    masterTwoLabel.Visible = true;
-                    masterThreeLabel.Visible = true;
-                    masterFourLabel.Visible = false;
-                    break;
-                case 3:
-                    masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.four;
-                    masterOneDrop.Enabled = true;
-                    masterTwoDrop.Visible = true;
-                    masterThreeDrop.Visible = true;
-                    masterFourDrop.Visible = true;
-                    masterTwoLabel.Visible = true;
-                    masterThreeLabel.Visible = true;
-                    masterFourLabel.Visible = true;
-                    break;
-            }
-        }
+        //private void masterInventoryDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    var caseSwitch = masterInventoryDropDown.SelectedIndex;
+        //    switch (caseSwitch)
+        //    {
+        //        case 0:
+        //            masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.one;
+        //            masterOneDrop.Enabled = true;
+        //            masterTwoDrop.Visible = false;
+        //            masterThreeDrop.Visible = false;
+        //            masterFourDrop.Visible = false;
+        //            masterTwoLabel.Visible = true;
+        //            masterThreeLabel.Visible = false;
+        //            masterFourLabel.Visible = false;
+        //            masterTwoLabel.Visible = false;
+        //            masterThreeLabel.Visible = false;
+        //            masterFourLabel.Visible = false;
+        //            break;
+        //        case 1:
+        //            masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.two;
+        //            masterOneDrop.Enabled = true;
+        //            masterTwoDrop.Visible = true;
+        //            masterThreeDrop.Visible = false;
+        //            masterFourDrop.Visible = false;
+        //            masterTwoLabel.Visible = true;
+        //            masterThreeLabel.Visible = false;
+        //            masterFourLabel.Visible = false;
+        //            break;
+        //        case 2:
+        //            masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.three;
+        //            masterOneDrop.Enabled = true;
+        //            masterTwoDrop.Visible = true;
+        //            masterThreeDrop.Visible = true;
+        //            masterFourDrop.Visible = false;
+        //            masterTwoLabel.Visible = true;
+        //            masterThreeLabel.Visible = true;
+        //            masterFourLabel.Visible = false;
+        //            break;
+        //        case 3:
+        //            masterImage.Image = Cape_Senior_Center_Inventory_System.Properties.Resources.four;
+        //            masterOneDrop.Enabled = true;
+        //            masterTwoDrop.Visible = true;
+        //            masterThreeDrop.Visible = true;
+        //            masterFourDrop.Visible = true;
+        //            masterTwoLabel.Visible = true;
+        //            masterThreeLabel.Visible = true;
+        //            masterFourLabel.Visible = true;
+        //            break;
+        //    }
+        //}
 
         #endregion
 
@@ -226,15 +226,15 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 existingPreferences.CurrentColumnThree = threeDrop.Text;
                 existingPreferences.CurrentColumnFour = fourDrop.Text;
 
-                existingPreferences.MasterColumnOne = masterOneDrop.Text;
-                existingPreferences.MasterColumnTwo = masterTwoDrop.Text;
-                existingPreferences.MasterColumnThree = masterThreeDrop.Text;
-                existingPreferences.MasterColumnFour = masterFourDrop.Text;
+                //existingPreferences.MasterColumnOne = masterOneDrop.Text;
+                //existingPreferences.MasterColumnTwo = masterTwoDrop.Text;
+                //existingPreferences.MasterColumnThree = masterThreeDrop.Text;
+                //existingPreferences.MasterColumnFour = masterFourDrop.Text;
 
                 existingPreferences.PreferencesName = preferencesNameBox.Text.Trim();
 
                 existingPreferences.NumCurrentGrids = currentInventoryDropDown.SelectedIndex;
-                existingPreferences.NumMasterGrids = masterInventoryDropDown.SelectedIndex;
+                //existingPreferences.NumMasterGrids = masterInventoryDropDown.SelectedIndex;
                 existingPreferences.isDefault = defaultCheckBox.Checked;
                 context.Entry(existingPreferences).State = EntityState.Modified;
                 context.SaveChanges();
@@ -247,15 +247,15 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 newPreferences.CurrentColumnThree = threeDrop.Text;
                 newPreferences.CurrentColumnFour = fourDrop.Text;
 
-                newPreferences.MasterColumnOne = masterOneDrop.Text;
-                newPreferences.MasterColumnTwo = masterTwoDrop.Text;
-                newPreferences.MasterColumnThree = masterThreeDrop.Text;
-                newPreferences.MasterColumnFour = masterFourDrop.Text;
+                //newPreferences.MasterColumnOne = masterOneDrop.Text;
+                //newPreferences.MasterColumnTwo = masterTwoDrop.Text;
+                //newPreferences.MasterColumnThree = masterThreeDrop.Text;
+                //newPreferences.MasterColumnFour = masterFourDrop.Text;
 
                 newPreferences.PreferencesName = preferencesNameBox.Text.Trim();
 
                 newPreferences.NumCurrentGrids = currentInventoryDropDown.SelectedIndex;
-                newPreferences.NumMasterGrids = masterInventoryDropDown.SelectedIndex;
+                //newPreferences.NumMasterGrids = masterInventoryDropDown.SelectedIndex;
                 newPreferences.isDefault = defaultCheckBox.Checked;
                 context.Preferences.Add(newPreferences);
                 context.SaveChanges();
@@ -289,11 +289,11 @@ namespace Cape_Senior_Center_Inventory_System.Forms
             threeDrop.Text = preferences.CurrentColumnThree;
             fourDrop.Text = preferences.CurrentColumnFour;
 
-            masterInventoryDropDown.SelectedIndex = preferences.NumMasterGrids;
-            masterOneDrop.Text = preferences.MasterColumnOne;
-            masterTwoDrop.Text = preferences.MasterColumnTwo;
-            masterThreeDrop.Text = preferences.MasterColumnThree;
-            masterFourDrop.Text = preferences.MasterColumnFour;
+            //masterInventoryDropDown.SelectedIndex = preferences.NumMasterGrids;
+            //masterOneDrop.Text = preferences.MasterColumnOne;
+            //masterTwoDrop.Text = preferences.MasterColumnTwo;
+            //masterThreeDrop.Text = preferences.MasterColumnThree;
+            //masterFourDrop.Text = preferences.MasterColumnFour;
 
             deleteButton.Enabled = true;
 
@@ -335,14 +335,14 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 fourDrop.Text = "";
                 fourDrop.Hide();
 
-                masterInventoryDropDown.SelectedIndex = 0;
-                masterOneDrop.SelectedIndex = 0;
-                masterTwoDrop.Text = "";
-                masterTwoDrop.Hide();
-                masterThreeDrop.Text = "";
-                masterThreeDrop.Hide();
-                masterFourDrop.Text = "";
-                masterFourDrop.Hide();
+                //masterInventoryDropDown.SelectedIndex = 0;
+                //masterOneDrop.SelectedIndex = 0;
+                //masterTwoDrop.Text = "";
+                //masterTwoDrop.Hide();
+                //masterThreeDrop.Text = "";
+                //masterThreeDrop.Hide();
+                //masterFourDrop.Text = "";
+                //masterFourDrop.Hide();
                 defaultCheckBox.Checked = false;
 
             }
@@ -358,11 +358,11 @@ namespace Cape_Senior_Center_Inventory_System.Forms
                 threeDrop.Text = defaultPreferences.CurrentColumnThree;
                 fourDrop.Text = defaultPreferences.CurrentColumnFour;
 
-                masterInventoryDropDown.SelectedIndex = defaultPreferences.NumMasterGrids;
-                masterOneDrop.Text = defaultPreferences.MasterColumnOne;
-                masterTwoDrop.Text = defaultPreferences.MasterColumnTwo;
-                masterThreeDrop.Text = defaultPreferences.MasterColumnThree;
-                masterFourDrop.Text = defaultPreferences.MasterColumnFour;
+                //masterInventoryDropDown.SelectedIndex = defaultPreferences.NumMasterGrids;
+                //masterOneDrop.Text = defaultPreferences.MasterColumnOne;
+                //masterTwoDrop.Text = defaultPreferences.MasterColumnTwo;
+                //masterThreeDrop.Text = defaultPreferences.MasterColumnThree;
+                //masterFourDrop.Text = defaultPreferences.MasterColumnFour;
 
             }
         }

@@ -36,6 +36,8 @@ namespace Cape_Senior_Center_Inventory_System
         public string chosenPreferenceFilter = "";
       //  public string[] columnNames;
         public int GridWidth = 1000;
+
+        public bool showDateRangeFilter = false;
         public MainWindow(IController controller)
         {
             this.controller = controller;
@@ -53,12 +55,12 @@ namespace Cape_Senior_Center_Inventory_System
             setupGridForCurrentInventory();
             setupGridForMasterInventory();
             setupColors();
-            Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 80, masterInventoryView.Height * 2 + 270);
+            //Application.OpenForms[0].Size = new System.Drawing.Size(masterInventoryView.Width + masterInventoryGrid2.Width + 80, masterInventoryView.Height * 2 + 270);
             var typeFilters = context.ItemType.Select(x => x.Description).ToArray();
             masterTypeDropdownTableOne.Items.AddRange(typeFilters);
-            masterTypeDropdownTableTwo.Items.AddRange(typeFilters);
-            masterTypeDropdownTableThree.Items.AddRange(typeFilters);
-            masterTypeDropdownTableFour.Items.AddRange(typeFilters);
+            //masterTypeDropdownTableTwo.Items.AddRange(typeFilters);
+            //masterTypeDropdownTableThree.Items.AddRange(typeFilters);
+            //masterTypeDropdownTableFour.Items.AddRange(typeFilters);
 
             currentTypeDropdownTableOne.Items.AddRange(typeFilters);
             currentTypeDropdownTableTwo.Items.AddRange(typeFilters);
@@ -70,9 +72,9 @@ namespace Cape_Senior_Center_Inventory_System
                 .Select(property => property.Name)
                 .ToArray();
             masterColumnFilterTableOne.Items.AddRange(columnNames);
-            masterColumnFilterTableTwo.Items.AddRange(columnNames);
-            masterColumnFilterTableThree.Items.AddRange(columnNames);
-            masterColumnFilterTableFour.Items.AddRange(columnNames);
+            //masterColumnFilterTableTwo.Items.AddRange(columnNames);
+            //masterColumnFilterTableThree.Items.AddRange(columnNames);
+            //masterColumnFilterTableFour.Items.AddRange(columnNames);
 
             currentColumnFilterTableOne.Items.AddRange(columnNames);
             currentColumnFilterTableTwo.Items.AddRange(columnNames);
@@ -81,35 +83,31 @@ namespace Cape_Senior_Center_Inventory_System
         }
 
         #region Single Cell Edits
-        private void currentInventoryView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            RowIndex = e.RowIndex;
-        }
 
         private void masterListView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RowIndex = e.RowIndex;
         }
 
-        private void firstMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            masterEditId = (int)masterInventoryView.Rows[e.RowIndex].Cells[0].Value;
-        }
+        //private void firstMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    masterEditId = (int)masterInventoryView.Rows[e.RowIndex].Cells[0].Value;
+        //}
 
-        private void secondMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            masterEditId = (int)masterInventoryGrid2.Rows[e.RowIndex].Cells[0].Value;
-        }
+        //private void secondMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    masterEditId = (int)masterInventoryGrid2.Rows[e.RowIndex].Cells[0].Value;
+        //}
 
-        private void thirdMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            masterEditId = (int)masterInventoryGrid3.Rows[e.RowIndex].Cells[0].Value;
-        }
+        //private void thirdMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    masterEditId = (int)masterInventoryGrid3.Rows[e.RowIndex].Cells[0].Value;
+        //}
 
-        private void fourthMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            masterEditId = (int)masterInventoryGrid4.Rows[e.RowIndex].Cells[0].Value;
-        }
+        //private void fourthMasterListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    masterEditId = (int)masterInventoryGrid4.Rows[e.RowIndex].Cells[0].Value;
+        //}
 
         private void DataGridView2_MasterInventory_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
@@ -264,7 +262,7 @@ namespace Cape_Senior_Center_Inventory_System
         {
             var editPopup = new AddInventory();
             editPopup.Text = "Edit Item";
-            editPopup.prepareEdit(masterEditId);
+            editPopup.prepareEdit(MasterList[RowIndex].Id);
             editPopup.ShowDialog();
             context = new DataContext.DataContext();
             refreshAll();
@@ -296,67 +294,67 @@ namespace Cape_Senior_Center_Inventory_System
                 masterColumnFilterTableOne.Visible = true;
                 masterClear.Visible = true;
 
-                if (masterInventoryGrid2.Visible == true)
-                {
-                    masterTypeLabelTableTwo.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y);
-                    masterTypeDropdownTableTwo.Location = new Point(masterTypeLabelTableTwo.Location.X + masterTypeLabelTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
-                    masterTermsLabelTableTwo.Location = new Point(masterTypeDropdownTableTwo.Location.X + masterTypeDropdownTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
-                    masterTextboxTableTwo.Location = new Point(masterTermsLabelTableTwo.Location.X + masterTermsLabelTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
-                    masterColumnFilterTableTwo.Location = new Point(masterTextboxTableTwo.Location.X + masterTextboxTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
-                    masterClearTwo.Location = new Point(masterColumnFilterTableTwo.Location.X + masterColumnFilterTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
-                    masterInventoryGrid2.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + yDown);
+                //if (masterInventoryGrid2.Visible == true)
+                //{
+                //    masterTypeLabelTableTwo.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y);
+                //    masterTypeDropdownTableTwo.Location = new Point(masterTypeLabelTableTwo.Location.X + masterTypeLabelTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                //    masterTermsLabelTableTwo.Location = new Point(masterTypeDropdownTableTwo.Location.X + masterTypeDropdownTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                //    masterTextboxTableTwo.Location = new Point(masterTermsLabelTableTwo.Location.X + masterTermsLabelTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                //    masterColumnFilterTableTwo.Location = new Point(masterTextboxTableTwo.Location.X + masterTextboxTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                //    masterClearTwo.Location = new Point(masterColumnFilterTableTwo.Location.X + masterColumnFilterTableTwo.Width + xDown, masterInventoryGrid2.Location.Y);
+                //    masterInventoryGrid2.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + yDown);
 
 
-                    masterTypeLabelTableTwo.Visible = true;
-                    masterTypeDropdownTableTwo.Visible = true;
-                    masterTermsLabelTableTwo.Visible = true;
-                    masterTextboxTableTwo.Visible = true;
-                    masterColumnFilterTableTwo.Visible = true;
-                    masterClearTwo.Visible = true;
-                }
+                //    masterTypeLabelTableTwo.Visible = true;
+                //    masterTypeDropdownTableTwo.Visible = true;
+                //    masterTermsLabelTableTwo.Visible = true;
+                //    masterTextboxTableTwo.Visible = true;
+                //    masterColumnFilterTableTwo.Visible = true;
+                //    masterClearTwo.Visible = true;
+                //}
 
-                if (masterInventoryGrid3.Visible == true)
-                {
-                    masterInventoryGrid3.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryView.Location.Y + masterInventoryView.Height + yDown);
+                //if (masterInventoryGrid3.Visible == true)
+                //{
+                //    masterInventoryGrid3.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryView.Location.Y + masterInventoryView.Height + yDown);
 
-                    masterTypeLabelTableThree.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryGrid3.Location.Y);
-                    masterTypeDropdownTableThree.Location = new Point(masterTypeLabelTableThree.Location.X + masterTypeLabelTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
-                    masterTermsLabelTableThree.Location = new Point(masterTypeDropdownTableThree.Location.X + masterTypeDropdownTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
-                    masterTextboxTableThree.Location = new Point(masterTermsLabelTableThree.Location.X + masterTermsLabelTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
-                    masterColumnFilterTableThree.Location = new Point(masterTextboxTableThree.Location.X + masterTextboxTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
-                    masterClearThree.Location = new Point(masterColumnFilterTableThree.Location.X + masterColumnFilterTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                //    masterTypeLabelTableThree.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryGrid3.Location.Y);
+                //    masterTypeDropdownTableThree.Location = new Point(masterTypeLabelTableThree.Location.X + masterTypeLabelTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                //    masterTermsLabelTableThree.Location = new Point(masterTypeDropdownTableThree.Location.X + masterTypeDropdownTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                //    masterTextboxTableThree.Location = new Point(masterTermsLabelTableThree.Location.X + masterTermsLabelTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                //    masterColumnFilterTableThree.Location = new Point(masterTextboxTableThree.Location.X + masterTextboxTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
+                //    masterClearThree.Location = new Point(masterColumnFilterTableThree.Location.X + masterColumnFilterTableThree.Width + xDown, masterInventoryGrid3.Location.Y);
 
 
-                    masterInventoryGrid3.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryView.Location.Y + masterInventoryView.Height + yDown * 2);
+                //    masterInventoryGrid3.Location = new Point(masterInventoryGrid3.Location.X + xDown, masterInventoryView.Location.Y + masterInventoryView.Height + yDown * 2);
 
-                    masterTypeLabelTableThree.Visible = true;
-                    masterTypeDropdownTableThree.Visible = true;
-                    masterTermsLabelTableThree.Visible = true;
-                    masterTextboxTableThree.Visible = true;
-                    masterColumnFilterTableThree.Visible = true;
-                    masterClearThree.Visible = true;
-                }
+                //    masterTypeLabelTableThree.Visible = true;
+                //    masterTypeDropdownTableThree.Visible = true;
+                //    masterTermsLabelTableThree.Visible = true;
+                //    masterTextboxTableThree.Visible = true;
+                //    masterColumnFilterTableThree.Visible = true;
+                //    masterClearThree.Visible = true;
+                //}
 
-                if (masterInventoryGrid4.Visible == true)
-                {
-                    masterInventoryGrid4.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + masterInventoryGrid2.Height + yDown);
+                //if (masterInventoryGrid4.Visible == true)
+                //{
+                //    masterInventoryGrid4.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + masterInventoryGrid2.Height + yDown);
 
-                    masterTypeLabelTableFour.Location = new Point(masterInventoryGrid4.Location.X + xDown, masterInventoryGrid4.Location.Y);
-                    masterTypeDropdownTableFour.Location = new Point(masterTypeLabelTableFour.Location.X + masterTypeLabelTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
-                    masterTermsLabelTableFour.Location = new Point(masterTypeDropdownTableFour.Location.X + masterTypeDropdownTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
-                    masterTextboxTableFour.Location = new Point(masterTermsLabelTableFour.Location.X + masterTermsLabelTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
-                    masterColumnFilterTableFour.Location = new Point(masterTextboxTableFour.Location.X + masterTextboxTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
-                    masterClearFour.Location = new Point(masterColumnFilterTableFour.Location.X + masterColumnFilterTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                //    masterTypeLabelTableFour.Location = new Point(masterInventoryGrid4.Location.X + xDown, masterInventoryGrid4.Location.Y);
+                //    masterTypeDropdownTableFour.Location = new Point(masterTypeLabelTableFour.Location.X + masterTypeLabelTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                //    masterTermsLabelTableFour.Location = new Point(masterTypeDropdownTableFour.Location.X + masterTypeDropdownTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                //    masterTextboxTableFour.Location = new Point(masterTermsLabelTableFour.Location.X + masterTermsLabelTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                //    masterColumnFilterTableFour.Location = new Point(masterTextboxTableFour.Location.X + masterTextboxTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
+                //    masterClearFour.Location = new Point(masterColumnFilterTableFour.Location.X + masterColumnFilterTableFour.Width + xDown, masterInventoryGrid4.Location.Y);
 
-                    masterInventoryGrid4.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + masterInventoryGrid2.Height + yDown * 2);
+                //    masterInventoryGrid4.Location = new Point(masterInventoryGrid2.Location.X + xDown, masterInventoryGrid2.Location.Y + masterInventoryGrid2.Height + yDown * 2);
 
-                    masterTypeLabelTableFour.Visible = true;
-                    masterTypeDropdownTableFour.Visible = true;
-                    masterTermsLabelTableFour.Visible = true;
-                    masterTextboxTableFour.Visible = true;
-                    masterColumnFilterTableFour.Visible = true;
-                    masterClearFour.Visible = true;
-                }
+                //    masterTypeLabelTableFour.Visible = true;
+                //    masterTypeDropdownTableFour.Visible = true;
+                //    masterTermsLabelTableFour.Visible = true;
+                //    masterTextboxTableFour.Visible = true;
+                //    masterColumnFilterTableFour.Visible = true;
+                //    masterClearFour.Visible = true;
+                //}
 
             }
             else
@@ -371,46 +369,46 @@ namespace Cape_Senior_Center_Inventory_System
                 masterFilter = false;
 
 
-                masterTypeLabelTableTwo.Visible = false;
-                masterTypeDropdownTableTwo.Visible = false;
-                masterTermsLabelTableTwo.Visible = false;
-                masterTextboxTableTwo.Visible = false;
-                masterColumnFilterTableTwo.Visible = false;
-                masterClearTwo.Visible = false;
-                masterFilter = false;
+                //masterTypeLabelTableTwo.Visible = false;
+                //masterTypeDropdownTableTwo.Visible = false;
+                //masterTermsLabelTableTwo.Visible = false;
+                //masterTextboxTableTwo.Visible = false;
+                //masterColumnFilterTableTwo.Visible = false;
+                //masterClearTwo.Visible = false;
+                //masterFilter = false;
 
-                masterTypeLabelTableThree.Visible = false;
-                masterTypeDropdownTableThree.Visible = false;
-                masterTermsLabelTableThree.Visible = false;
-                masterTextboxTableThree.Visible = false;
-                masterColumnFilterTableThree.Visible = false;
-                masterClearThree.Visible = false;
-                masterFilter = false;
+                //masterTypeLabelTableThree.Visible = false;
+                //masterTypeDropdownTableThree.Visible = false;
+                //masterTermsLabelTableThree.Visible = false;
+                //masterTextboxTableThree.Visible = false;
+                //masterColumnFilterTableThree.Visible = false;
+                //masterClearThree.Visible = false;
+                //masterFilter = false;
 
-                masterTypeLabelTableFour.Visible = false;
-                masterTypeDropdownTableFour.Visible = false;
-                masterTermsLabelTableFour.Visible = false;
-                masterTextboxTableFour.Visible = false;
-                masterColumnFilterTableFour.Visible = false;
-                masterClearFour.Visible = false;
-                masterFilter = false;
+                //masterTypeLabelTableFour.Visible = false;
+                //masterTypeDropdownTableFour.Visible = false;
+                //masterTermsLabelTableFour.Visible = false;
+                //masterTextboxTableFour.Visible = false;
+                //masterColumnFilterTableFour.Visible = false;
+                //masterClearFour.Visible = false;
+                //masterFilter = false;
 
                 masterInventoryView.Location = new Point(3, 43);
 
-                masterInventoryGrid2.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, 43);
+                //masterInventoryGrid2.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, 43);
 
 
-                if (masterInventoryGrid4.Visible == false)
-                {
-                    masterInventoryGrid3.Location = new Point((int)(masterInventoryGrid2.Location.X / 2), masterInventoryGrid3.Height + yDown * 2);
+                //if (masterInventoryGrid4.Visible == false)
+                //{
+                //    masterInventoryGrid3.Location = new Point((int)(masterInventoryGrid2.Location.X / 2), masterInventoryGrid3.Height + yDown * 2);
 
-                }
-                else
-                {
-                    masterInventoryGrid3.Location = new Point(masterInventoryView.Location.X, masterInventoryView.Height + yDown * 2);
-                }
+                //}
+                //else
+                //{
+                //    masterInventoryGrid3.Location = new Point(masterInventoryView.Location.X, masterInventoryView.Height + yDown * 2);
+                //}
 
-                masterInventoryGrid4.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, masterInventoryView.Height + yDown * 2);
+                //masterInventoryGrid4.Location = new Point(masterInventoryView.Location.X + masterInventoryView.Width + 10, masterInventoryView.Height + yDown * 2);
             }
         }
 
@@ -927,9 +925,9 @@ namespace Cape_Senior_Center_Inventory_System
         {
             DataContext.DataContext context = new DataContext.DataContext();
             //get user preferences
-            masterInventoryGrid2.Visible = false;
-            masterInventoryGrid3.Visible = false;
-            masterInventoryGrid4.Visible = false;
+            //masterInventoryGrid2.Visible = false;
+            //masterInventoryGrid3.Visible = false;
+            //masterInventoryGrid4.Visible = false;
             Preferences preferences = new Preferences();
             if (string.IsNullOrWhiteSpace(chosenPreferenceFilter))
             {
@@ -950,9 +948,9 @@ namespace Cape_Senior_Center_Inventory_System
             masterInventoryView.Columns[11].Visible = false;
             masterInventoryView.Columns[12].Visible = false;
             masterInventoryView.Width = GridWidth;
-            masterInventoryGrid2.Width = GridWidth;
-            masterInventoryGrid3.Width = GridWidth;
-            masterInventoryGrid4.Width = GridWidth;
+            //masterInventoryGrid2.Width = GridWidth;
+            //masterInventoryGrid3.Width = GridWidth;
+            //masterInventoryGrid4.Width = GridWidth;
 
             int i = 0;
 
@@ -968,13 +966,13 @@ namespace Cape_Senior_Center_Inventory_System
 
             if (preferences.NumMasterGrids > 0)
             {
-                masterInventoryGrid2.Visible = true;
-                masterInventoryGrid2.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnTwo);
-                masterInventoryGrid2.Location = new Point(masterInventoryView.Width + 8, 43);
+                //masterInventoryGrid2.Visible = true;
+                //masterInventoryGrid2.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnTwo);
+                //masterInventoryGrid2.Location = new Point(masterInventoryView.Width + 8, 43);
 
-                masterInventoryGrid2.Columns[4].Visible = false;
-                masterInventoryGrid2.Columns[11].Visible = false;
-                masterInventoryGrid2.Columns[12].Visible = false;
+                //masterInventoryGrid2.Columns[4].Visible = false;
+                //masterInventoryGrid2.Columns[11].Visible = false;
+                //masterInventoryGrid2.Columns[12].Visible = false;
 
                 i = 0;
 
@@ -990,13 +988,13 @@ namespace Cape_Senior_Center_Inventory_System
 
             if (preferences.NumMasterGrids > 1)
             {
-                masterInventoryGrid3.Visible = true;
-                masterInventoryGrid3.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnThree);
-                masterInventoryGrid3.Location = new Point(masterInventoryView.Width / 2, masterInventoryView.Height + 50);
+                //masterInventoryGrid3.Visible = true;
+                //masterInventoryGrid3.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnThree);
+                //masterInventoryGrid3.Location = new Point(masterInventoryView.Width / 2, masterInventoryView.Height + 50);
 
-                masterInventoryGrid3.Columns[4].Visible = false;
-                masterInventoryGrid3.Columns[11].Visible = false;
-                masterInventoryGrid3.Columns[12].Visible = false;
+                //masterInventoryGrid3.Columns[4].Visible = false;
+                //masterInventoryGrid3.Columns[11].Visible = false;
+                //masterInventoryGrid3.Columns[12].Visible = false;
 
                 i = 0;
 
@@ -1009,26 +1007,26 @@ namespace Cape_Senior_Center_Inventory_System
 
                 //masterInventoryGrid3.Width = i + masterInventoryGrid3.RowHeadersWidth + 2;
 
-                if (masterInventoryView.Width >= masterInventoryGrid3.Width)
-                {
-                    masterInventoryGrid3.Width = masterInventoryView.Width;
-                }
-                else
-                {
-                    masterInventoryView.Width = masterInventoryGrid3.Width;
-                }
+                //if (masterInventoryView.Width >= masterInventoryGrid3.Width)
+                //{
+                //    masterInventoryGrid3.Width = masterInventoryView.Width;
+                //}
+                //else
+                //{
+                //    masterInventoryView.Width = masterInventoryGrid3.Width;
+                //}
             }
 
             if (preferences.NumMasterGrids > 2)
             {
-                masterInventoryGrid4.Visible = true;
-                masterInventoryGrid4.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnFour);
-                masterInventoryGrid4.Location = new Point(masterInventoryView.Width + 8, masterInventoryView.Height + 50);
-                masterInventoryGrid3.Location = new Point(4, masterInventoryView.Height + 50);
+                //masterInventoryGrid4.Visible = true;
+                //masterInventoryGrid4.DataSource = setupFiltersForMasterInventory(preferences.MasterColumnFour);
+                //masterInventoryGrid4.Location = new Point(masterInventoryView.Width + 8, masterInventoryView.Height + 50);
+                //masterInventoryGrid3.Location = new Point(4, masterInventoryView.Height + 50);
 
-                masterInventoryGrid4.Columns[4].Visible = false;
-                masterInventoryGrid4.Columns[11].Visible = false;
-                masterInventoryGrid4.Columns[12].Visible = false;
+                //masterInventoryGrid4.Columns[4].Visible = false;
+                //masterInventoryGrid4.Columns[11].Visible = false;
+                //masterInventoryGrid4.Columns[12].Visible = false;
 
                 i = 0;
 
@@ -1041,14 +1039,14 @@ namespace Cape_Senior_Center_Inventory_System
 
                 //masterInventoryGrid4.Width = i + masterInventoryGrid4.RowHeadersWidth + 2;
 
-                if (masterInventoryGrid2.Width >= masterInventoryGrid4.Width)
-                {
-                    masterInventoryGrid4.Width = masterInventoryGrid2.Width;
-                }
-                else
-                {
-                    masterInventoryGrid2.Width = masterInventoryGrid4.Width;
-                }
+                //if (masterInventoryGrid2.Width >= masterInventoryGrid4.Width)
+                //{
+                //    masterInventoryGrid4.Width = masterInventoryGrid2.Width;
+                //}
+                //else
+                //{
+                //    masterInventoryGrid2.Width = masterInventoryGrid4.Width;
+                //}
             }
 
             //if (preferences.NumMasterGrids == 1)
@@ -1311,6 +1309,13 @@ namespace Cape_Senior_Center_Inventory_System
         private void masterListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void showDateRangeButton_Click(object sender, EventArgs e)
+        {
+            showDateRangeFilter = !showDateRangeFilter;
+            dateRangePanel.Visible = showDateRangeFilter;
+            showDateRangeButton.Text = showDateRangeFilter ? "Hide Filter" : "Show Filter";
         }
     }
 }
