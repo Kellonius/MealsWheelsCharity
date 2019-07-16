@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Printing;
 using Cape_Senior_Center_Inventory_System.Forms;
 
 namespace Cape_Senior_Center_Inventory_System
@@ -76,10 +77,12 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryHistoryTab = new System.Windows.Forms.TabPage();
             this.inventoryHistoryDataGridView = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.showDateRangeButton = new System.Windows.Forms.Button();
+            this.dateRangePanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.inventoryHistoryStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.inventoryHistoryEndDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.inventoryHistoryStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.pricingHistoryTab = new System.Windows.Forms.TabPage();
             this.pricingHistoryDataGridView = new System.Windows.Forms.DataGridView();
@@ -158,8 +161,8 @@ namespace Cape_Senior_Center_Inventory_System
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.masterInventoriesTableAdapter1 = new Cape_Senior_Center_Inventory_System.DatabaseDataSetTableAdapters.MasterInventoriesTableAdapter();
-            this.dateRangePanel = new System.Windows.Forms.Panel();
-            this.showDateRangeButton = new System.Windows.Forms.Button();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.bsMasterInventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsCurrentInventory = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
@@ -170,6 +173,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryHistoryTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryHistoryDataGridView)).BeginInit();
             this.panel4.SuspendLayout();
+            this.dateRangePanel.SuspendLayout();
             this.pricingHistoryTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pricingHistoryDataGridView)).BeginInit();
             this.panel5.SuspendLayout();
@@ -190,7 +194,6 @@ namespace Cape_Senior_Center_Inventory_System
             ((System.ComponentModel.ISupportInitialize)(this.masterInventoryView)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.dateRangePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).BeginInit();
             this.SuspendLayout();
@@ -204,6 +207,7 @@ namespace Cape_Senior_Center_Inventory_System
             this.preferencesToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip.Size = new System.Drawing.Size(1515, 33);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
@@ -341,6 +345,28 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel4.Size = new System.Drawing.Size(1499, 75);
             this.panel4.TabIndex = 2;
             // 
+            // showDateRangeButton
+            // 
+            this.showDateRangeButton.Location = new System.Drawing.Point(676, 15);
+            this.showDateRangeButton.Name = "showDateRangeButton";
+            this.showDateRangeButton.Size = new System.Drawing.Size(105, 45);
+            this.showDateRangeButton.TabIndex = 6;
+            this.showDateRangeButton.Text = "Show Filter";
+            this.showDateRangeButton.UseVisualStyleBackColor = true;
+            this.showDateRangeButton.Click += new System.EventHandler(this.showDateRangeButton_Click);
+            // 
+            // dateRangePanel
+            // 
+            this.dateRangePanel.Controls.Add(this.label8);
+            this.dateRangePanel.Controls.Add(this.inventoryHistoryStartDatePicker);
+            this.dateRangePanel.Controls.Add(this.label9);
+            this.dateRangePanel.Controls.Add(this.inventoryHistoryEndDatePicker);
+            this.dateRangePanel.Location = new System.Drawing.Point(803, 3);
+            this.dateRangePanel.Name = "dateRangePanel";
+            this.dateRangePanel.Size = new System.Drawing.Size(291, 64);
+            this.dateRangePanel.TabIndex = 5;
+            this.dateRangePanel.Visible = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -349,6 +375,17 @@ namespace Cape_Senior_Center_Inventory_System
             this.label8.Size = new System.Drawing.Size(77, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "End Date";
+            // 
+            // inventoryHistoryStartDatePicker
+            // 
+            this.inventoryHistoryStartDatePicker.CustomFormat = "";
+            this.inventoryHistoryStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.inventoryHistoryStartDatePicker.Location = new System.Drawing.Point(6, 34);
+            this.inventoryHistoryStartDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inventoryHistoryStartDatePicker.Name = "inventoryHistoryStartDatePicker";
+            this.inventoryHistoryStartDatePicker.Size = new System.Drawing.Size(134, 26);
+            this.inventoryHistoryStartDatePicker.TabIndex = 1;
+            this.inventoryHistoryStartDatePicker.ValueChanged += new System.EventHandler(this.inventoryHistoryStartDatePicker_ValueChanged);
             // 
             // label9
             // 
@@ -369,17 +406,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.inventoryHistoryEndDatePicker.Size = new System.Drawing.Size(134, 26);
             this.inventoryHistoryEndDatePicker.TabIndex = 2;
             this.inventoryHistoryEndDatePicker.ValueChanged += new System.EventHandler(this.inventoryHistoryEndDatePicker_ValueChanged);
-            // 
-            // inventoryHistoryStartDatePicker
-            // 
-            this.inventoryHistoryStartDatePicker.CustomFormat = "";
-            this.inventoryHistoryStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.inventoryHistoryStartDatePicker.Location = new System.Drawing.Point(6, 34);
-            this.inventoryHistoryStartDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.inventoryHistoryStartDatePicker.Name = "inventoryHistoryStartDatePicker";
-            this.inventoryHistoryStartDatePicker.Size = new System.Drawing.Size(134, 26);
-            this.inventoryHistoryStartDatePicker.TabIndex = 1;
-            this.inventoryHistoryStartDatePicker.ValueChanged += new System.EventHandler(this.inventoryHistoryStartDatePicker_ValueChanged);
             // 
             // label10
             // 
@@ -659,7 +685,7 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             // printButton
             // 
-            this.printButton.Location = new System.Drawing.Point(1049, 19);
+            this.printButton.Location = new System.Drawing.Point(1057, 19);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(172, 34);
             this.printButton.TabIndex = 10;
@@ -1444,27 +1470,13 @@ namespace Cape_Senior_Center_Inventory_System
             // 
             this.masterInventoriesTableAdapter1.ClearBeforeFill = true;
             // 
-            // dateRangePanel
+            // printDocument2
             // 
-            this.dateRangePanel.Controls.Add(this.label8);
-            this.dateRangePanel.Controls.Add(this.inventoryHistoryStartDatePicker);
-            this.dateRangePanel.Controls.Add(this.label9);
-            this.dateRangePanel.Controls.Add(this.inventoryHistoryEndDatePicker);
-            this.dateRangePanel.Location = new System.Drawing.Point(803, 3);
-            this.dateRangePanel.Name = "dateRangePanel";
-            this.dateRangePanel.Size = new System.Drawing.Size(291, 64);
-            this.dateRangePanel.TabIndex = 5;
-            this.dateRangePanel.Visible = false;
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // showDateRangeButton
+            // printDocument1
             // 
-            this.showDateRangeButton.Location = new System.Drawing.Point(676, 15);
-            this.showDateRangeButton.Name = "showDateRangeButton";
-            this.showDateRangeButton.Size = new System.Drawing.Size(105, 45);
-            this.showDateRangeButton.TabIndex = 6;
-            this.showDateRangeButton.Text = "Show Filter";
-            this.showDateRangeButton.UseVisualStyleBackColor = true;
-            this.showDateRangeButton.Click += new System.EventHandler(this.showDateRangeButton_Click);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // bsMasterInventory
             // 
@@ -1498,6 +1510,8 @@ namespace Cape_Senior_Center_Inventory_System
             ((System.ComponentModel.ISupportInitialize)(this.inventoryHistoryDataGridView)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.dateRangePanel.ResumeLayout(false);
+            this.dateRangePanel.PerformLayout();
             this.pricingHistoryTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pricingHistoryDataGridView)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -1524,8 +1538,6 @@ namespace Cape_Senior_Center_Inventory_System
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.dateRangePanel.ResumeLayout(false);
-            this.dateRangePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMasterInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCurrentInventory)).EndInit();
             this.ResumeLayout(false);
@@ -1633,6 +1645,7 @@ namespace Cape_Senior_Center_Inventory_System
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.Button showDateRangeButton;
         private System.Windows.Forms.Panel dateRangePanel;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }
 

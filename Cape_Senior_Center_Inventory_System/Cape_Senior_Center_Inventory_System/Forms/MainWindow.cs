@@ -48,7 +48,7 @@ namespace Cape_Senior_Center_Inventory_System
 
         // Declare a variable to hold the portion of the document that
         // is not printed.
-        private string stringToPrint;
+        private string stringToPrint = "";
 
 
         //END PRINT SETUP
@@ -1152,34 +1152,15 @@ namespace Cape_Senior_Center_Inventory_System
 
             //get the dates and set them to midnight
             var endDate = endDatePicker.Value.Date.AddDays(1);
-            var startdate = startDatePicker.Value.Date;
-
-            List<InventoryHistory> inventoryHistories = context.InventoryHistory.ToList();
-            List<Item> items = context.Items.ToList();
+            var startDate = startDatePicker.Value.Date;
 
             //get the inventory history for reconciliation
-            List<InventoryHistoryModel> dataToReconcile = context.InventoryHistory
-                .Join(
-                    context.MasterInventories,
-                    inventoryHistory => inventoryHistory.ItemId,
-                    masterInventory => masterInventory.Id,
-                    (inventoryHistory, masterInventory) => new InventoryHistoryModel
-                    {
-                        Id = inventoryHistory.Id,
-                        ItemId = inventoryHistory.ItemId,
-                        ItemName = masterInventory.ItemName,
-                        CurrentPrice = inventoryHistory.CurrentPrice,
-                        PreviousUnitsOnHand = inventoryHistory.PreviousUnitsOnHand,
-                        Updated_TS = inventoryHistory.Updated_TS
-                    }
-                )
-                .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate)
-                .OrderBy(x => x.Updated_TS).ThenBy(x => x.ItemId).ToList();
+            List<InventoryHistoryModel> dataToReconcile = generateDataToReconcile(startDate, endDate);
 
             //date, (itemId, itemName, runningAmount, unitPrice, Total)
             Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelsByDate = new Dictionary<DateTime, List<ReconciliationModel>>();
 
-            for (DateTime date = startdate; date < endDate; date = date.AddDays(1))
+            for (DateTime date = startDate; date < endDate; date = date.AddDays(1))
             {
                 reconciliationModelsByDate.Add(date, dataToReconcile
                     .FindAll(x => x.Updated_TS.Date == date)
@@ -1202,25 +1183,9 @@ namespace Cape_Senior_Center_Inventory_System
         private void PrintButton_Click(object sender, EventArgs e)
         {
             var endDate = endDatePicker.Value.Date.AddDays(1);
-            var startdate = startDatePicker.Value.Date;
+            var startDate = startDatePicker.Value.Date;
 
-            List<InventoryHistoryModel> dataToReconcile = context.InventoryHistory
-                .Join(
-                    context.MasterInventories,
-                    inventoryHistory => inventoryHistory.ItemId,
-                    masterInventory => masterInventory.Id,
-                    (inventoryHistory, masterInventory) => new InventoryHistoryModel
-                    {
-                        Id = inventoryHistory.Id,
-                        ItemId = inventoryHistory.ItemId,
-                        ItemName = masterInventory.ItemName,
-                        CurrentPrice = inventoryHistory.CurrentPrice,
-                        PreviousUnitsOnHand = inventoryHistory.PreviousUnitsOnHand,
-                        Updated_TS = inventoryHistory.Updated_TS
-                    }
-                )
-                .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate).ToList()
-                .OrderBy(x => x.Updated_TS.Date).ThenBy(x => x.ItemId).ToList();
+            List<InventoryHistoryModel> dataToReconcile = generateDataToReconcile(startDate, endDate);
 
             List<BalanceReportItemModel> items = new List<BalanceReportItemModel>();
 
@@ -1271,20 +1236,63 @@ namespace Cape_Senior_Center_Inventory_System
                 total = total
             };
 
-            generatePdfOrSomething(items, totals);
+            //var endDate = endDatePicker.Value.Date.AddDays(1).ToString("MM-dd-yyyy");
+            //var startdate = startDatePicker.Value.Date.ToString("MM-dd-yyyy");
+            string docPath = @"c:\";
+            string docName = "Inventory_Reconcillation_for_" + startDate.ToString("MM-dd-yyyy") + "_to_" + endDate.ToString("MM-dd-yyyy");
+
+            String content = generatePdfOrSomething(items, totals);
+
+            ReadDocument(docPath, docName, content);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+
+            File.Delete(docPath + docName);
         }
 
-        private void generatePdfOrSomething(List<BalanceReportItemModel> items, BalanceReportTotalsModel totals)
+        private List<InventoryHistoryModel> generateDataToReconcile(DateTime startDate, DateTime endDate)
         {
+            return context.InventoryHistory
+                .Join(
+                    context.MasterInventories,
+                    inventoryHistory => inventoryHistory.ItemId,
+                    masterInventory => masterInventory.Id,
+                    (inventoryHistory, masterInventory) => new InventoryHistoryModel
+                    {
+                        Id = inventoryHistory.Id,
+                        ItemId = inventoryHistory.ItemId,
+                        ItemName = masterInventory.ItemName,
+                        CurrentPrice = inventoryHistory.CurrentPrice,
+                        PreviousUnitsOnHand = inventoryHistory.PreviousUnitsOnHand,
+                        Updated_TS = inventoryHistory.Updated_TS
+                    }
+                )
+                .Where(x => x.Updated_TS >= startDate && x.Updated_TS < endDate)
+                .OrderBy(x => x.Updated_TS).ThenBy(x => x.ItemId).ToList();
+        }
+
+        private String generatePdfOrSomething(List<BalanceReportItemModel> items, BalanceReportTotalsModel totals)
+        {
+            String content = "";
+
+            content += "Item Name\t\t\tIncoming Amount\t\t\tOutgoingAmount\n\n";
             items.ForEach(item =>
             {
-                Console.WriteLine("Item Name: " + item.Name);
-                Console.WriteLine("Item Total: " + item.Total);
-                Console.WriteLine("");
+                content += item.Name;
+                if (item.Total > 0)
+                {
+                    content += "\t\t\t\t" + item.Total + "\n";
+                } else
+                {
+                    content += "\t\t\t\t\t\t\t" + Math.Abs(item.Total) + "\n";
+                }
             });
-            Console.WriteLine("Incoming Total: " + totals.incomingTotal);
-            Console.WriteLine("Outgoing Total: " + totals.outgoingTotal);
-            Console.WriteLine("Total Total: " + totals.total);
+
+            content += "Incoming Total:\t\t\t" + totals.incomingTotal + "\n";
+            content += "Outgoing Total:\t\t\t\t\t\t" + Math.Abs(totals.outgoingTotal) + "\n";
+            content += "Total Total: " + totals.total + "\n";
+
+            return content;
         }
 
         public void writeReconciliationInfoToReportDataGridView(Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelByDate)
@@ -1337,13 +1345,52 @@ namespace Cape_Senior_Center_Inventory_System
 
                     existingRow.Cells[day.Key.DayOfWeek.ToString() + ' ' + day.Key.ToShortDateString()].Value = temp.Amount + " x " + temp.Price + " = " + temp.Total;
                 }
-            }
 
+            }
         }
 
+        //pass in report name "reconcilliationReportName" with DateRange
+        private void ReadDocument(string docPath, string docName, string content)
+        {
+            printDocument1.DocumentName = docName;
+            //PrintDocument documentToPrint = new PrintDocument();
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, docName)))
+            {
+               outputFile.WriteLine(content);
+            }
+            using (FileStream stream = new FileStream(docPath + docName, FileMode.Open))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                documentContents = reader.ReadToEnd();
+            }
+            stringToPrint = documentContents;
+        }
 
-        #endregion
-    }
+        void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+
+            // Sets the value of charactersOnPage to the number of characters 
+            // of stringToPrint that will fit within the bounds of the page.
+            e.Graphics.MeasureString(stringToPrint, this.Font,
+                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                out charactersOnPage, out linesPerPage);
+
+            // Draws the string within the bounds of the page.
+            e.Graphics.DrawString(stringToPrint, this.Font, Brushes.Black,
+                e.MarginBounds, StringFormat.GenericTypographic);
+
+            // Remove the portion of the string that has been printed.
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+
+            // Check to see if more pages are to be printed.
+            e.HasMorePages = (stringToPrint.Length > 0);
+
+            // If there are no more pages, reset the string to be printed.
+            if (!e.HasMorePages)
+                stringToPrint = documentContents;
+        }
 
         private void reportTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -1367,4 +1414,5 @@ namespace Cape_Senior_Center_Inventory_System
             showDateRangeButton.Text = showDateRangeFilter ? "Hide Filter" : "Show Filter";
         }
     }
+    #endregion
 }
