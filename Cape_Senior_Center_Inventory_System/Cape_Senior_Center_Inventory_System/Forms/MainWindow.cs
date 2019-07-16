@@ -1138,10 +1138,27 @@ namespace Cape_Senior_Center_Inventory_System
             var endDate = endDatePicker.Value.Date.AddDays(1);
             var startdate = startDatePicker.Value.Date;
 
+            List<InventoryHistory> inventoryHistories = context.InventoryHistory.ToList();
+            List<Item> items = context.Items.ToList();
+
             //get the inventory history for reconciliation
-            List<InventoryHistory> dataToReconcile = context.InventoryHistory
-                .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate).ToList()
-                .OrderBy(x => x.Updated_TS.Date).ThenBy(x => x.ItemId).ToList();
+            List<InventoryHistoryModel> dataToReconcile = context.InventoryHistory
+                .Join(
+                    context.MasterInventories,
+                    inventoryHistory => inventoryHistory.ItemId,
+                    masterInventory => masterInventory.Id,
+                    (inventoryHistory, masterInventory) => new InventoryHistoryModel
+                    {
+                        Id = inventoryHistory.Id,
+                        ItemId = inventoryHistory.ItemId,
+                        ItemName = masterInventory.ItemName,
+                        CurrentPrice = inventoryHistory.CurrentPrice,
+                        PreviousUnitsOnHand = inventoryHistory.PreviousUnitsOnHand,
+                        Updated_TS = inventoryHistory.Updated_TS
+                    }
+                )
+                .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate)
+                .OrderBy(x => x.Updated_TS).ThenBy(x => x.ItemId).ToList();
 
             //date, (itemId, itemName, runningAmount, unitPrice, Total)
             Dictionary<DateTime, List<ReconciliationModel>> reconciliationModelsByDate = new Dictionary<DateTime, List<ReconciliationModel>>();
@@ -1155,7 +1172,7 @@ namespace Cape_Senior_Center_Inventory_System
                         new ReconciliationModel
                         {
                             ItemId = y.First().ItemId,
-                            ItemName = y.First().ItemName,
+                            ItemName = y.Last().ItemName,
                             RunningAmount = y.Sum(s => s.NewUnitsOnHand - s.PreviousUnitsOnHand),
                             UnitPrice = y.First().CurrentPrice,
                             Total = y.Sum(c => c.CurrentPrice * (c.NewUnitsOnHand - c.PreviousUnitsOnHand))
@@ -1171,9 +1188,23 @@ namespace Cape_Senior_Center_Inventory_System
             var endDate = endDatePicker.Value.Date.AddDays(1);
             var startdate = startDatePicker.Value.Date;
 
-            List<InventoryHistory> dataToReconcile = context.InventoryHistory
+            List<InventoryHistoryModel> dataToReconcile = context.InventoryHistory
+                .Join(
+                    context.MasterInventories,
+                    inventoryHistory => inventoryHistory.ItemId,
+                    masterInventory => masterInventory.Id,
+                    (inventoryHistory, masterInventory) => new InventoryHistoryModel
+                    {
+                        Id = inventoryHistory.Id,
+                        ItemId = inventoryHistory.ItemId,
+                        ItemName = masterInventory.ItemName,
+                        CurrentPrice = inventoryHistory.CurrentPrice,
+                        PreviousUnitsOnHand = inventoryHistory.PreviousUnitsOnHand,
+                        Updated_TS = inventoryHistory.Updated_TS
+                    }
+                )
                 .Where(x => x.Updated_TS >= startdate && x.Updated_TS < endDate).ToList()
-                .OrderBy(x => x.ItemName).ToList();
+                .OrderBy(x => x.Updated_TS.Date).ThenBy(x => x.ItemId).ToList();
 
             List<BalanceReportItemModel> items = new List<BalanceReportItemModel>();
 
@@ -1182,13 +1213,14 @@ namespace Cape_Senior_Center_Inventory_System
             double outgoingTotal = 0;
             double total = 0;
 
-            foreach (InventoryHistory data in dataToReconcile)
+            foreach (InventoryHistoryModel data in dataToReconcile)
             {
                 dataTotal = data.CurrentPrice * (data.NewUnitsOnHand - data.PreviousUnitsOnHand);
 
                 if (items.Exists(x => x.ItemId == data.ItemId))
                 {
                     items.Find(x => x.ItemId == data.ItemId).Total += dataTotal;
+                    items.Find(x => x.ItemId == data.ItemId).Name = data.ItemName;
                 }
                 else
                 {

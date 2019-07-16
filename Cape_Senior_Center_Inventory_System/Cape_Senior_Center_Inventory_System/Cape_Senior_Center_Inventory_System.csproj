@@ -113,6 +113,7 @@
     <Compile Include="DataContext\Models\BalanceReportTotalsModel.cs" />
     <Compile Include="DataContext\Models\Inventory.cs" />
     <Compile Include="DataContext\Models\InventoryHistory.cs" />
+    <Compile Include="DataContext\Models\InventoryHistoryModel.cs" />
     <Compile Include="DataContext\Models\Item.cs" />
     <Compile Include="DataContext\Models\Category.cs" />
     <Compile Include="DataContext\Models\ItemCategory.cs" />
