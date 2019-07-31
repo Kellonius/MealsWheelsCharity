@@ -94,14 +94,7 @@ namespace Cape_Senior_Center_Inventory_System.Forms
 
         private void enabledAdd()
         {
-            if (itemTypeBox.Text != "" && itemNameBox.Text != "" && unitsTextBox.Text != "" && unitPriceBox.Text != "")
-            {
-                addButton.Enabled = true;
-            }
-            else
-            {
-                addButton.Enabled = false;
-            }
+            addButton.Enabled = (itemTypeBox.Text != "" && itemNameBox.Text != "" && unitsTextBox.Text != "" && unitPriceBox.Text != "");
         }
         #endregion
 

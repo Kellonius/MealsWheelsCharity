@@ -271,6 +271,7 @@ namespace Cape_Senior_Center_Inventory_System
         {
             var popup = new AddInventory();
             popup.ShowDialog();
+            refreshAll();
 
         }
 
